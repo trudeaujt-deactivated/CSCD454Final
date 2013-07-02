@@ -1,4 +1,4 @@
 CSCD454Final
 ============
 
-D&amp;D final for Design Patterns. 
+General repo for "Team <<Interface>>", CSCD454 Design Patterns Summer.
