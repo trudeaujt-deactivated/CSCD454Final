@@ -12,17 +12,17 @@ public class EyeOfSauron extends Observable
 
     public void enemyChange()
     {
-	setChanged();
-	notifyObservers();
+    	setChanged();
+    	notifyObservers();
     }
     
     public void setEnemies(int h, int e, int d, int m)
     {
-	this.hobbits = h;
-	this.elves = e;
-	this.dwarves = d;
-	this.men = m;
-	enemyChange();
+    	this.hobbits = h;
+    	this.elves = e;
+    	this.dwarves = d;
+    	this.men = m;
+    	enemyChange();
     }
 
     public int getHobbits() {return hobbits;}
@@ -30,7 +30,4 @@ public class EyeOfSauron extends Observable
     public int getDwarves() {return dwarves;}
     public int getMen() {return men;}
     
-    
-    
-   
 }
