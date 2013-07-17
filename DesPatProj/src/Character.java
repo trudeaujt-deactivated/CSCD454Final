@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 
 public abstract class Character 
 {
@@ -5,7 +7,7 @@ public abstract class Character
 	int health;
 	String race;
 	int level;
-	String inventory[];
+	ArrayList<Item> inventory;
 	
 	abstract void makeCharacter();
 	
@@ -56,18 +58,16 @@ public abstract class Character
 	public void setInventory(String item) 
 	{
 		
-		this.inventory[inventory.length] = item;
+	//	inventory.add(item);
 	}
 	
 	
-	public void printInventory(Inventory[] list)
+	public void printInventory()
 	{
 		int x = 0;
 		String str1 = "";
 		
 		
-		for (x = 0; x < list.length; x++)
-			str1 = str1 + ", "+inventory[x].toString();
 		
 		
 		System.out.println(str1);
