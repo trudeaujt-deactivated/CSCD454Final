@@ -14,7 +14,7 @@ public class Course implements Iterable<Student> {
 	
 	public class CourseIterator implements Iterator<Student>{
 		private Student[] ara;
-		private int currIndex;
+		int currIndex;
 
 		public CourseIterator(Student[] ara){
 			this.ara = ara;
