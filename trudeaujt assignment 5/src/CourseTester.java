@@ -13,13 +13,8 @@ public class CourseTester {
 		course.addStudent("Stu", 123);
 		course.addStudent("Tom", 456);
 		
-		for(Student s : course) {
-			
+		for(Student s : course)
 			System.out.println(s.toString());
-			
-		}
-		
-		course.toString();
 		
 	}
 	

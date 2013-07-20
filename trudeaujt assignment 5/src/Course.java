@@ -3,20 +3,20 @@ import java.util.ArrayList;
 
 public class Course implements Iterable<Student> {
 	
-	public Course() {
+    private ArrayList<Student> array;
+
+    public Course() {
 		
 		this.array = new ArrayList<Student>();
 		
 	}
 
-	ArrayList<Student> array;
-	
-	public class ClassIterator implements Iterator<Student> {
+	public class CourseIterator implements Iterator<Student> {
 
-		ArrayList<Student> array;
-		int index;
+		private ArrayList<Student> array;
+		private int index;
 		
-		public ClassIterator(ArrayList<Student> array) {
+		public CourseIterator(ArrayList<Student> array) {
 			
 			this.array = array;
 			index = 0;
@@ -57,7 +57,7 @@ public class Course implements Iterable<Student> {
 	@Override
 	public Iterator<Student> iterator() {
 		
-		return new ClassIterator(array);
+		return new CourseIterator(array);
 		
 	}
 	
