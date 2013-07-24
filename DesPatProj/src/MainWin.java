@@ -42,7 +42,8 @@ public class MainWin extends JFrame implements ActionListener
 	private JLabel label;
 	private JTextPane outputArea;
 	private JLabel label_1;
-	private Scanner infile;
+	private Scanner emptyMapInfile;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -73,24 +74,29 @@ public class MainWin extends JFrame implements ActionListener
 		createMapArea();
 		setImages();
 		setOutputArea();
-		mapArea.setText(get_map());
 	}
 	
-	private String get_map(){
+	private String getMap(){
 		String map = "";
+		emptyMapInfile = getInputFile("empty_map.txt");
+		while(emptyMapInfile.hasNext()){
+			map += emptyMapInfile.nextLine() + "\n";
+		}
+		emptyMapInfile.close();
+		return map;
+	}
+	private Scanner getInputFile(String filename){
 		
-		try{  infile = new Scanner(new FileReader(PATH_TO_FILES + "empty_map.txt"));  }
+		Scanner scan = null;
+		try{  scan = new Scanner(new FileReader(PATH_TO_FILES + filename));  }
 		
 		catch(FileNotFoundException fnf)
 		{
 			System.err.println(fnf);
 			System.exit(0);
 		}
-		while(infile.hasNext()){
-			map += infile.nextLine() + "\n";
-		}
-			
-		return map;
+		return scan;
+		
 	}
 	private void setWindow(){
 		
@@ -111,9 +117,8 @@ public class MainWin extends JFrame implements ActionListener
 		
 	}
 	private void createMapArea(){
-		String emptyMap = "";
 		mapArea = new JTextPane();
-		mapArea.setText(emptyMap);
+		mapArea.setText(getMap());
 		mapArea.setBackground(Color.LIGHT_GRAY);
 		mapArea.setEditable(false);
 		mapArea.setBounds(LABELSIZE, TOP,MAP_AREA_WIDTH, MAP_AREA_HEIGHT);
@@ -147,15 +152,24 @@ public class MainWin extends JFrame implements ActionListener
 
 	}
 	private void setOutputArea(){
+		
 		//uneditable TextPane to read output
 		outputArea = new JTextPane();
-		outputArea.setText("Area to read output from game");
+		outputArea.setText(defaultOutputText());
 		outputArea.setBackground(Color.LIGHT_GRAY);
 		outputArea.setEditable(false);
 		outputArea.setBounds(LABELSIZE + MAP_AREA_WIDTH, TOP, OUTPUT_AREA_WIDTH, OUTPUT_AREA_HEIGHT);
 		contentPane.add(outputArea);
 	}
-	
+	private String defaultOutputText(){
+		Scanner defaultFile = getInputFile("defaultOutput.txt");
+		String ret = "";
+		while(defaultFile.hasNext()){
+			ret += defaultFile.nextLine();
+		}
+		defaultFile.close();
+		return ret;
+	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
