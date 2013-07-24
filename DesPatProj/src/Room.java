@@ -77,12 +77,14 @@ public class Room {
                     actorList.remove(t);
             
         }
+        
+        else throw new IndexOutOfBoundsException();
 
     }
 
     private boolean checkInBounds(int index_x, int index_y) {
 
-        if ((index_x > size_x) || (index_y > size_y))
+        if ((index_x > size_x) || (index_x < 0) || (index_y > size_y) || (index_y < 0))
             return false;
 
         return true;
