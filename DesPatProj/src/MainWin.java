@@ -31,7 +31,8 @@ public class MainWin extends JFrame implements ActionListener
 	private final int OUTPUT_AREA_HEIGHT = WINHEIGHT - EDIT_AREA_HEIGHT - BORDER;
 	private final int MAP_AREA_WIDTH = WINWIDTH/2 - LABELSIZE/2;
 	private final int MAP_AREA_HEIGHT = WINHEIGHT - BORDER;
-	private final String PATH_TO_FILES = "/home/adam/CSCD454Final/DesPatProj/src/files/";
+	private final String PATH_TO_FILES = "src/files/";
+	private final Font MAP_FONT = new Font("Consolas", 0, 12);
 	
 	
 		
@@ -43,6 +44,8 @@ public class MainWin extends JFrame implements ActionListener
 	private JTextPane outputArea;
 	private JLabel label_1;
 	private Scanner emptyMapInfile;
+	
+	TwoDMap theMap = new TwoDMap(68, 38);
 	
 	/**
 	 * Launch the application.
@@ -76,15 +79,45 @@ public class MainWin extends JFrame implements ActionListener
 		setOutputArea();
 	}
 	
-	private String getMap(){
-		String map = "";
-		emptyMapInfile = getInputFile("empty_map.txt");
-		while(emptyMapInfile.hasNext()){
-			map += emptyMapInfile.nextLine() + "\n";
-		}
-		emptyMapInfile.close();
-		return map;
+//	private String getMap(){
+//		String map = "";
+//		emptyMapInfile = getInputFile("empty_map.txt");
+//		while(emptyMapInfile.hasNext()){
+//			map += emptyMapInfile.nextLine() + "\n";
+//		}
+//		emptyMapInfile.close();
+//		return map;
+//	}
+	
+	private String getMap() {
+	    
+        theMap.add(16, 8, new TileTestMonster());
+        theMap.add(18, 10, new TileTestMonster());
+        
+        int i;
+        
+        for(i = 6; i < 34; i++)
+            theMap.add(i, 5, new TileTestUTF('═'));
+        for(i = 6; i < 19; i++)
+            theMap.add(5, i, new TileTestUTF('║'));
+        for(i = 6; i < 19; i++)
+            theMap.add(34, i, new TileTestUTF('║'));
+        for(i = 6; i < 17; i++)
+            theMap.add(i, 19, new TileTestUTF('═'));
+        for(i = 23; i < 34; i++)
+            theMap.add(i, 19, new TileTestUTF('═'));
+        
+        theMap.add(5,  5,   new TileTestUTF('╔'));
+        theMap.add(5,  19,  new TileTestUTF('╚'));
+        theMap.add(34, 5,   new TileTestUTF('╗'));
+        theMap.add(34, 19,  new TileTestUTF('╝'));
+        theMap.add(17, 19,  new TileTestUTF('O'));
+        theMap.add(22, 19,  new TileTestUTF('O'));
+	    
+	    return theMap.toString();
+	    
 	}
+	
 	private Scanner getInputFile(String filename){
 		
 		Scanner scan = null;
@@ -118,6 +151,7 @@ public class MainWin extends JFrame implements ActionListener
 	}
 	private void createMapArea(){
 		mapArea = new JTextPane();
+		mapArea.setFont(MAP_FONT);
 		mapArea.setText(getMap());
 		mapArea.setBackground(Color.LIGHT_GRAY);
 		mapArea.setEditable(false);

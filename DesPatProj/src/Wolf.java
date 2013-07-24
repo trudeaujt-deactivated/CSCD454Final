@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 
 public class Wolf extends Character implements CharacterBehavior
 {
