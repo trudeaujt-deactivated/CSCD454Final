@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class Wolf extends Character implements CharacterBehavior
+public class Wolf extends Character 
 {
 	CharacterFactory characterFactory;
 	
@@ -25,27 +25,5 @@ public class Wolf extends Character implements CharacterBehavior
 		inventory = new ArrayList<Item>();
 	}
 
-
-	@Override
-	public void attack() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void flee() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void search() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
 	
 }

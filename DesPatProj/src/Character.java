@@ -8,13 +8,13 @@ public abstract class Character
 	String race;
 	int level;
 	ArrayList<Item> inventory;
-	
+	AttackBehavior attackStyle;
+	DefenseBehavior defendStyle;
+	FleeBehavior fleeStyle;
 	abstract void makeCharacter();
-	
 	
 	public String getName()
 	{
-		
 		return this.name;
 	}
 	
@@ -66,9 +66,6 @@ public abstract class Character
 	{
 		int x = 0;
 		String str1 = "";
-		
-		
-		
 		
 		System.out.println(str1);
 	}
