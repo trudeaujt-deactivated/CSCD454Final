@@ -1,7 +1,7 @@
 
-public class LevelUp implements Level
+public class LevelHigh implements Level
 {
-
+	
 	@Override
 	public int createLevel() 
 	{

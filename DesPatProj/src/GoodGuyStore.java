@@ -1,5 +1,5 @@
 
-public class GoodGuyStore extends CharacterStore implements AttackBehavior, FleeBehavior, JoinBehavior, SearchBehavior
+public class GoodGuyStore extends CharacterStore implements AttackBehavior, FleeBehavior, JoinBehavior
 {
 
 	@Override
@@ -8,12 +8,6 @@ public class GoodGuyStore extends CharacterStore implements AttackBehavior, Flee
 		
 		Character character = null;
 		return character;
-	}
-
-	@Override
-	public void search() 
-	{
-		
 	}
 
 	@Override

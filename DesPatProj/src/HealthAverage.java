@@ -9,4 +9,6 @@ public class HealthAverage implements Health
 		return 60;
 	}
 
+	
+
 }

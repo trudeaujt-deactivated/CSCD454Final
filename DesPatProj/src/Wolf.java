@@ -3,14 +3,14 @@ import java.util.ArrayList;
 
 public class Wolf extends Character 
 {
-	CharacterFactory characterFactory;
+	CharacterComponents characterComponents;
 	
 	
 	
-	public Wolf(CharacterFactory characterFactory)
+	public Wolf(CharacterComponents characterComponents)
 	{
 		
-		this.characterFactory = characterFactory;
+		this.characterComponents = characterComponents;
 	}
 	
 
@@ -18,10 +18,10 @@ public class Wolf extends Character
 	void makeCharacter() 
 	{
 		
-		name = characterFactory.createName();
-		health = characterFactory.createHealth();
-		level = characterFactory.createLevel();
-		race = characterFactory.createRace();
+		name = characterComponents.createName();
+		health = characterComponents.createHealth();
+		level = characterComponents.createLevel();
+		race = characterComponents.createRace();
 		inventory = new ArrayList<Item>();
 	}
 

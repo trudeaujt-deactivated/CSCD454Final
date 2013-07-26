@@ -1,5 +1,6 @@
 public class BadGuyStore extends CharacterStore implements AttackBehavior, FleeBehavior
 {
+	
 	@Override
 	Character createCharacter(Race race) 
 	{

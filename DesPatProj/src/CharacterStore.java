@@ -1,14 +1,18 @@
 
-public abstract class CharacterStore
+public class CharacterStore 
 {
-	public  Character requestCharacter(Race race)
+	private CharacterFactory factory;
+	
+	public CharacterStore(CharacterFactory factory) 
+	{
+		this.factory = factory;
+	}
+	public Character requestCharacter(String type) 
 	{
 		Character character;
-		character = createCharacter(race);
-		
+		character = factory.makeCharacter(type);
+
 		return character;
-		
 	}
 	
-	abstract Character createCharacter(Race race);
 }

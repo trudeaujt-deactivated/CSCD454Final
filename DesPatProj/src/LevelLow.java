@@ -1,5 +1,5 @@
 
-public class LevelDown implements Level
+public class LevelLow implements Level
 {
 	
 	@Override

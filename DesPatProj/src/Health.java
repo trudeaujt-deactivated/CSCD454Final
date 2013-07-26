@@ -1,5 +1,5 @@
 
-public interface Health 
+public interface Health
 {
 	public int createHealth();
 }

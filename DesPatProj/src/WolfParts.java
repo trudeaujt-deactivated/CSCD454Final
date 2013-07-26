@@ -1,5 +1,5 @@
 
-public class WolfFactory implements CharacterFactory 
+public class WolfParts implements CharacterComponents 
 {
 
 	@Override
@@ -27,16 +27,9 @@ public class WolfFactory implements CharacterFactory
 	public int createLevel() 
 	{
 
-		return	Integer.parseInt(new LevelDown().toString());
+		return	Integer.parseInt(new LevelLow().toString());
 	}
 
-
-
-	@Override
-	public int createSize() 
-	{
-		return Integer.parseInt(new InventorySmall().toString());
-	}
 
 
 }

@@ -1,10 +1,27 @@
 
-public interface CharacterFactory 
+public class CharacterFactory 
 {
+	CharacterComponents characterComponents;
 
-	public String createName();
-	public String createRace();
-	public int createHealth();
-	public int createLevel();
-	public int createSize();
+	
+	public Character makeCharacter(String type) 
+	{
+		Character character = null;
+	
+		if (type.equalsIgnoreCase("wolf")) 
+		{
+			
+			characterComponents = new WolfParts();
+			character = new Wolf(characterComponents);
+		} 
+	
+		if  (type.equalsIgnoreCase("menace")) 
+		{
+			
+			characterComponents = new MenaceParts();
+			character = new Menace(characterComponents);
+		}
+	
+		return character;
+	}
 }

@@ -1,7 +1,7 @@
 
 public class NameGoofy implements Name
 {
-	String name = "";
+	private String name = "";
 	
 	@Override
 	public String createName() 
