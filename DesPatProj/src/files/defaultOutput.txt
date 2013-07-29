@@ -1,9 +1,0 @@
-This area will 
-give instructions, 
-communicate to the user 
-what they 
-see in each room, possible command options, 
-and an automatically updating 
-flow of information during battles. 
-
-This TextPane automatically cuts out whitespace(bad) and wraps the text(good), which is kind of a bitch, but we can keep looking at it. I can't figure out how to make the line breaks and such that I want, but I'll keep looking at it. Look at the text file and you'll see what I mean. 
