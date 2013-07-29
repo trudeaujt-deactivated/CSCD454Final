@@ -1,12 +1,14 @@
 
-public class CharacterStore 
+public class CharacterStore
 {
-	private CharacterFactory factory;
+	private CharacterFactory factory;// = new CharacterFactory();
 	
-	public CharacterStore(CharacterFactory factory) 
+	public CharacterStore(CharacterFactory factory)
 	{
 		this.factory = factory;
 	}
+	
+	
 	public Character requestCharacter(String type) 
 	{
 		Character character;
@@ -14,5 +16,6 @@ public class CharacterStore
 
 		return character;
 	}
+
 	
 }

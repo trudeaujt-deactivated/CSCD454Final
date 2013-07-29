@@ -1,19 +1,26 @@
 
 public class NameGoofy implements Name
 {
-	private String name = "";
+	private String name = "Dork";
+
+
+	public NameGoofy()
+	{
+		this.name = "Dork";
+	}
 	
 	@Override
 	public String createName() 
 	{
-		this.name = "Dork";
-		
+	
 		return this.name;
 	}
-
+	
+	
 	public String toString()
 	{
 		
-		return this.name;
+		return ("" + name);
 	}
+
 }

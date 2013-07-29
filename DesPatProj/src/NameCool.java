@@ -5,18 +5,24 @@ public class NameCool implements Name
 	private String name = "";
 
 
+	public NameCool()
+	{
+		this.name = "Stud-Muffin";
+	}
+	
 	@Override
 	public String createName() 
 	{
 	
-		return "Stud-Muffin";
+		return this.name;
 	}
 	
 	
 	public String toString()
 	{
 		
-		return this.name ;
+		return this.name;
 	}
+
 
 }

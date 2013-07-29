@@ -1,7 +1,7 @@
 
 public class RaceMenace implements Race
 {
-	final String type = "Menace";
+	final private String type = "Menace";
 	
 	
 	@Override

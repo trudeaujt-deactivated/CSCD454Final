@@ -3,26 +3,28 @@ import java.util.ArrayList;
 
 public class Wolf extends Character 
 {
-	CharacterComponents characterComponents;
+	CharacterFactory genesis;
 	
 	
-	
-	public Wolf(CharacterComponents characterComponents)
+	public Wolf(CharacterFactory factory)
 	{
+		this.genesis = factory;
 		
-		this.characterComponents = characterComponents;
+		this.name = genesis.createName();
+		this.level = genesis.createLevel();
+		this.health = genesis.createHealth();
+		this.leftover = genesis.createLeftOvers();
+		this.race = genesis.createRace();
+		this.inventory = new ArrayList<Item>();
+
 	}
-	
+
 
 	@Override
-	void makeCharacter() 
-	{
-		
-		name = characterComponents.createName();
-		health = characterComponents.createHealth();
-		level = characterComponents.createLevel();
-		race = characterComponents.createRace();
-		inventory = new ArrayList<Item>();
+	public String toString() {
+		return "Character [genesis=" + genesis + ", name=" + name + ", health="
+				+ health + ", race=" + race + ", level=" + level
+				+ ", leftover=" + leftover + "]\n\n";
 	}
 
 	
