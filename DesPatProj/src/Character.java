@@ -3,17 +3,14 @@ import java.util.ArrayList;
 
 public abstract class Character 
 {
-	Name name;
-	Health health;
-	Race race;
-	Level level;
-	Leftovers leftover;
+	protected Name name;
+	protected Health health;
+	protected Race race;
+	protected Level level;
+	protected Leftovers leftover;
 	
-	ArrayList<Item> inventory = new ArrayList<Item>();
-	AttackBehavior attackStyle;
-	DefenseBehavior defendStyle;
-	FleeBehavior fleeStyle;
-		
-
-	
+	protected ArrayList<Item> inventory = new ArrayList<Item>();
+	protected AttackBehavior attackStyle;
+	protected DefenseBehavior defendStyle;
+	protected FleeBehavior fleeStyle;
 }

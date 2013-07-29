@@ -1,7 +1,7 @@
 
 public class HealthGood implements Health
 {
-private int hitPoints = 90;
+	private int hitPoints = 90;
 	
 	
 	public HealthGood()
