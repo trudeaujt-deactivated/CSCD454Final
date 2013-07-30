@@ -3,10 +3,10 @@ import java.util.ArrayList;
 
 public class Wolf extends Character 
 {
-	CharacterFactory genesis;
+	CharacterGenerator genesis;
 	
 	
-	public Wolf(CharacterFactory factory)
+	public Wolf(CharacterGenerator factory)
 	{
 		this.genesis = factory;
 		
@@ -24,7 +24,7 @@ public class Wolf extends Character
 	public String toString() {
 		return "Character [genesis=" + genesis + ", name=" + name + ", health="
 				+ health + ", race=" + race + ", level=" + level
-				+ ", leftover=" + leftover + "]\n\n";
+				+ ", leftover=" + leftover + "]";
 	}
 
 	
