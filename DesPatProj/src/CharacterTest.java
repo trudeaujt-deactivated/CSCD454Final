@@ -6,10 +6,7 @@ public class CharacterTest
  {
 	public static void main(String[] args)
  	{
- 	//	CharacterRequest char1 = new CharacterFriendly();
- 	//	CharacterRequest char2 = new CharacterEnemy();
  		CharacterRequest testCharacter = new CharacterSpawn();
-
 		
 		PartyComponent goodParty = new Party("Good Guys", new ArrayList<PartyComponent>());
 		PartyComponent enemyParty = new Party("Enemy", new ArrayList<PartyComponent>());
