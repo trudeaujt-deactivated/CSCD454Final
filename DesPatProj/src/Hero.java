@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class Hero extends Character 
 {
-	CharacterFactory genesis;
+	CharacterGenerator genesis;
 	private ArrayList<Character> party = null;
 	
 	
-	public Hero(CharacterFactory factory)
+	public Hero(CharacterGenerator genesis)
 	{
-		this.genesis = factory;
+		this.genesis = genesis;
 		
 		this.name = genesis.createName();
 		this.level = genesis.createLevel();
@@ -25,10 +25,10 @@ public class Hero extends Character
 
 	@Override
 	public String toString() {
-		return "Hero [genesis=" + genesis + ", party=" + party + ", name="
+		return "Character [genesis=" + genesis + ", party=" + party + ", name="
 				+ name + ", health=" + health + ", race=" + race + ", level="
 				+ level + ", leftover=" + leftover + ", getParty()="
-				+ getParty() + "]\n\n";
+				+ getParty() + "]";
 	}
 
 
