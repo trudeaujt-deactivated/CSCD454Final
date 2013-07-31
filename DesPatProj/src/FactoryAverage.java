@@ -1,3 +1,5 @@
+import java.util.Random;
+
 
 public class FactoryAverage implements CharacterGenerator 
 {
@@ -50,6 +52,14 @@ public class FactoryAverage implements CharacterGenerator
 	@Override
 	public String toString() {
 		return "AverageFactory";
+	}
+	@Override
+	public AttackBehavior createAttackBehavior(){
+		Random rand = new Random();
+		if(Math.abs(rand.nextInt()%2) == 0)
+			return new AggressiveAttack();
+		else 
+			return new HalfAssAttack();
 	}
 	
 

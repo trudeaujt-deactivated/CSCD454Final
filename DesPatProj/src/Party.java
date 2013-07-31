@@ -34,5 +34,9 @@ public class Party extends PartyComponent {
 		}
 		
 	}
+	@Override
+	public Iterator createIterator(){
+		return new CompositeIterator(partyMembers.iterator());
+	}
 	
 }

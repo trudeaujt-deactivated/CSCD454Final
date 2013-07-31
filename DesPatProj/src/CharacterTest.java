@@ -58,6 +58,35 @@ public class CharacterTest
 		goodParty.print();	
 		enemyParty.print();
 		
+		testBehavior((Party)goodParty, (Party)enemyParty);
+		
  	}
+	public static void testBehavior(Party partyOne, Party partyTwo)
+	{
+		
+		PartyMember pm = (PartyMember)partyOne.partyMembers.get(0);
+		if(pm != null)
+		pm.attack();
+		/*
+		PartyComponent party = null;
+		PartyComponent pm = null;
+		CompositeIterator iterate = (CompositeIterator)partyOne.createIterator();
+		int which = 0; 
+		
+		while(iterate.hasNext()){
+			party = (PartyComponent)iterate.next();
+			
+			if(party instanceof Party){
+				System.out.println("found a party");
+				pm = (PartyComponent)party.getChild(which++);
+			}
+				
+			if(pm instanceof PartyMember){
+				System.out.println("found a party member");
+				((PartyMember)pm).character.attackStyle.attack();
+			}
+		}
+		*/
+	}
  }
  

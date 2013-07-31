@@ -50,5 +50,9 @@ public class FactoryWeak implements CharacterGenerator
 	public String toString() {
 		return "WeakFactory";
 	}
+	@Override
+	public AttackBehavior createAttackBehavior(){
+		return new HalfAssAttack();
+	}
 
 }

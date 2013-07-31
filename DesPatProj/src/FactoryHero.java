@@ -48,4 +48,8 @@ public class FactoryHero implements CharacterGenerator
 		
 		return "HeroFactory";
 	}
+	@Override
+	public AttackBehavior createAttackBehavior(){
+		return new AggressiveAttack();
+	}
 }

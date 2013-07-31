@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 
 public class PartyMember extends PartyComponent {
@@ -27,5 +28,14 @@ public class PartyMember extends PartyComponent {
 	public void print(){
 		System.out.println(character);
 	}
+	@Override
+	public Iterator createIterator(){
+		return new NullIterator();
+	}
+	
+	public void attack(){
+		character.attackStyle.attack();
+	}
+	
 	
 }

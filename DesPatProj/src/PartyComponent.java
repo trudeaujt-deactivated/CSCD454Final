@@ -1,8 +1,9 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 /*
  * This is the Component of the Composite pattern used to handle the players and the parties
  */
-public abstract class PartyComponent {
+public abstract class PartyComponent{
 	
 	// methods pertaining to "composite"
 	public void add(PartyComponent partyComponent){
@@ -35,4 +36,5 @@ public abstract class PartyComponent {
 	public void print(){
 		throw new UnsupportedOperationException();
 	}
+	public abstract Iterator createIterator();
 }

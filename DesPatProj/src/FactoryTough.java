@@ -49,5 +49,9 @@ public class FactoryTough implements CharacterGenerator {
 
 		return null;
 	}
+	@Override
+	public AttackBehavior createAttackBehavior(){
+		return new AggressiveAttack();
+	}
 
 }
