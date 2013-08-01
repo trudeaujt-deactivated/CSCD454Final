@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class FactoryAverage implements CharacterGenerator 
 {
-
+	Random rand = new Random();
 	@Override
 	public Health createHealth() 
 	{
@@ -55,12 +55,29 @@ public class FactoryAverage implements CharacterGenerator
 	}
 	@Override
 	public AttackBehavior createAttackBehavior(){
-		Random rand = new Random();
-		if(Math.abs(rand.nextInt()%2) == 0)
+
+		if(randomChoice() == 0)
 			return new AggressiveAttack();
-		else 
-			return new HalfAssAttack();
+		return new HalfAssAttack();
 	}
 	
+	@Override
+	public DefenseBehavior createDefenseBehavior(){
+		if(randomChoice() == 0)
+			return new DefendWell();
+		return new EyesClosedDefense();
+	}
+	
+	@Override
+	public FleeBehavior createFleeBehavior(){
+		if(randomChoice() == 0)
+			return new BackOutFightingFleeStyle();
+		return new TurnTailFleeStyle();
+	}
+	
+	public int randomChoice(){
+		return Math.abs(rand.nextInt()%2);
+		
+	}
 
 }

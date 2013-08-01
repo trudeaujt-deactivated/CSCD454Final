@@ -24,7 +24,9 @@ public abstract class Character
 		this.health = genesis.createHealth();
 		this.leftover = genesis.createLeftOvers();
 		this.race = genesis.createRace();
-		attackStyle = genesis.createAttackBehavior();
+		this.attackStyle = genesis.createAttackBehavior();
+		this.defendStyle = genesis.createDefenseBehavior();
+		this.fleeStyle = genesis.createFleeBehavior();
 		this.inventory = new ArrayList<Item>();
 
 		
@@ -33,6 +35,9 @@ public abstract class Character
 		return "Character [genesis=" + genesis + ", name=" + name + ", health="
 				+ health + ", race=" + race + ", level=" + level
 				+ ", leftover=" + leftover + "]";
+	}
+	public String getName(){
+		return name.toString();
 	}
 
 }

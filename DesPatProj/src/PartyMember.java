@@ -36,6 +36,12 @@ public class PartyMember extends PartyComponent {
 	public void attack(){
 		character.attackStyle.attack();
 	}
+	public void defend(){
+		character.defendStyle.defend();
+	}
+	public void flee(){
+		character.fleeStyle.flee();
+	}
 	
 	
 }
