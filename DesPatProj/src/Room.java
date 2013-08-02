@@ -52,7 +52,7 @@ public class Room {
 
     }
 
-    public void add(int index_x, int index_y, Tile newTile) {
+    public void add(int index_x, int index_y, TileActor newTile) {
 
         if (checkInBounds(index_x, index_y)) {
             
@@ -93,24 +93,11 @@ public class Room {
 
     private void initializeGrid() {
 
-        int row, col, randomNumber;
-        Random rand = new Random(); 
+        int row, col;
 
         for (row = 0; row < size_y; row++)
-            for (col = 0; col < size_x; col++) {
-                
-                randomNumber = rand.nextInt(4);
-                
-                if(randomNumber == 0)
-                    grid[row][col] = new TileGround('.');
-                else if(randomNumber == 1)
-                    grid[row][col] = new TileGround(',');
-                else if(randomNumber == 2)
-                    grid[row][col] = new TileGround('\'');
-                else if(randomNumber == 3)
-                    grid[row][col] = new TileGround('`');
-                
-            }
+            for (col = 0; col < size_x; col++)
+                grid[row][col] = new TileGround();
 
     }
 

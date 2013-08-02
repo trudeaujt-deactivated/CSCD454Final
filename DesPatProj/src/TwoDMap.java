@@ -19,7 +19,7 @@ public class TwoDMap {
         
     }
     
-    public void add(int index_x, int index_y, Tile newTile) {
+    public void add(int index_x, int index_y, TileActor newTile) {
         
         room.add(index_x, index_y, newTile);
         

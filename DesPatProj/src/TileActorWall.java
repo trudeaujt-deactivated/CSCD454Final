@@ -1,7 +1,6 @@
-public class TileTestMonster implements Tileable {
-    
-    public TileTestMonster() {
+public class TileActorWall implements Tileable{
 
+    public TileActorWall() {
         
     }
 
@@ -11,5 +10,5 @@ public class TileTestMonster implements Tileable {
         // TODO Auto-generated method stub
         
     }
-    
+
 }
