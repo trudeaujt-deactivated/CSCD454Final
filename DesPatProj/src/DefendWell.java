@@ -2,9 +2,11 @@
 public class DefendWell implements DefenseBehavior {
 
 	@Override
-	public void defend() {
+	public double defend() {
 		// This can reduce the amount of damage sustained from an attack
-		System.out.println(this);
+		
+		return .70;
+		
 	}
 	@Override
 	public String toString(){

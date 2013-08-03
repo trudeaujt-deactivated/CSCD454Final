@@ -5,10 +5,11 @@ import java.util.Iterator;
 public class PartyMember extends PartyComponent {
 	
 	Character character;
+	boolean alive;
 	
 	public PartyMember(Character character){
 		this.character = character;
-		
+		alive = true;
 	}
 	public Name getName(){
 		return character.name;
@@ -33,14 +34,18 @@ public class PartyMember extends PartyComponent {
 		return new NullIterator();
 	}
 	
-	public void attack(){
-		character.attackStyle.attack();
+	public void attack(PartyMember otherCharacter){
+		character.attackStyle.attack(otherCharacter);
 	}
 	public void defend(){
 		character.defendStyle.defend();
 	}
 	public void flee(){
 		character.fleeStyle.flee();
+	}
+	public boolean checkHealth(){
+		alive = character.health.hitPoints > 0;
+		return alive;
 	}
 	
 	

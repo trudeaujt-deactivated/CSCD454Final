@@ -39,5 +39,8 @@ public abstract class Character
 	public String getName(){
 		return name.toString();
 	}
+	protected void setHealth(int hp){
+		health.setHitPoints(hp);
+	}
 
 }

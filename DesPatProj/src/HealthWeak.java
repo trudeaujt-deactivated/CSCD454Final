@@ -1,5 +1,5 @@
 
-public class HealthWeak implements Health
+public class HealthWeak extends Health
 {
 	private int hitPoints = 30;
 	
@@ -13,13 +13,5 @@ public class HealthWeak implements Health
 	{
 		return  hitPoints;
 	}
-	
-	public String toString()
-	{
-		return hitPoints+"";
-	}
-
-
-	
 
 }

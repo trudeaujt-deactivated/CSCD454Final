@@ -2,14 +2,15 @@
 public class EyesClosedDefense implements DefenseBehavior {
 
 	@Override
-	public void defend() {
+	public double defend() {
 		// Will almost guarantee full damage from attack
-		System.out.println(this);
+		
+		return 1.0;
 	}
 
 	@Override
 	public String toString(){
-		String str = "EyesClosedDefense..... 1000% damage recieved";
+		String str = "EyesClosedDefense..... 100% damage recieved";
 		return str;
 	}
 

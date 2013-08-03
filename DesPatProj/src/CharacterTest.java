@@ -54,52 +54,18 @@ public class CharacterTest
 			moreEnemy.add(new PartyMember(bad));// creates a PartyMember out of the Character and adds it to a Party
 		}
 		
-		enemyParty.add(moreEnemy);				// treats the entire new Party as a member of the Party and adds to the Party
+		//enemyParty.add(moreEnemy);				// treats the entire new Party as a member of the Party and adds to the Party
 		
-		//goodParty.print();	
-		//enemyParty.print();
+		goodParty.print();	
+		enemyParty.print();
 		
 		testBehavior((Party)goodParty, (Party)enemyParty);
 		
  	}
 	public static void testBehavior(Party partyOne, Party partyTwo)
 	{
-		PartyMember pm = null;
-		
-		if(partyOne.partyMembers.get(0) instanceof PartyMember)
-			pm = (PartyMember)partyOne.partyMembers.get(0);
-		if(pm != null && pm instanceof PartyMember){
+		Battle battle = new Battle(partyOne, partyTwo);
 			
-			//added methods in PartyMember to simplify commands...
-			pm.print();
-			pm.attack();
-			pm.defend();
-			pm.flee();
-			//change attack behavior.....
-			pm.character.attackStyle = new HalfAssAttack();
-			// and the same character attacks in the new way
-			System.out.println(pm.character.getName() + " mounts a(n) " +  pm.character.attackStyle.toString());
-		}
-		/*
-		PartyComponent party = null;
-		PartyComponent pm = null;
-		CompositeIterator iterate = (CompositeIterator)partyOne.createIterator();
-		int which = 0; 
-		
-		while(iterate.hasNext()){
-			party = (PartyComponent)iterate.next();
-			
-			if(party instanceof Party){
-				System.out.println("found a party");
-				pm = (PartyComponent)party.getChild(which++);
-			}
-				
-			if(pm instanceof PartyMember){
-				System.out.println("found a party member");
-				((PartyMember)pm).character.attackStyle.attack();
-			}
-		}
-		*/
 	}
  }
  

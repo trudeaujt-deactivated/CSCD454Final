@@ -1,6 +1,29 @@
 
-public interface Health
+public abstract class Health
 {
-	public int createHealth();
+	protected int hitPoints;
 	
+
+	public abstract int createHealth();
+	public void setHitPoints(int hp){
+		hitPoints = hp;
+	}
+	public int decrementHitPoints(int value){
+		//assert(hitPoints>0);
+		hitPoints -= value;
+		return hitPoints;
+	}
+	public int incrementHitPoints(int value){
+		//assert(hitPoints>0);
+		hitPoints += value;
+		return hitPoints;
+	}
+	public int getHitPoints(){
+		return hitPoints;
+	}
+	public String toString()
+	{
+		return hitPoints+"";
+	}
+
 }
