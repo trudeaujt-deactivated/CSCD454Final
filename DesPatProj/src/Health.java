@@ -9,12 +9,10 @@ public abstract class Health
 		hitPoints = hp;
 	}
 	public int decrementHitPoints(int value){
-		//assert(hitPoints>0);
 		hitPoints -= value;
 		return hitPoints;
 	}
 	public int incrementHitPoints(int value){
-		//assert(hitPoints>0);
 		hitPoints += value;
 		return hitPoints;
 	}

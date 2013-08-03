@@ -1,7 +1,16 @@
 import java.util.List;
 import java.util.ArrayList;
 
-
+/*
+ * This Battle class takes two parties as arguments, creates iterators to handle the parties
+ * independently and pairs up the player characters with the enemy characters. If the parties
+ * are uneven the squareOff() method continues pairing up the remaining "surplus" characters 
+ * so that some characters will end up in two different pairUps. A two on one situation. The pairUp 
+ * class handles the individual turn, allowing each pairUp a chance to hit each other, and the damage
+ * is updated for each character. If a character dies, the pairUp is taken out of the loop, and the 
+ * surviving character sits out until the battle is over. The Battle continues until one entire Party
+ * is dead. 
+ */
 public class Battle {
 
 	private Party playerParty;
@@ -53,23 +62,20 @@ public class Battle {
 		pairUps.add(nextPair);
 	}
 
-	/*kicks off the battle*/
 	public void start(){
 		ArrayList<PairUp> toRemove = new ArrayList<PairUp>();
 		while(checkParties()){
 			
 			for(PairUp p:pairUps){
 				System.out.println(p.exchange());
-				if(p.getPlayer().checkHealth() == false || p.getEnemy().checkHealth() == false)
+				if(p.getPlayer().checkHealth() == false || p.getEnemy().checkHealth() == false){
 					toRemove.add(p);
+				}
 			}
 			
 			for(PairUp rem: toRemove){
-				//System.out.println("removing: " + rem + "\n");
 				pairUps.remove(rem);
 			}
-			
-			
 		}
 	}
 	public boolean checkParties(){
