@@ -36,5 +36,17 @@ public abstract class PartyComponent{
 	public void print(){
 		throw new UnsupportedOperationException();
 	}
+	public boolean stillInPlay(){
+		boolean life = false;
+		CompositeIterator ci = (CompositeIterator)createIterator();
+		while (ci.hasNext()){
+			PartyMember pm = (PartyMember)ci.next();
+			if(pm.alive)
+				return true;
+		}
+		return life;
+	}
+	public abstract String showStats();
 	public abstract Iterator createIterator();
+	public abstract PartyComponent wrap(String name);
 }

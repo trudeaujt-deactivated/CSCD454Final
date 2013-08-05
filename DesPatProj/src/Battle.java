@@ -2,7 +2,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 /*
- * This Battle class takes two parties as arguments, creates iterators to handle the parties
+ * This Battle class takes two parties as arguments, (updated to take two parties or two party members) 
+ * creates iterators to handle the parties
  * independently and pairs up the player characters with the enemy characters. If the parties
  * are uneven the squareOff() method continues pairing up the remaining "surplus" characters 
  * so that some characters will end up in two different pairUps. A two on one situation. The pairUp 
@@ -11,19 +12,22 @@ import java.util.ArrayList;
  * surviving character sits out until the battle is over. The Battle continues until one entire Party
  * is dead. 
  */
-public class Battle {
+public class Battle <T extends PartyComponent>{
 
-	private Party playerParty;
-	private Party enemyParty;
+	private T playerParty;
+	private T enemyParty;
 	private CompositeIterator enemyIterator;
 	private CompositeIterator playerIterator;
 	private List<PairUp> pairUps; 
 
 	public Battle(){};
-	public Battle(Party player, Party enemy){
+	@SuppressWarnings("unchecked")
+	public Battle( T player, T enemy){
 		this.playerParty = player;
 		this.enemyParty = enemy;
-
+		playerParty = (T)playerParty.wrap("Player");
+		enemyParty = (T)enemyParty.wrap("Enemy");
+		
 		this.playerIterator = (CompositeIterator)playerParty.createIterator();
 		this.enemyIterator = (CompositeIterator)enemyParty.createIterator();
 		pairUps = new ArrayList<PairUp>();

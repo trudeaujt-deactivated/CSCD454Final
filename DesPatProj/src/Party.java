@@ -42,15 +42,21 @@ public class Party extends PartyComponent {
 		return new CompositeIterator(partyMembers.iterator());
 	}
 
-	public boolean stillInPlay(){
-		boolean life = false;
-		CompositeIterator ci = (CompositeIterator)createIterator();
-		while (ci.hasNext()){
-			PartyMember pm = (PartyMember)ci.next();
-			if(pm.alive)
-				return true;
+
+	public String showStats(){
+		String ret = "";
+		iterator = partyMembers.iterator();
+		while(iterator.hasNext()){
+			PartyComponent partyComponent = (PartyComponent)iterator.next();
+			partyComponent.showStats();
+			
 		}
-		System.out.println(this.partyName + " is dead");
-		return life;
+		StringBuilder strbldr = new StringBuilder();
+		
+		return ret;
 	}
+	public PartyComponent wrap(String name){
+		return this;
+	}
+
 }

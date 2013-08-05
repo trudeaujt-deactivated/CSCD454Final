@@ -29,6 +29,9 @@ public class CharacterTest
  		
 		bad = testCharacter.generate("random");			//friend
 		
+		testBehavior(new PartyMember(good), new PartyMember(bad));
+		System.out.println("*******End one on one Test*****************");
+		
 		bad = testCharacter.generate("random");			//foe
 		enemyParty.add(new PartyMember(bad)); 	// creates a PartyMember out of the Character and adds it to a Party
  		//System.out.println(bad);
@@ -59,12 +62,19 @@ public class CharacterTest
 		goodParty.print();	
 		enemyParty.print();
 		
-		testBehavior((Party)goodParty, (Party)enemyParty);
+		testBehavior(goodParty, enemyParty);
+		
+		System.out.println("Done with Test");
 		
  	}
-	public static void testBehavior(Party partyOne, Party partyTwo)
+	
+	public static <T extends PartyComponent>void testBehavior(T partyOne, T partyTwo)
 	{
-		Battle battle = new Battle(partyOne, partyTwo);
+		Battle<T> battle = new Battle<T>(partyOne, partyTwo);
+		
+		partyOne.showStats();
+		partyTwo.showStats();
+		
 			
 	}
  }
