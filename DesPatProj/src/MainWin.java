@@ -45,7 +45,7 @@ public class MainWin extends JFrame implements ActionListener
 	private JLabel label_1;
 	private Scanner emptyMapInfile;
 	
-	TwoDMap theMap = new TwoDMap(68, 38);
+	TwoDMap theMap = new TwoDMap(68, 38, "testRoom");
 	
 	/**
 	 * Launch the application.
