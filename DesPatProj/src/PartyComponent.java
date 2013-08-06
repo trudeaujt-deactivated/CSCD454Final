@@ -4,6 +4,7 @@ import java.util.Iterator;
  * This is the Component of the Composite pattern used to handle the players and the parties
  */
 public abstract class PartyComponent{
+	private Iterator<PartyComponent> iterator;
 	
 	// methods pertaining to "composite"
 	public void add(PartyComponent partyComponent){
@@ -37,14 +38,18 @@ public abstract class PartyComponent{
 		throw new UnsupportedOperationException();
 	}
 	public boolean stillInPlay(){
-		boolean life = false;
+		
 		CompositeIterator ci = (CompositeIterator)createIterator();
-		while (ci.hasNext()){
-			PartyMember pm = (PartyMember)ci.next();
+		PartyMember pm = (PartyMember)ci.next();
+		while(ci.hasNext()){
+
+			System.out.println("Stuck in StillInPlay");
 			if(pm.alive)
 				return true;
+			pm = (PartyMember)ci.next();
 		}
-		return life;
+		return false;
+		
 	}
 	public abstract String showStats();
 	public abstract Iterator createIterator();

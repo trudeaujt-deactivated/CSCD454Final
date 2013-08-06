@@ -48,5 +48,6 @@ public abstract class Character
 	protected void setHealth(int hp){
 		health.setHitPoints(hp);
 	}
+	
 
 }

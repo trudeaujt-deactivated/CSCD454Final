@@ -8,6 +8,10 @@ public class PairUp {
 	public PairUp(){}
 	
 	public PairUp(PartyMember player, PartyMember enemy){
+		
+		assert(player!=null);
+		assert(enemy!=null);
+		
 		this.player = player;
 		this.enemy = enemy;
 	}
@@ -16,7 +20,7 @@ public class PairUp {
 		
 		int playerDamageDealt;
 		int enemyDamageDealt;
-		
+		assert(player.character != null);
 		playerDamageDealt = player.character.attackStyle.attack(enemy);
 		enemyDamageDealt = enemy.character.attackStyle.attack(player);
 		

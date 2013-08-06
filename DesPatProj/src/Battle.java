@@ -32,7 +32,6 @@ public class Battle <T extends PartyComponent>{
 		this.enemyIterator = (CompositeIterator)enemyParty.createIterator();
 		pairUps = new ArrayList<PairUp>();
 		squareOff();
-		start();
 	}
 
 	public void squareOff(){
@@ -68,17 +67,23 @@ public class Battle <T extends PartyComponent>{
 
 	public void start(){
 		ArrayList<PairUp> toRemove = new ArrayList<PairUp>();
+		
 		while(checkParties()){
-			
+			toRemove.clear();		
 			for(PairUp p:pairUps){
+
 				System.out.println(p.exchange());
 				if(p.getPlayer().checkHealth() == false || p.getEnemy().checkHealth() == false){
 					toRemove.add(p);
 				}
+
+				System.out.println("Stuck in while of start()");	
 			}
-			
-			for(PairUp rem: toRemove){
-				pairUps.remove(rem);
+			if( toRemove.size() > 0 ){
+				for(PairUp rem: toRemove){
+					assert(pairUps.remove(rem) != false);
+					System.out.println("Stuck in foreach of start()");
+				}
 			}
 		}
 	}
@@ -87,6 +92,7 @@ public class Battle <T extends PartyComponent>{
 			return true;
 		return false;
 	}
+
 
 
 

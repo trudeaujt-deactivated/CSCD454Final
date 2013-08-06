@@ -9,6 +9,7 @@ public class PartyMember extends PartyComponent {
 	boolean alive;
 	
 	public PartyMember(Character character){
+		assert(character != null);
 		this.character = character;
 		alive = true;
 	}
@@ -31,10 +32,14 @@ public class PartyMember extends PartyComponent {
 		System.out.println(character);
 	}
 	public String showStats(){
+		
+		String state = alive? "Alive":"Dead";
+	
 		String ret = "\n*****************************\n" + 
 				"Name:" + character.getName() + 
 				"\nRace: " + character.getRace() + 
-				"\nHealth: " + character.getHealth() + 
+				"\nHealth: " + character.getHealth() +
+				"\nState: " + state +
 				"\n*****************************\n";
 		
 		System.out.print(ret);

@@ -14,11 +14,7 @@ public class CharacterSpawn extends CharacterRequest
 	@Override
 	protected Character generate(String type) 
 	{
-		if  (type.equalsIgnoreCase("hero")) 
-		{
-			character = new Hero(new FactoryHero());
-			return character;
-		}
+		assert(type != null);
 		
 		if (type.equalsIgnoreCase("random")) 
 		{	
@@ -26,54 +22,42 @@ public class CharacterSpawn extends CharacterRequest
 			type = randomGenerator(classes);
 		}
 		
-		if (type.equalsIgnoreCase("wolf")) 
+		if  (type.equalsIgnoreCase("hero")) 
 		{
-			factory = rankGenerator(rank); 
+			character = new Hero(new FactoryHero());
+			return character;
+		}
+		factory = rankGenerator(rank);
+		
+		
+		if (type.equalsIgnoreCase("wolf")) 
 			character = new Wolf(factory);
+			
+		else if  (type.equalsIgnoreCase("menace")) 
+			character = new Menace(factory);
+		
+		else if  (type.equalsIgnoreCase("firbolg")) 
+			character = new Firbolg(factory);
+		
+		else if  (type.equalsIgnoreCase("mobster")) 
+			character = new Mobster(factory);
+		
+		else if  (type.equalsIgnoreCase("outcast")) 
+			character = new Outcast(factory);
+		
+		else if  (type.equalsIgnoreCase("charlatan")) 
+			character = new Charlatan(factory);
+		
+		else if  (type.equalsIgnoreCase("human")) 
+			character = new Human(factory);
+	
+		else if  (type.equalsIgnoreCase("swarmofbees")) 
+			character = new SwarmOfBees(factory);
+		else {
+			System.out.println("CharacterSpawn else block error"); 
+			System.out.println("Type was " + type);
 		}
 			
-		if  (type.equalsIgnoreCase("menace")) 
-		{	
-			factory = rankGenerator(rank); 
-			character = new Menace(factory);
-		}
-		
-		if  (type.equalsIgnoreCase("firbolg")) 
-		{	
-			factory = rankGenerator(rank); 
-			character = new Firbolg(factory);
-		}
-		
-		if  (type.equalsIgnoreCase("mobster")) 
-		{	
-			factory = rankGenerator(rank); 
-			character = new Mobster(factory);
-		}
-		
-		if  (type.equalsIgnoreCase("outcast")) 
-		{	
-			factory = rankGenerator(rank); 
-			character = new Outcast(factory);
-		}
-		
-		if  (type.equalsIgnoreCase("charlatan")) 
-		{	
-			factory = rankGenerator(rank); 
-			character = new Charlatan(factory);
-		}
-		
-		if  (type.equalsIgnoreCase("human")) 
-		{	
-			factory = rankGenerator(rank); 
-			character = new Human(factory);
-		}
-	
-		if  (type.equalsIgnoreCase("swarmofbees")) 
-		{	
-			factory = rankGenerator(rank); 
-			character = new SwarmOfBees(factory);
-		}
-	
 		return character;
 	}
 	
