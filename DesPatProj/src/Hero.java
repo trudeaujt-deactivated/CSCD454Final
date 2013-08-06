@@ -6,7 +6,6 @@ public class Hero extends Character
 {
 	private ArrayList<Character> party = null;
 	
-	
 	public Hero(CharacterGenerator genesis)
 	{
 		super(genesis);

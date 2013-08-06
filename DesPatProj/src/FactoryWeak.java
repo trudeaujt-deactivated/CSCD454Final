@@ -5,7 +5,6 @@ public class FactoryWeak implements CharacterGenerator
 	@Override
 	public Health createHealth() 
 	{
-
 		return new HealthWeak();
 	}
 

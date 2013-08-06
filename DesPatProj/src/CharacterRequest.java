@@ -29,10 +29,9 @@ public abstract class CharacterRequest
 		
 		List<String> namesList = Arrays.asList(values);
 	    Collections.shuffle(namesList);
-	        
+	    
 	    index = new Random().nextInt(namesList.size());
 	    randName = namesList.get(index);
-	        
 		return randName;
 	}
 	

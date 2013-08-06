@@ -39,5 +39,15 @@ public abstract class Character
 	public String getName(){
 		return name.toString();
 	}
+	public String getRace(){
+		return race.toString();
+	}
+	public int getHealth(){
+		return health.getHitPoints();
+	}
+	protected void setHealth(int hp){
+		health.setHitPoints(hp);
+	}
+	
 
 }

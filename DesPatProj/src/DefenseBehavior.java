@@ -1,6 +1,6 @@
 
 public interface DefenseBehavior {
-	public void defend();
+	public double defend();
 
 }
 
