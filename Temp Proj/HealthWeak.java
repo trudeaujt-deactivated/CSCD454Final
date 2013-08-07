@@ -1,6 +1,9 @@
 
-public class HealthWeak extends Health
+public class HealthWeak implements Health
 {
+	private int hitPoints = 30;
+	
+	
 	public HealthWeak()
 	{
 		this.hitPoints = 30;
@@ -10,5 +13,13 @@ public class HealthWeak extends Health
 	{
 		return  hitPoints;
 	}
+	
+	public String toString()
+	{
+		return hitPoints+"";
+	}
+
+
+	
 
 }

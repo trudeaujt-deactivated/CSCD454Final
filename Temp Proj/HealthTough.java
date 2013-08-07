@@ -1,6 +1,9 @@
 
-public class HealthTough extends Health
+public class HealthTough implements Health
 {
+	private int hitPoints = 90;
+	
+	
 	public HealthTough()
 	{
 		this.hitPoints = 90;
@@ -9,6 +12,11 @@ public class HealthTough extends Health
 	public int createHealth() 
 	{
 		return  hitPoints;
+	}
+	
+	public String toString()
+	{
+		return hitPoints+"";
 	}
 }
 

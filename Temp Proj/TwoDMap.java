@@ -1,56 +1,45 @@
-import java.util.ArrayList;
-
 /**
- * Facade for the Room class, allows the displayed room to be swapped.
+ * Wrapper for the Room class, allows the displayed room to be swapped.
  * 
  * @author Jonathan Trudeau
  */
 public class TwoDMap {
     
-    private ArrayList<Room> roomList = new ArrayList<Room>();
-    private Room currentRoom;
+    private Room room;
     
     public TwoDMap() {
 
-        currentRoom = new Room();
+        room = new Room();
         
     }
     
-    public TwoDMap(int x, int y, String name) {
+    public TwoDMap(int x, int y) {
         
-        currentRoom = new Room(x, y, name);
-        
-    }
-    
-    public void changeRoom(String name) {
-        
-        for(Room r: roomList)
-            if(r.getName().equals(name))
-                currentRoom = r;
+        room = new Room(x, y);
         
     }
     
-    public void add(int index_x, int index_y, TileActor newTile) {
+    public void add(int index_x, int index_y, Tile newTile) {
         
-        currentRoom.add(index_x, index_y, newTile);
+        room.add(index_x, index_y, newTile);
         
     }
     
     public void remove(int index_x, int index_y) {
 
-        currentRoom.remove(index_x, index_y);
+        room.remove(index_x, index_y);
         
     }
     
     public String toString() {
         
-        return currentRoom.toString();
+        return room.toString();
         
     }
     
     public void display() {
         
-        System.out.println(currentRoom.toString());
+        System.out.println(room.toString());
             
     }
     

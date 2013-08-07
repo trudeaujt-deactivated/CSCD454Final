@@ -1,15 +1,8 @@
-public class TileTestMonster implements Tileable {
+public class TileTestMonster extends Tile {
     
     public TileTestMonster() {
 
-        
-    }
-
-    @Override
-    public void interact() {
-
-        // TODO Auto-generated method stub
-        
+        super('M');
     }
     
 }

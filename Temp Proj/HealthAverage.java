@@ -1,6 +1,9 @@
 
-public class HealthAverage extends Health
+public class HealthAverage implements Health
 {
+private int hitPoints = 60;
+	
+	
 	public HealthAverage()
 	{
 		this.hitPoints = 60;
@@ -10,5 +13,15 @@ public class HealthAverage extends Health
 	{
 		return  hitPoints;
 	}
+	
+	public String toString()
+	{
+		return hitPoints+"";
+	}
+
+
+	
+
+	
 
 }
