@@ -1,0 +1,41 @@
+
+join (character asked)
+
+use
+    a item
+
+
+flee
+    left
+    right
+    up
+    down    
+
+search            (you see in the room…)
+     a room       (do you wish to pick up y/n?)
+     a specific   
+       fallen     
+       character  
+attack
+    a specific
+      character
+
+change 
+    a weapon
+    a current
+      armor
+    a defenseBehavior
+    a fleeBehavior
+
+move
+    left
+    right
+    up
+    down
+
+
+
+
+
+
+

@@ -1,0 +1,86 @@
+
+
+
+
+Big Method
+Long Parameter List
+Large Classes
+Duplication
+Re-making decision = large controllers ( big, giant switch statement, to re-make the decision ) 
+	"how can I make this decision once"
+
+If-less programming
+cyclomatic complexity = tools that look at your code  average method > 2  NOT GOOD
+
+Flags Objects  = used in procedural programming, but is seen is 
+
+
+Mocks	mock order getter, getOrder() 
+
+
+Fakes  fakes for all objects in a layer, call them from tests, fakes don't call the
+	database, it just does something.
+
+
+1 rule, unplug network cable, should still pass test
+
+inversion of control    (Guice)  
+
+configuration	=	
+Runtime		=
+	
+- spring
+- pico container
+- nano container
+
+
+Constructor injection = his constructor takes  in an getOrder object;
+
+new receipt ( new MockOrderGetter())
+
+Good neighbor = 
+
+
+objects should be noun phrases;
+
+Interface should be adverbs, verbs
+
+
+
+caviat  = Lazy inheritance  
+
+
+singleton safe for threads, used on static helpers (statics have no state)
+
+Factory = use factory on java objects
+
+Builder.configuation .useHTMLParser.useRunner(new JUnit runner)
+
+convert(foo, bar)
+
+you could probably get the foo to take in bar   foo(bar);
+
+static utility class 
+
+PermGen  the area that the JVM uses to hold strings, if it fills up, then you 
+can see PermGen
+
+
+Command pattern used.
+Strategy
+StatePattern
+
+
+Tim's three rules Comments
+
+- can't be expressed in code
+
+
+
+behavior driven tools 
+
+
+ility  (or ability)  
+
+
+
