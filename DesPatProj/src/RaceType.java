@@ -1,57 +1,26 @@
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
-
-
 public class RaceType implements Race 
 {
 	private String raceName;
-	private String[] raceType = {"Charlatan","Outcast","Human","SwarmOfBees",
-												"Mobster","Firbolg","Wolf","Menace"};
 	
 	
-	public RaceType()
+	public RaceType(String name)
 	{
 		
-		this.raceName = randomGenerator(raceType);
+		this.raceName = name;
 	}
 	
-	
-	
-	public String getRaceName() 
-	{
-		return raceName;
-	}
-
-
 
 	@Override
 	public String createRace() 
 	{
 
-		return this.raceName;
+		return raceName;
 	}
-	
-	
-	
-	private String randomGenerator(String[] values)
-	{
-		int index;
-		String rand;
-		
-		List<String> names = Arrays.asList(values);
-	    Collections.shuffle(names);
-	        
-	    index = new Random().nextInt(names.size());
-	    rand = names.get(index);
-	        
-		return rand;
-	        
-	}
-	
+
+	@Override
 	public String toString()
 	{
+		
 		return this.raceName;
 	}
 

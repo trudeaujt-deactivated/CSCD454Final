@@ -32,10 +32,10 @@ public class FactoryAverage implements CharacterGenerator
 	
 	
 	@Override
-	public Race createRace() 
+	public Race createRace(String name) 
 	{
 
-		return new RaceType();
+		return new RaceType(name);
 	}
 
 	

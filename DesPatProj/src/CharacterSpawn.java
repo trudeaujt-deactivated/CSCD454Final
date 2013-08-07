@@ -24,35 +24,35 @@ public class CharacterSpawn extends CharacterRequest
 		
 		if  (type.equalsIgnoreCase("hero")) 
 		{
-			character = new Hero(new FactoryHero());
+			character = new Hero(new FactoryHero(), "Hero");
 			return character;
 		}
 		factory = rankGenerator(rank);
 		
 		
 		if (type.equalsIgnoreCase("wolf")) 
-			character = new Wolf(factory);
+			character = new Wolf(factory, "Wolf");
 			
 		else if  (type.equalsIgnoreCase("menace")) 
-			character = new Menace(factory);
+			character = new Menace(factory, "Menace");
 		
 		else if  (type.equalsIgnoreCase("firbolg")) 
-			character = new Firbolg(factory);
+			character = new Firbolg(factory, "Firbolg");
 		
 		else if  (type.equalsIgnoreCase("mobster")) 
-			character = new Mobster(factory);
+			character = new Mobster(factory, "Mobster");
 		
 		else if  (type.equalsIgnoreCase("outcast")) 
-			character = new Outcast(factory);
+			character = new Outcast(factory, "Outcast");
 		
 		else if  (type.equalsIgnoreCase("charlatan")) 
-			character = new Charlatan(factory);
+			character = new Charlatan(factory, "Charlatan");
 		
 		else if  (type.equalsIgnoreCase("human")) 
-			character = new Human(factory);
+			character = new Human(factory, "Human");
 	
 		else if  (type.equalsIgnoreCase("swarmofbees")) 
-			character = new SwarmOfBees(factory);
+			character = new SwarmOfBees(factory, "Swarm of Bees");
 		else {
 			System.out.println("CharacterSpawn else block error"); 
 			System.out.println("Type was " + type);

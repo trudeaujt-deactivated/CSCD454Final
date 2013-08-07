@@ -35,10 +35,10 @@ public class FactoryTough implements CharacterGenerator {
 	
 	
 	@Override
-	public Race createRace() 
+	public Race createRace(String name) 
 	{
 
-		return new RaceType();
+		return new RaceType(name);
 	}
 
 	

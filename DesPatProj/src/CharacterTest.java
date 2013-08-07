@@ -16,10 +16,10 @@ public class CharacterTest
  		Character bad; 
  		Character good;
  		Character hero;
- 		/*
+ 		
  		Character good2; 
  		Character bad2;
- 		*/
+ 		
  		
  		good = testCharacter.generate("mobster");			//friend
 		goodParty.add(new PartyMember(good));	// creates a PartyMember out of the Character and adds it to a Party
@@ -34,11 +34,11 @@ public class CharacterTest
 		enemyParty.add(new PartyMember(bad)); 	// creates a PartyMember out of the Character and adds it to a Party
  
  		
- 		//bad2 = testCharacter.generate("random");			//foe
-		//enemyParty.add(new PartyMember(bad2));	// creates a PartyMember out of the Character and adds it to a Party
+ 		bad2 = testCharacter.generate("wolf");			//foe
+		enemyParty.add(new PartyMember(bad2));	// creates a PartyMember out of the Character and adds it to a Party
  
-		//good2 = testCharacter.generate("random");			//friend
-		//goodParty.add(new PartyMember(good2));	// creates a PartyMember out of the Character and adds it to a Party
+		good2 = testCharacter.generate("swarmofbees");			//friend
+		goodParty.add(new PartyMember(good2));	// creates a PartyMember out of the Character and adds it to a Party
 		
  		
  		

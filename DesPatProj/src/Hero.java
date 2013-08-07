@@ -6,9 +6,9 @@ public class Hero extends Character
 {
 	private ArrayList<Character> party = null;
 	
-	public Hero(CharacterGenerator genesis)
+	public Hero(CharacterGenerator genesis, String string)
 	{
-		super(genesis);
+		super(genesis, string);
 	}
 
 

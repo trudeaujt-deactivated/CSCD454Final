@@ -1,22 +1,28 @@
 
 public class RaceHero implements Race 
 {
-	final private String type = "Blob";
+	private String type;
 	
+
+	public RaceHero(String name)
+	{
+		
+		this.type = name;
+	}
 	
 	@Override
-	public String createRace() 
+	public String toString()
 	{
 		
 		
 		return type;
 	}
-	
-	
-	public String toString()
+
+	@Override
+	public String createRace() 
 	{
-		
-		
+
+
 		return type;
 	}
 }

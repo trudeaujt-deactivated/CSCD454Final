@@ -2,9 +2,9 @@
 public class Firbolg extends Character 
 {
 	
-	public Firbolg(CharacterGenerator factory)
+	public Firbolg(CharacterGenerator factory, String string)
 	{
-		super(factory);
+		super(factory, string);
 	}
 	
 }

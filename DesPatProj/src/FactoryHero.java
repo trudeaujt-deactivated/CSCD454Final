@@ -27,10 +27,10 @@ public class FactoryHero implements CharacterGenerator
 
 	
 	@Override
-	public Race createRace() 
+	public Race createRace(String name) 
 	{
 
-		return new RaceHero();
+		return new RaceHero(name);
 	}
 
 	

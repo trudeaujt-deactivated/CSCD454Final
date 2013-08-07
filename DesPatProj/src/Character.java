@@ -16,14 +16,15 @@ public abstract class Character
 	protected DefenseBehavior defendStyle;
 	protected FleeBehavior fleeStyle;
 	
-	protected Character(CharacterGenerator factory){
+	protected Character(CharacterGenerator factory, String type)
+	{
 		this.genesis = factory;
 		
 		this.name = genesis.createName();
 		this.level = genesis.createLevel();
 		this.health = genesis.createHealth();
 		this.leftover = genesis.createLeftOvers();
-		this.race = genesis.createRace();
+		this.race = genesis.createRace(type);
 		this.attackStyle = genesis.createAttackBehavior();
 		this.defendStyle = genesis.createDefenseBehavior();
 		this.fleeStyle = genesis.createFleeBehavior();
@@ -41,6 +42,10 @@ public abstract class Character
 	}
 	public String getRace(){
 		return race.toString();
+	}
+	public void setRace(Race raceType)
+	{
+		race = raceType;
 	}
 	public int getHealth(){
 		return health.getHitPoints();

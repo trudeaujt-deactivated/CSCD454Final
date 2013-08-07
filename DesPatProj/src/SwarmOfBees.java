@@ -1,8 +1,8 @@
 
 public class SwarmOfBees extends Character 
 {
-	public SwarmOfBees(CharacterGenerator factory)
+	public SwarmOfBees(CharacterGenerator factory, String string)
 	{
-		super(factory);
+		super(factory, string);
 	}
 }
