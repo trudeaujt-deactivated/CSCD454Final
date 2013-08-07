@@ -45,7 +45,7 @@ public class MainWin extends JFrame implements ActionListener
 	private JLabel label_1;
 	private Scanner emptyMapInfile;
 	
-	TwoDMap theMap = new TwoDMap(68, 38);
+	TwoDMap theMap = new TwoDMap(68, 38, "testRoom");
 	
 	/**
 	 * Launch the application.
@@ -91,28 +91,28 @@ public class MainWin extends JFrame implements ActionListener
 	
 	private String getMap() {
 	    
-        theMap.add(16, 8, new TileTestMonster());
-        theMap.add(18, 10, new TileTestMonster());
+        theMap.add(16, 8, new TileActor('M', new TileTestMonster()));
+        theMap.add(18, 10, new TileActor('M', new TileTestMonster()));
         
         int i;
         
         for(i = 6; i < 34; i++)
-            theMap.add(i, 5, new TileTestUTF('═'));
+            theMap.add(i, 5, new TileActor('=', new TileActorWall()));
         for(i = 6; i < 19; i++)
-            theMap.add(5, i, new TileTestUTF('║'));
+            theMap.add(5, i, new TileActor('║', new TileActorWall()));
         for(i = 6; i < 19; i++)
-            theMap.add(34, i, new TileTestUTF('║'));
+            theMap.add(34, i, new TileActor('║', new TileActorWall()));
         for(i = 6; i < 17; i++)
-            theMap.add(i, 19, new TileTestUTF('═'));
+            theMap.add(i, 19, new TileActor('═', new TileActorWall()));
         for(i = 23; i < 34; i++)
-            theMap.add(i, 19, new TileTestUTF('═'));
+            theMap.add(i, 19, new TileActor('═', new TileActorWall()));
         
-        theMap.add(5,  5,   new TileTestUTF('╔'));
-        theMap.add(5,  19,  new TileTestUTF('╚'));
-        theMap.add(34, 5,   new TileTestUTF('╗'));
-        theMap.add(34, 19,  new TileTestUTF('╝'));
-        theMap.add(17, 19,  new TileTestUTF('O'));
-        theMap.add(22, 19,  new TileTestUTF('O'));
+        theMap.add(5,  5,   new TileActor('╔', new TileActorWall()));
+        theMap.add(5,  19,  new TileActor('╚', new TileActorWall()));
+        theMap.add(34, 5,   new TileActor('╗', new TileActorWall()));
+        theMap.add(34, 19,  new TileActor('╝', new TileActorWall()));
+        theMap.add(17, 19,  new TileActor('O', new TileActorWall()));
+        theMap.add(22, 19,  new TileActor('O', new TileActorWall()));
 	    
 	    return theMap.toString();
 	    

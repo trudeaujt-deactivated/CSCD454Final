@@ -1,8 +1,10 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 /*
  * This is the Component of the Composite pattern used to handle the players and the parties
  */
-public abstract class PartyComponent {
+public abstract class PartyComponent{
+	private Iterator<PartyComponent> iterator;
 	
 	// methods pertaining to "composite"
 	public void add(PartyComponent partyComponent){
@@ -35,4 +37,21 @@ public abstract class PartyComponent {
 	public void print(){
 		throw new UnsupportedOperationException();
 	}
+	public boolean stillInPlay(){
+		
+		CompositeIterator ci = (CompositeIterator)createIterator();
+		PartyMember pm = (PartyMember)ci.next();
+		while(ci.hasNext()){
+
+			System.out.println("Stuck in StillInPlay");
+			if(pm.alive)
+				return true;
+			pm = (PartyMember)ci.next();
+		}
+		return false;
+		
+	}
+	public abstract String showStats();
+	public abstract Iterator createIterator();
+	public abstract PartyComponent wrap(String name);
 }

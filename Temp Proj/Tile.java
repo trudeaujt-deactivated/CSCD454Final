@@ -1,39 +1,21 @@
-public abstract class Tile {
+public interface Tile {
+        
+    public char display();
+    
+    public int getCoordinateX();
+    
+    public int getCoordinateY();
 
-    // TODO add x and y values, so the object knows where it is
+    public void setCoordinates(int index_x, int index_y);
     
-    private char glyph;
-    private int coordinate_x, coordinate_y;
+    public void interact();
     
-    public Tile(char glyph) {
-        
-        this.glyph = glyph;
-        
-    }
+    public void moveNorth();
     
-    public char display() {
-        
-        return this.glyph;
-        
-    }
+    public void moveSouth();
     
-    public int getCoordinateX() {
-        
-        return coordinate_x;
-        
-    }
+    public void moveEast();
     
-    public int getCoordinateY() {
-        
-        return coordinate_y;
-        
-    }
-
-    public void setCoordinates(int index_x, int index_y) {
-
-        coordinate_x = index_x;
-        coordinate_y = index_y;
-        
-    }
+    public void moveWest();
     
 }

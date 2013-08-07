@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * A basic two-dimensional map. 
@@ -22,6 +21,8 @@ public class Room {
 
     /** the number of rows */
     private final int size_y;
+    
+    private String name;
 
     private Tile[][] grid;
     private char[][] displayedGrid;
@@ -32,6 +33,8 @@ public class Room {
 
         size_x = DEFAULT_SIZE_X;
         size_y = DEFAULT_SIZE_Y;
+        
+        name = "Default Room";
 
         grid = new Tile[size_y][size_x];
         displayedGrid = new char[size_y][size_x];
@@ -40,10 +43,12 @@ public class Room {
 
     }
 
-    public Room(int x, int y) {
+    public Room(int x, int y, String name) {
 
         size_x = x;
         size_y = y;
+        
+        this.name = name;
 
         grid = new Tile[size_y][size_x];
         displayedGrid = new char[size_y][size_x];
@@ -52,7 +57,7 @@ public class Room {
 
     }
 
-    public void add(int index_x, int index_y, Tile newTile) {
+    public void add(int index_x, int index_y, TileActor newTile) {
 
         if (checkInBounds(index_x, index_y)) {
             
@@ -93,24 +98,11 @@ public class Room {
 
     private void initializeGrid() {
 
-        int row, col, randomNumber;
-        Random rand = new Random(); 
+        int row, col;
 
         for (row = 0; row < size_y; row++)
-            for (col = 0; col < size_x; col++) {
-                
-                randomNumber = rand.nextInt(4);
-                
-                if(randomNumber == 0)
-                    grid[row][col] = new TileGround('.');
-                else if(randomNumber == 1)
-                    grid[row][col] = new TileGround(',');
-                else if(randomNumber == 2)
-                    grid[row][col] = new TileGround('\'');
-                else if(randomNumber == 3)
-                    grid[row][col] = new TileGround('`');
-                
-            }
+            for (col = 0; col < size_x; col++)
+                grid[row][col] = new TileGround();
 
     }
 
@@ -148,6 +140,12 @@ public class Room {
         
         return string.toString();
 
+    }
+    
+    public String getName() {
+        
+        return name;
+        
     }
 
 }
