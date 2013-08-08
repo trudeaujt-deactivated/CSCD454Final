@@ -1,5 +1,5 @@
 
-public class TurnTailFleeStyle implements FleeBehavior {
+public class FleeTurnTail implements FleeBehavior {
 
 	@Override
 	public void flee() {

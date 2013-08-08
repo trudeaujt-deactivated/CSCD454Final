@@ -11,8 +11,7 @@ public class CharacterSpawn extends CharacterRequest
 	private CharacterGenerator factory = null;
 	private Character character = null;
 
-	@Override
-	protected Character generate(String type) 
+	public Character generate(String type, String power) 
 	{
 		assert(type != null);
 		
@@ -27,12 +26,19 @@ public class CharacterSpawn extends CharacterRequest
 			character = new Hero(new FactoryHero(), "Hero");
 			return character;
 		}
-		factory = rankGenerator(rank);
+				
+		if(power.equalsIgnoreCase("weak"))
+		factory = new FactoryWeak();
 		
+		if(power.equalsIgnoreCase("average"))
+			factory = new FactoryAverage();
+		
+		if(power.equalsIgnoreCase("tough"))
+			factory = new FactoryTough();
 		
 		if (type.equalsIgnoreCase("wolf")) 
 			character = new Wolf(factory, "Wolf");
-			
+		
 		else if  (type.equalsIgnoreCase("menace")) 
 			character = new Menace(factory, "Menace");
 		

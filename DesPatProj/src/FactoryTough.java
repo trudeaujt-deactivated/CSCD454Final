@@ -51,21 +51,21 @@ public class FactoryTough implements CharacterGenerator {
 	}
 	@Override
 	public AttackBehavior createAttackBehavior(){
-		return new AggressiveAttack();
+		return new AttackAggressive();
 	}
 
 
 
 	@Override
 	public DefenseBehavior createDefenseBehavior() {
-		return new DefendWell();
+		return new DefenseWell();
 	}
 
 
 
 	@Override
 	public FleeBehavior createFleeBehavior() {
-		return new BackOutFightingFleeStyle();
+		return new FleeBackOutFighting();
 	}
 
 }

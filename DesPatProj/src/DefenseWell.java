@@ -1,5 +1,5 @@
 
-public class DefendWell implements DefenseBehavior {
+public class DefenseWell implements DefenseBehavior {
 
 	@Override
 	public double defend() {

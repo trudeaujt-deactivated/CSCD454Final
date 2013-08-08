@@ -21,7 +21,6 @@ public class CommandBoxTest
 		 
 		System.out.println("You have entered a creepy room");
 		
-		
 		do
 		{
 			

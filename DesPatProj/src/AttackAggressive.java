@@ -1,6 +1,6 @@
 
-public class AggressiveAttack implements AttackBehavior {
-
+public class AttackAggressive implements AttackBehavior 
+{
 	private final int aggressiveDamage = 10;
 	
 	@Override
