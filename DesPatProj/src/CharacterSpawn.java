@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class CharacterSpawn extends CharacterRequest
 {
-	private String[] classes = {"hero","charlatan","outcast","human","swarmofbees","mobster","firbolg","wolf","menace"}; 
+	private String[] classes = {"charlatan","outcast","human","swarmofbees","mobster","firbolg","wolf","menace"}; 
 	private CharacterGenerator[] rank = {new FactoryAverage(), new FactoryWeak(), new FactoryTough()};
 	
 	private CharacterGenerator factory = null;
@@ -17,7 +17,7 @@ public class CharacterSpawn extends CharacterRequest
 		
 		if (type.equalsIgnoreCase("random")) 
 		{	
-			factory = rankGenerator(rank); 
+			//factory = rankGenerator(rank); 
 			type = randomGenerator(classes);
 		}
 		

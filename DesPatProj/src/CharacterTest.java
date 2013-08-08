@@ -18,6 +18,7 @@ public class CharacterTest
  		
  		Character good2; 
  		Character bad2;
+ 		Character good3;
  		
  		
  		good = testCharacter.generate("mobster","weak");			//friend
@@ -27,7 +28,8 @@ public class CharacterTest
 		enemyParty.add(new PartyMember(bad));
 		
 		testBehavior(new PartyMember(good), new PartyMember(bad));
-		System.out.println("*******End one on one Test*****************");
+		
+		System.out.println("**************************End one on one Test************************************");
 		
 		bad = testCharacter.generate("menace", "weak");			//foe
 		enemyParty.add(new PartyMember(bad)); 	// creates a PartyMember out of the Character and adds it to a Party
@@ -39,7 +41,10 @@ public class CharacterTest
 		good2 = testCharacter.generate("swarmofbees", "tough");			//friend
 		goodParty.add(new PartyMember(good2));	// creates a PartyMember out of the Character and adds it to a Party
 		
- 		
+		good3 = testCharacter.generate("random", "tough");			//friend
+		goodParty.add(new PartyMember(good3));	// creates a PartyMember out of the Character and adds it to a Party
+		
+		
  		
  		hero = testCharacter.generate("hero","tough");			//friend
 		goodParty.add(new PartyMember(hero));	// creates a PartyMember out of the Character and adds it to a Party
@@ -53,6 +58,7 @@ public class CharacterTest
 		
 		goodParty.print();	
 		enemyParty.print();
+		moreEnemy.print();
 		
 		testBehavior(goodParty, enemyParty);
 		
