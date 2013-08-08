@@ -42,8 +42,6 @@ public abstract class PartyComponent{
 		CompositeIterator ci = (CompositeIterator)createIterator();
 		PartyMember pm = (PartyMember)ci.next();
 		while(ci.hasNext()){
-
-			System.out.println("Stuck in StillInPlay");
 			if(pm.alive)
 				return true;
 			pm = (PartyMember)ci.next();
