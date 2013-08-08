@@ -11,7 +11,7 @@ public class NameAverage implements Name
 	private String name;
 	private String[] titles = {"Normal","Average", "Ordinary", "Mundane", "Plain", 
 										"Medium", "Mediocre", "Capable", "Basic", "Common", "Simple", "Regular",
-										    "Middle-Of-The-Road"};
+										    "Middle-Of-The-Road","Okay", "Fair"};
 
 
 

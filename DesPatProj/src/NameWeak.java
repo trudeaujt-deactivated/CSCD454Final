@@ -11,7 +11,7 @@ public class NameWeak implements Name
 	private String name;
 	private String[] titles = {"Weak", "Frail", "Crippled", "Petty", "Small", "Weathered", "Scared", 
 			                     "Dumb","Small","Sickly","UnEven", "Insignificant", "Worthless", "Inadequate",
-			                           "Meek","UnStable"};
+			                           "Meek","UnStable","Lame", "Bogus","Stupid"};
 	
 	
 	public NameWeak()

@@ -9,7 +9,7 @@ public class NameTough implements Name
 	private String name;
 	private String[] titles = {"Worthy","Great","Skillful","Tough","Smart","Big","Strong","Hefty",
 						                	"Intimidating","Impressive","Overwhelming", "Worthy", "Powerful",
-						                	    "Bad-Ass", "Mighty"};
+						                	    "Bad-Ass", "Mighty","Intelligent","Huge","Juggernaut"};
 	
 	
 	public NameTough()
