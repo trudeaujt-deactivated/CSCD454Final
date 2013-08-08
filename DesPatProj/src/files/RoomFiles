@@ -1,0 +1,16 @@
+Number of Rooms in File-- int (3)
+
+Name of this room (FirstRoom)
+Size this room 2 integers-- (40 40)
+description of this room However long text description -- ends with '#' on own line
+List of things in room --One item each line--ends with '#'
+List of Connecting Rooms (name on one line Direction on the next)
+-- ends with '#' on own line
+****After all room entries*********
+Entry Room -- the name 
+Exit Room -- the name
+
+
+
+
+

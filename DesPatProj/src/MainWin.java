@@ -49,7 +49,7 @@ public class MainWin extends JFrame implements ActionListener
 	
 	/**
 	 * Launch the application.
-	 */
+	 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -65,7 +65,7 @@ public class MainWin extends JFrame implements ActionListener
 			}
 		});
 	}
-
+	*/
 	/**
 	 * Create the frame.
 	 */
@@ -208,5 +208,12 @@ public class MainWin extends JFrame implements ActionListener
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		
+	}
+	public void setOutput(String text){
+		outputArea.setText(text);
+	}
+	
+	public void setOutput(PrintStream input){
+		outputArea.setText("");
 	}
 }
