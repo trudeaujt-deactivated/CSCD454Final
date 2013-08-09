@@ -7,16 +7,16 @@ import java.util.Random;
 public abstract class CharacterRequest 
 {
 	
-	public Character requestCharacter(String type)
+	public Character requestCharacter(String type, String power)
 	{
 		
 		Character character;
-		character = generate(type);
+		character = generate(type,power);
 		
 		return character;
 	}
 	
-	protected abstract Character generate(String type);
+	public abstract Character generate(String type, String power);
 	
 	
 	

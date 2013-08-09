@@ -51,21 +51,21 @@ public class FactoryWeak implements CharacterGenerator
 	}
 	@Override
 	public AttackBehavior createAttackBehavior(){
-		return new HalfAssAttack();
+		return new AttackHalfAss();
 	}
 
 
 
 	@Override
 	public DefenseBehavior createDefenseBehavior() {
-		return new EyesClosedDefense();
+		return new DefenseEyesClosed();
 	}
 
 
 
 	@Override
 	public FleeBehavior createFleeBehavior() {
-		return new TurnTailFleeStyle();
+		return new FleeTurnTail();
 	}
 
 }

@@ -1,24 +1,16 @@
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
-
 public class CharacterSpawn extends CharacterRequest
 {
-	private String[] classes = {"hero","charlatan","outcast","human","swarmofbees","mobster","firbolg","wolf","menace"}; 
-	private CharacterGenerator[] rank = {new FactoryAverage(), new FactoryWeak(), new FactoryTough()};
+	private String[] classes = {"charlatan","outcast","human","swarmofbees","mobster","firbolg","wolf","menace"}; 
 	
 	private CharacterGenerator factory = null;
 	private Character character = null;
 
-	@Override
-	protected Character generate(String type) 
+	public Character generate(String type, String power) 
 	{
 		assert(type != null);
 		
 		if (type.equalsIgnoreCase("random")) 
 		{	
-			factory = rankGenerator(rank); 
 			type = randomGenerator(classes);
 		}
 		
@@ -27,12 +19,19 @@ public class CharacterSpawn extends CharacterRequest
 			character = new Hero(new FactoryHero(), "Hero");
 			return character;
 		}
-		factory = rankGenerator(rank);
+				
+		if(power.equalsIgnoreCase("weak"))
+		factory = new FactoryWeak();
 		
+		if(power.equalsIgnoreCase("average"))
+			factory = new FactoryAverage();
+		
+		if(power.equalsIgnoreCase("tough"))
+			factory = new FactoryTough();
 		
 		if (type.equalsIgnoreCase("wolf")) 
 			character = new Wolf(factory, "Wolf");
-			
+		
 		else if  (type.equalsIgnoreCase("menace")) 
 			character = new Menace(factory, "Menace");
 		
@@ -59,21 +58,6 @@ public class CharacterSpawn extends CharacterRequest
 		}
 			
 		return character;
-	}
-	
-	protected CharacterGenerator rankGenerator(CharacterGenerator[] factoryNames) 
-	{
-		
-		int index;
-		CharacterGenerator rand;
-		
-		List<CharacterGenerator> factoryList = Arrays.asList(factoryNames);
-	    Collections.shuffle(factoryList);
-	        
-	    index = new Random().nextInt(factoryList.size());
-	    rand = factoryList.get(index);
-	        
-		return rand;	
 	}
 		
 }

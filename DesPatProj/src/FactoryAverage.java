@@ -57,22 +57,22 @@ public class FactoryAverage implements CharacterGenerator
 	public AttackBehavior createAttackBehavior(){
 
 		if(randomChoice() == 0)
-			return new AggressiveAttack();
-		return new HalfAssAttack();
+			return new AttackAggressive();
+		return new AttackHalfAss();
 	}
 	
 	@Override
 	public DefenseBehavior createDefenseBehavior(){
 		if(randomChoice() == 0)
-			return new DefendWell();
-		return new EyesClosedDefense();
+			return new DefenseWell();
+		return new DefenseEyesClosed();
 	}
 	
 	@Override
 	public FleeBehavior createFleeBehavior(){
 		if(randomChoice() == 0)
-			return new BackOutFightingFleeStyle();
-		return new TurnTailFleeStyle();
+			return new FleeBackOutFighting();
+		return new FleeTurnTail();
 	}
 	
 	public int randomChoice(){

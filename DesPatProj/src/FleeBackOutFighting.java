@@ -1,5 +1,5 @@
 
-public class BackOutFightingFleeStyle implements FleeBehavior {
+public class FleeBackOutFighting implements FleeBehavior {
 
 	@Override
 	public void flee() {

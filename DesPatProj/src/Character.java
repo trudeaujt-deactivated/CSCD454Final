@@ -10,7 +10,6 @@ public abstract class Character
 	protected Race race;
 	protected Level level;
 	protected Leftovers leftover;
-	
 	protected ArrayList<Item> inventory = new ArrayList<Item>();
 	protected AttackBehavior attackStyle;
 	protected DefenseBehavior defendStyle;
@@ -32,20 +31,21 @@ public abstract class Character
 
 		
 	}
+
+	@Override
 	public String toString() {
-		return "Character [genesis=" + genesis + ", name=" + name + ", health="
+		return "[genesis=" + genesis + ", name=" + name + ", health="
 				+ health + ", race=" + race + ", level=" + level
-				+ ", leftover=" + leftover + "]";
+				+ ", leftover=" + leftover + ", \n\tinventory=" + inventory
+				+ ", attackStyle=" + attackStyle + ", defendStyle="
+				+ defendStyle + ", fleeStyle=" + fleeStyle + "]";
 	}
+
 	public String getName(){
 		return name.toString();
 	}
 	public String getRace(){
 		return race.toString();
-	}
-	public void setRace(Race raceType)
-	{
-		race = raceType;
 	}
 	public int getHealth(){
 		return health.getHitPoints();
@@ -53,6 +53,17 @@ public abstract class Character
 	protected void setHealth(int hp){
 		health.setHitPoints(hp);
 	}
+	
+	public void setAttackStyle(AttackBehavior attackStyle) {
+		this.attackStyle = attackStyle;
+	}
+	public void setDefendStyle(DefenseBehavior defendStyle) {
+		this.defendStyle = defendStyle;
+	}
+	public void setFleeStyle(FleeBehavior fleeStyle) {
+		this.fleeStyle = fleeStyle;
+	}
+
 	
 
 }

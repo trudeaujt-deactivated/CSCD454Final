@@ -1,5 +1,5 @@
 
-public class EyesClosedDefense implements DefenseBehavior {
+public class DefenseEyesClosed implements DefenseBehavior {
 
 	@Override
 	public double defend() {
