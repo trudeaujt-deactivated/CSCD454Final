@@ -292,6 +292,7 @@ public class CharacterTest
 	public int menuRun(int index)
 	{
 		int menu = 0;
+		final int MINIMUM = -1;
 		boolean done = false;
 		
 		Scanner keyboard = new Scanner(System.in);
@@ -307,7 +308,7 @@ public class CharacterTest
 				System.out.println("Numbers only!");
 			}
 			
-			if(menu > -1 && menu < index)
+			if(menu > MINIMUM && menu < index)
 				done = true;
 			
 			else
