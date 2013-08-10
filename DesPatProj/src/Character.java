@@ -42,7 +42,7 @@ public abstract class Character
 	}
 
 	public String getName(){
-		return name.toString();
+		return name.toString() + " " + race.toString();
 	}
 	public String getRace(){
 		return race.toString();
