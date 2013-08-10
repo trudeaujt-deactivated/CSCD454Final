@@ -93,7 +93,8 @@ public class CommandTest
 				{
 					if(commandLine[SECONDWORD].equalsIgnoreCase("attack"))
 					{
-					 	character = specifyCharacter(null);	
+						System.out.println("noting docs.");
+
 					}
 				}
 				System.out.println("Executed, moving onto next command.");
@@ -115,38 +116,7 @@ public class CommandTest
 		
 	}
 	
-	public Character specifyCharacter(Party group) 
-	{
-	   int index = 1;
-	   int choice = 0;
-	    
-	    Character creature = null;
-	    Scanner keys = new Scanner(System.in);
-	    CompositeIterator iterator = (CompositeIterator)group.createIterator();
 
-	    while(iterator.hasNext())
-	    {
-	    	System.out.println("(+"+index+")"+ "   "+ group.getChild(index-1));  //index is the number or choice represented by the character
-			index++;
-
-	    }
-	        
-		System.out.println("Choose a number for specific character");
-		
-//		do
-//		{  
-//		   choice = Integer.parseInt(keys.nextLine());
-//		
-//		if (choice > 0 && choice < index)
-//		   creature = group.getChild(choice);
-//	         else
-//		 
-//	      		System.out.println("Please choose a number from the list of party members");
-//		}while(!done);
-		
-	   return creature;
-		
-	   }
 	
 	public static void printCommand(String[] comm)
 	{
