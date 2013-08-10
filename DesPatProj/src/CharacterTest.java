@@ -16,15 +16,9 @@ public class CharacterTest
  		characterTest.enemyParty = new Party("Enemy", new ArrayList<PartyComponent>());
  		characterTest.moreEnemy = new Party("Enemy Addition", new ArrayList<PartyComponent>());
 		
- 		Character bad; 
- 		Character good;
- 		Character hero;
+ 		Character bad,good,hero,good2,bad2,good3; 
  		
- 		Character good2; 
- 		Character bad2;
- 		Character good3;
- 		
- 		
+ 
  		good = testCharacter.generate("mobster","weak");			//friend
  		characterTest.goodParty.add(new PartyMember(good));	// creates a PartyMember out of the Character and adds it to a Party
  		
@@ -92,6 +86,8 @@ public class CharacterTest
 		final int THIRDWORD = 2;
 		final int FOURTHWORD = 3;
 
+		CommandCenter controller = new CommandCenter();
+	
 		Scanner keypad = new Scanner(System.in);
 		Map<String, String> dictionary = new HashMap<String, String>();
 		
@@ -116,29 +112,46 @@ public class CharacterTest
 			input = keypad.nextLine();
 			String[] commandLine = input.split(" ");
 			
-						
 			if(dictionary.containsKey(commandLine[FIRSTWORD]))
 			{
 				if(commandLine[FIRSTWORD].equalsIgnoreCase("change"))
 				{
 					if(commandLine[SECONDWORD].equalsIgnoreCase("attack"))
 					{
-					 	character = specifyCharacter(enemyParty2);	
-					 
+						character = chooseMembers(goodParty);
+						System.out.println(character.attackStyle.toString());
+
+						ChangeAttack changeAttack = new ChangeAttack(chooseAttack(),character);
+					 	controller.setCommand(changeAttack);
+					 	controller.sendCommand();
+					}
+					if(commandLine[SECONDWORD].equalsIgnoreCase("defense"))
+					{
+						character = chooseMembers(goodParty);
+						System.out.println(character.defendStyle.toString());
+						
+						ChangeDefense changeDefense = new ChangeDefense(chooseDefense(),character);
+					 	controller.setCommand(changeDefense);
+					 	controller.sendCommand();
+					}
+					if(commandLine[SECONDWORD].equalsIgnoreCase("flee"))
+					{
+						character = chooseMembers(goodParty);
+						System.out.println(character.fleeStyle.toString());
+
+						ChangeFlee changeFlee = new ChangeFlee(chooseFlee(),character);
+					 	controller.setCommand(changeFlee);
+					 	controller.sendCommand();
 					}
 				}
-				System.out.println("Executed, moving onto next command.");
-				printCommand(commandLine);
 			}
 			else if(input.equalsIgnoreCase("quit"))
 			{	
-				
 				System.out.println("Now quitting.");				
 				done = true;
 			}
 			else
 			{	
-				
 				System.out.println("Invalid Command, try again.");
 			}
 		
@@ -146,61 +159,166 @@ public class CharacterTest
 		
 	}
 	
-	public Character specifyCharacter(PartyComponent goodParty) 
-	{
-	   int index = 1;
-	   int choice = 0;
-	   PartyMember member = null;
-	   boolean done = false;
-	    
-	    Character creature = null;
-	    Scanner keys = new Scanner(System.in);
 
-		System.out.println("Choose a number for specific character");
-		
-		CompositeIterator iterator = (CompositeIterator)goodParty.createIterator();
-		while(iterator.hasNext())
-		//	if(iterator.next().)
+	public Character chooseMembers(PartyComponent anyParty) 
+	{
+		int index = 1;
+		PartyMember member = null;
+		Character[] teamMates = new Character[5];
+		Character choosenCharacter = null;
+		CompositeIterator iterator = (CompositeIterator)anyParty.createIterator();
+
+		while(choosenCharacter == null)
 		{
-		
-			member = (PartyMember) iterator.next();
-			System.out.print("("+index+")"+"   "+member.toString());
-			index++;
-			System.out.println("Check it out!");
-		//	member.character.name.toString();
+			System.out.println("***************************************");
+			System.out.println("Choose a number for specific character\n");
+			
+			displayCharacterChoices(anyParty);
+
+			while(iterator.hasNext())
+			{
+				member = (PartyMember) iterator.next();  //iterate through characters, put them into an array
+				choosenCharacter = member.character;     //for retrieval, couldn't get the getMember() by index working 
+				teamMates[index] = choosenCharacter;     //  choosenMember = getMember(index);  not sure if one exists
+				index++;
+			}
+			System.out.println("\n***************************************");
+
+			choosenCharacter = teamMates[menuRun(index)];
 		}
+		return choosenCharacter;
+	}
+	
+	
+	
+	
+	
+	public int displayCharacterChoices(PartyComponent anyParty)
+	{
+		int index = 0;
+		PartyMember member;
+		Character displayedCharacter;
+		
+		CompositeIterator iterator = (CompositeIterator)anyParty.createIterator();
+		while(iterator.hasNext())
+		{
+			member = (PartyMember) iterator.next();
+			displayedCharacter = member.character;
+			
+			System.out.print(index + ")");
+			System.out.println("   "+displayedCharacter.getName().toString());
+			index++;
+		}
+
+		return index;
+	}
+	
+	public AttackBehavior chooseAttack()
+	{
+		int index = 0;
+		AttackBehavior[] attacks = { new AttackAggressive(), new AttackHalfAss() };
+		AttackBehavior behave = null;
 		
 		do
-		{  
-		   choice = Integer.parseInt(keys.nextLine());
+		{
+			System.out.println("\n***************************************");
+			System.out.println("AttackStyles for Characters\n");
+	
+			for(int x = 0; x < attacks.length; x++,index++)
+			{
+				System.out.print(index + ")");
+				System.out.println(" "+ attacks[x].toString());
+			}
+			
+			System.out.println("\n***************************************");
+	
+			behave = attacks[menuRun(index)];
 		
-		   if (choice > 0 && choice < index)
-			   creature = characterFromMember(member);
-	       
-		   else
-	      		System.out.println("Please choose a number from the list of party members");
+		}while(behave == null);
 		
+		return behave;
+	}
+	
+	public DefenseBehavior chooseDefense()
+	{
+		DefenseBehavior[] attacks = { new DefenseWell(), new DefenseEyesClosed() };
+		DefenseBehavior behave = null;
+		
+		do
+		{
+			System.out.println("\n***************************************");
+			System.out.println("DefenseStyles for Characters\n");
+	
+			int index = 0;
+			for(int x = 0; x < attacks.length; x++,index++)
+			{
+				System.out.print(index + ")");
+				System.out.println(" "+ attacks[x].toString());
+			}
+			
+			System.out.println("\n***************************************");
+	
+			behave = attacks[menuRun(index)];
+		}while(behave == null);
+		
+		return behave;
+	}
+	
+	public FleeBehavior chooseFlee()
+	{
+		FleeBehavior[] attacks = { new FleeBackOutFighting(), new FleeTurnTail() };
+		FleeBehavior behave = null;
+		
+		do
+		{
+			System.out.println("\n***************************************");
+			System.out.println("FleeStyles for Characters\n");
+	
+			int index = 0;
+			for(int x = 0; x < attacks.length; x++,index++)
+			{
+				System.out.print(index + ")");
+				System.out.println(" "+ attacks[x].toString());
+			}
+			
+			System.out.println("\n***************************************");
+			behave = attacks[menuRun(index)];
+	
+		}while(behave == null);
+	
+		return behave;
+	}
+	
+	public int menuRun(int index)
+	{
+		int menu = 0;
+		boolean done = false;
+		
+		Scanner keyboard = new Scanner(System.in);
+	
+		do
+		{
+			try
+			{
+				menu = Integer.parseInt(keyboard.nextLine());
+			}
+			catch(Exception e)
+			{
+				System.out.println("Numbers only!");
+			}
+			
+			if(menu > -1 && menu < index)
+				done = true;
+			
+			else
+			{
+				System.out.println("Just make a valid numerical choice!");
+				System.out.println("\n***************************************");
+			}
+	
 		}while(!done);
 		
-	   return creature;
-	   }
-	
-	private Character characterFromMember(PartyMember member) 
-	{
-		PartyMember temp1;// = new PartyMember();
-		member.getCharacter();
-		return null;
+	return menu;
 	}
-
-	public static void printCommand(String[] comm)
-	{
-		
-		for(int x = 0; x < comm.length; x++)
-			System.out.println(comm[x]);
-	}
-	
-	
-
-	
  }
  
