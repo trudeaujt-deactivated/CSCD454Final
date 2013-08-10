@@ -4,7 +4,7 @@ public class AttackHalfAss implements AttackBehavior {
 	private final int halfassDamage = 6;
 	
 	@Override
-	public int attack(PartyMember otherCharacter) {
+	public int attack(PartyMember attacker, PartyMember otherCharacter) {
 		// This should have a lower range of damage done to opponent
 		return (int) Math.round(halfassDamage * otherCharacter.character.defendStyle.defend());
 		

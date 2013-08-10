@@ -21,8 +21,8 @@ public class PairUp {
 		int playerDamageDealt;
 		int enemyDamageDealt;
 		assert(player.character != null);
-		playerDamageDealt = player.character.attackStyle.attack(enemy);
-		enemyDamageDealt = enemy.character.attackStyle.attack(player);
+		playerDamageDealt = player.character.attackStyle.attack(player, enemy);
+		enemyDamageDealt = enemy.character.attackStyle.attack(enemy, player);
 		
 		er = new ExchangeResult(this, playerDamageDealt, enemyDamageDealt);
 		

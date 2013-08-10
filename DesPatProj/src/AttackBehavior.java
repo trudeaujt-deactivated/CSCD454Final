@@ -1,5 +1,5 @@
 
 public interface AttackBehavior 
 {
-	public int attack(PartyMember otherCharacter);
+	public int attack(PartyMember attacker, PartyMember otherCharacter);
 }

@@ -4,7 +4,7 @@ public class AttackAggressive implements AttackBehavior
 	private final int aggressiveDamage = 10;
 	
 	@Override
-	public int attack(PartyMember otherCharacter) {
+	public int attack(PartyMember attacker, PartyMember otherCharacter) {
 		
 		// this will affect what percentage of damage is done to the opponent
 		

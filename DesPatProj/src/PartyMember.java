@@ -51,8 +51,8 @@ public class PartyMember extends PartyComponent {
 		return new NullIterator();
 	}
 	
-	public void attack(PartyMember otherCharacter){
-		character.attackStyle.attack(otherCharacter);
+	public void attack(PartyMember attacker, PartyMember otherCharacter){
+		character.attackStyle.attack(attacker, otherCharacter);
 	}
 	public void defend(){
 		character.defendStyle.defend();
@@ -63,6 +63,9 @@ public class PartyMember extends PartyComponent {
 	public boolean checkHealth(){
 		alive = character.health.hitPoints > 0;
 		return alive;
+	}
+	public Character getCharacter(){
+		return character;
 	}
 	@Override
 	public PartyComponent wrap(String name){
