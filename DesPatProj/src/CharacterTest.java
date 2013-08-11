@@ -94,12 +94,13 @@ public class CharacterTest
 		
 		dictionary.put("change", "valid");
 		dictionary.put("flee", "valid");
-		dictionary.put("move ","valid");
+		dictionary.put("move","valid");
 		dictionary.put("join", "valid");
 		dictionary.put("attack", "valid");
 		dictionary.put("search","valid");
 		dictionary.put("pickup", "valid");
 		dictionary.put("give", "valid");
+		dictionary.put("help","valid");
 		
 		
 		System.out.println("You have entered a creepy room");
@@ -144,25 +145,156 @@ public class CharacterTest
 					 	controller.sendCommand();
 					}
 				}
-			}
+				else if(commandLine[FIRSTWORD].equalsIgnoreCase("attack"))
+								{
+				//perform single attack, pair-for-par through each party-member once?
+				//then re-prompt for command?
+					
+				
+				//attack = new AddAttack(team1,team2); or below
+				//attack = new AddAttack(battle);     or above
+					
+				//controller.setCommand(attack);
+				//controller.sendCommand();
+					
+					System.out.println("You have just performed an attack!");
+
+
+				}
+				else if(commandLine[FIRSTWORD].equalsIgnoreCase("help"))
+				{
+					
+					System.out.println("Here is the list of possible commands");
+				}
+				else if(commandLine[FIRSTWORD].equalsIgnoreCase("search"))
+				{
+				//display the room description
+				//display a list items visible in room
+					
+				//search a character for items
+				//getCharactersList() includes deadCharacters
+				//get Dead Characters' Items list from a dead character
+				
+				//search = new AddSearch(generalDescriptionofRoom,deadCharactersList,roomItemsList)
+									
+				//controller.setCommand(search);
+				//controller.sendCommand();
+					
+					System.out.println("Now searching!");
+
+				}
+				else if(commandLine[FIRSTWORD].equalsIgnoreCase("join"))
+				{
+				//perform join of a character
+				//maybe a chance % probability to join to add another element to join
+				
+				//getCharactersList() from the room
+				//prompt the user to select a non-member from the room
+					
+				//joinMember = new AddMember(memberParty, character)
+				//controller.setCommand(joinMember);
+				//controller.sendCommand();
+					
+					System.out.println("Joining members to party!");
+
+				}
+				else if(commandLine[FIRSTWORD].equalsIgnoreCase("pickup"))
+				{
+				
+				//Display items in the room
+				//ask which character to pickup
+				//addedInventoryItem = new AddInventory(item,character)
+				
+				//controller.setCommand(addInventoryItem);
+				//controller.sendCommand();
+					
+					System.out.println("Your item was picked up!");
+
+				}
+				else if(commandLine[FIRSTWORD].equalsIgnoreCase("flee"))
+				{
+				//perform running away of a party
+				//maybe a chance % probability to escape
+				
+				//flee = new AddFlee(party)
+					
+				//controller.setCommand(flee);
+				//controller.sendCommand();
+					
+					System.out.println("Now fleeing the scene!");
+
+				}
+				else if(commandLine[FIRSTWORD].equalsIgnoreCase("move"))
+				{
+				//prompt for a direction  
+				
+				//direction = chooseDirection();  request NORTH,SOUTH,EAST,WEST
+				//ChangeDirection changeDirection = new AddChangeDirection(direction)
+					
+				//controller.setCommand(changeDirection);
+				//controller.sendCommand();
+					
+					System.out.println("You have moved!");
+
+				}
+				else if(commandLine[FIRSTWORD].equalsIgnoreCase("give"))
+				{
+				//select character that gives something to someone else
+				//select character.inventory item()
+				//select character to receive item
+				
+				//givenItem = new AddGivenItem(characterFrom,item, characterTo)
+	
+				//controller.setCommand(givenItem);
+				//controller.sendCommand();
+					
+					System.out.println("Item given to other player!");
+
+				}
+			}//end if(word is in dictionary)
 			else if(input.equalsIgnoreCase("quit"))
 			{	
 				System.out.println("Now quitting.");				
 				done = true;
 			}
 			else
-			{	
-				System.out.println("Invalid Command, try again.");
-			}
-		
-		}while(!done);
-		
-	}
-	
+			    System.out.println("Invalid Command, try again.");
 
+	
+		}while(!done);
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public Character chooseMembers(PartyComponent anyParty) 
 	{
-		int index = 1;
+		int index = 0;
 		PartyMember member = null;
 		Character[] teamMates = new Character[5];
 		Character choosenCharacter = null;
@@ -188,11 +320,7 @@ public class CharacterTest
 		}
 		return choosenCharacter;
 	}
-	
-	
-	
-	
-	
+
 	public int displayCharacterChoices(PartyComponent anyParty)
 	{
 		int index = 0;

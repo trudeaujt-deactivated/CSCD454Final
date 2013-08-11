@@ -88,9 +88,10 @@ public class Battle <T extends PartyComponent>{
 		}
 	}
 	public boolean checkParties(){
-		if(playerParty.stillInPlay() && enemyParty.stillInPlay())
-			return true;
-		return false;
+//		if(playerParty.stillInPlay() && enemyParty.stillInPlay())
+//			return true;
+//		return false;
+		return (playerParty.stillInPlay() && enemyParty.stillInPlay());
 	}
 
 
