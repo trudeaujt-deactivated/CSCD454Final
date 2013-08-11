@@ -23,7 +23,7 @@ public class Game {
 		setWindowText(dungeon.getEntryRoom().getDescription());
 		window.setVisible(true);
 	}
-	
+
 	public String toString(){
 		return "";
 	}

@@ -6,8 +6,6 @@ import java.util.List;
  * A basic two-dimensional map. 
  * Starting coordinate (0,0) is in the top-left corner. 
  * Due to this, field grid is accessed with grid[coordinate y][coordinate x].
- * 
- * @author Jonathan Trudeau
  */
 public class Room {
 
@@ -30,6 +28,7 @@ public class Room {
 	private char[][] displayedGrid;
 
 	private List<Tile> actorList = new ArrayList<Tile>();
+	private List<Tile> itemList = new ArrayList<Tile>();
 
 
 	public Room() {
@@ -73,6 +72,19 @@ public class Room {
 		else throw new IndexOutOfBoundsException();
 
 	}
+	
+	public void addItem(int index_x, int index_y, TileActor newTile) {
+		
+		if(checkInBounds(index_x, index_y)) {
+			
+			newTile.setCoordinates(index_x, index_y);
+			itemList.add(newTile);
+			
+		}
+		
+		else throw new IndexOutOfBoundsException();
+		
+	}
 
 	public void remove(int index_x, int index_y) {
 
@@ -86,6 +98,19 @@ public class Room {
 					actorList.remove(t);
 
 		}
+
+		else throw new IndexOutOfBoundsException();
+
+	}
+	
+	public void removeItem(TileActor theTile) {
+
+		// a copy is needed, because an object can not be iterated over and modified at the same time
+		ArrayList<Tile> itemListCopy = new ArrayList<Tile>(itemList);
+
+		for(Tile t: itemListCopy)
+			if(t.equals(theTile))
+				itemList.remove(t);
 
 		else throw new IndexOutOfBoundsException();
 
@@ -144,6 +169,32 @@ public class Room {
 
 		return string.toString();
 
+	}
+	
+	public String displayCharacters() {
+		
+		StringBuilder string = new StringBuilder();
+		
+		string.append("Characters in " + name + ":\n");
+		
+		for(Tile t: actorList)
+			string.append(t.toString() + "\n");
+		
+		return string.toString();
+		
+	}
+	
+	public String displayItems() {
+		
+		StringBuilder string = new StringBuilder();
+		
+		string.append("Items in " + name + ":\n");
+		
+		for(Tile t: itemList)
+			string.append(t.toString() + "\n");
+		
+		return string.toString();
+		
 	}
 
 	public String getName() {

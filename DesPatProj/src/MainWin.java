@@ -33,8 +33,6 @@ public class MainWin extends JFrame implements ActionListener
 	private final int MAP_AREA_HEIGHT = WINHEIGHT - BORDER;
 	private final String PATH_TO_FILES = "src/files/";
 	private final Font MAP_FONT = new Font("Consolas", 0, 12);
-	
-	
 		
 	private JPanel contentPane;
 	private JTextPane mapArea;
@@ -78,16 +76,6 @@ public class MainWin extends JFrame implements ActionListener
 		setImages();
 		setOutputArea();
 	}
-	
-//	private String getMap(){
-//		String map = "";
-//		emptyMapInfile = getInputFile("empty_map.txt");
-//		while(emptyMapInfile.hasNext()){
-//			map += emptyMapInfile.nextLine() + "\n";
-//		}
-//		emptyMapInfile.close();
-//		return map;
-//	}
 	
 	private String getMap() {
 	    
