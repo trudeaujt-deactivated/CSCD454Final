@@ -110,7 +110,7 @@ public class Dungeon {
 		while(!done){
 			check = scan.nextLine();
 			if(check.contains("#") == false){
-				item.add(new UserItem(check));
+				//item.add(new UserItem(check));
 			}
 			else
 				done = true;

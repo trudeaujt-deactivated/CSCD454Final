@@ -15,14 +15,13 @@ public class CommandCenter2 {
 		commandMap.put("move west",	 new MoveWest());
 	}
 	
-	public Command2 getCommand(String userString){
+	private Command2 getCommand(String userString){
 		
 		userString = userString.toLowerCase();
 		
 		return commandMap.containsKey(userString)? 
 				commandMap.get(userString): new NullCommand();
 	}
-
 
 	public void executeCommand(String userString){
 		getCommand(userString).execute();

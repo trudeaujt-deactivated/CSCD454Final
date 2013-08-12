@@ -1,8 +1,7 @@
 
 
-public interface Item 
+public abstract class Item 
 {
-
-    // TODO Auto-generated constructor stub
+	
 
 }

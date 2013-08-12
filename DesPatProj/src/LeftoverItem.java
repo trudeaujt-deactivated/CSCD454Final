@@ -1,5 +1,5 @@
 
-public class LeftoverItem implements Leftovers, Item 
+public class LeftoverItem extends Item implements Leftovers 
 {
 
 	@Override
