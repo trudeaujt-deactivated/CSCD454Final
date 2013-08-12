@@ -1,11 +1,11 @@
 
-public class ChangeFlee implements Command 
+public class AddFleeBehavior implements Command 
 {
 	FleeBehavior behave;
 	Character character;
 	
 	
-	public ChangeFlee(FleeBehavior behavior, Character being)
+	public AddFleeBehavior(FleeBehavior behavior, Character being)
 	{
 		this.behave = behavior;
 		this.character = being;
@@ -16,6 +16,7 @@ public class ChangeFlee implements Command
 	{
 
 			character.setFleeStyle(this.behave);
+			System.out.println("Command WORKS!");
 	}
 
 }

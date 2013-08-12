@@ -1,11 +1,11 @@
 
-public class ChangeDefense implements Command 
+public class AddDefenseBehavior implements Command 
 {
 	DefenseBehavior behave;
 	Character character;
 	
 	
-	public ChangeDefense(DefenseBehavior behavior, Character being)
+	public AddDefenseBehavior(DefenseBehavior behavior, Character being)
 	{
 		this.behave = behavior;
 		this.character = being;
@@ -16,6 +16,7 @@ public class ChangeDefense implements Command
 	{
 
 			character.setDefendStyle(this.behave);
+			System.out.println("Command WORKS!");
 	}
 
 }

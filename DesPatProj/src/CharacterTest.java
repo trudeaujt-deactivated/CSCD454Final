@@ -18,7 +18,6 @@ public class CharacterTest
 		
  		Character bad,good,hero,good2,bad2,good3; 
  		
- 
  		good = testCharacter.generate("mobster","weak");			//friend
  		characterTest.goodParty.add(new PartyMember(good));	// creates a PartyMember out of the Character and adds it to a Party
  		
@@ -32,7 +31,6 @@ public class CharacterTest
 		bad = testCharacter.generate("menace", "weak");			//foe
 		characterTest.enemyParty.add(new PartyMember(bad)); 	// creates a PartyMember out of the Character and adds it to a Party
  
- 		
  		bad2 = testCharacter.generate("wolf","average");			//foe
  		characterTest.enemyParty.add(new PartyMember(bad2));	// creates a PartyMember out of the Character and adds it to a Party
  
@@ -42,11 +40,8 @@ public class CharacterTest
 		good3 = testCharacter.generate("random", "tough");			//friend
 		characterTest.goodParty.add(new PartyMember(good3));	// creates a PartyMember out of the Character and adds it to a Party
 		
-		
- 		
  		hero = testCharacter.generate("hero","tough");			//friend
  		characterTest.goodParty.add(new PartyMember(hero));	// creates a PartyMember out of the Character and adds it to a Party
-		
 		
 		for(int i = 0; i < 5; i++)
 		{
@@ -55,12 +50,9 @@ public class CharacterTest
 		}
 
 		testBehavior(characterTest.goodParty, characterTest.enemyParty);
-		
 		System.out.println("Done with Test");
 		
 		characterTest.commandInterpreter(characterTest.goodParty, characterTest.enemyParty);
-		
-		
 
  	}
 	
@@ -83,8 +75,6 @@ public class CharacterTest
 		
 		final int FIRSTWORD = 0;
 		final int SECONDWORD = 1;
-		final int THIRDWORD = 2;
-		final int FOURTHWORD = 3;
 
 		CommandCenter controller = new CommandCenter();
 	
@@ -101,7 +91,10 @@ public class CharacterTest
 		dictionary.put("pickup", "valid");
 		dictionary.put("give", "valid");
 		dictionary.put("help","valid");
-		
+		dictionary.put("east", "valid");
+		dictionary.put("west", "valid");
+		dictionary.put("north", "valid");
+		dictionary.put("south", "valid");
 		
 		System.out.println("You have entered a creepy room");
 		
@@ -120,138 +113,173 @@ public class CharacterTest
 					if(commandLine[SECONDWORD].equalsIgnoreCase("attack"))
 					{
 						character = chooseMembers(goodParty);
+						
 						System.out.println(character.attackStyle.toString());
-
-						ChangeAttack changeAttack = new ChangeAttack(chooseAttack(),character);
+						AddAttackBehavior changeAttack = new AddAttackBehavior(chooseAttack(),character);
+						System.out.println(character.attackStyle.toString());
+						
 					 	controller.setCommand(changeAttack);
 					 	controller.sendCommand();
 					}
 					if(commandLine[SECONDWORD].equalsIgnoreCase("defense"))
 					{
 						character = chooseMembers(goodParty);
-						System.out.println(character.defendStyle.toString());
 						
-						ChangeDefense changeDefense = new ChangeDefense(chooseDefense(),character);
+						System.out.println(character.defendStyle.toString());
+						AddDefenseBehavior changeDefense = new AddDefenseBehavior(chooseDefense(),character);
+						System.out.println(character.defendStyle.toString());
+
 					 	controller.setCommand(changeDefense);
 					 	controller.sendCommand();
 					}
 					if(commandLine[SECONDWORD].equalsIgnoreCase("flee"))
 					{
 						character = chooseMembers(goodParty);
+					
+						System.out.println(character.fleeStyle.toString());
+						AddFleeBehavior changeFlee = new AddFleeBehavior(chooseFlee(),character);
 						System.out.println(character.fleeStyle.toString());
 
-						ChangeFlee changeFlee = new ChangeFlee(chooseFlee(),character);
 					 	controller.setCommand(changeFlee);
 					 	controller.sendCommand();
 					}
 				}
 				else if(commandLine[FIRSTWORD].equalsIgnoreCase("attack"))
-								{
-				//perform single attack, pair-for-par through each party-member once?
-				//then re-prompt for command?
-					
-				
-				//attack = new AddAttack(team1,team2); or below
-				//attack = new AddAttack(battle);     or above
-					
-				//controller.setCommand(attack);
-				//controller.sendCommand();
-					
-					System.out.println("You have just performed an attack!");
-
-
+				{
+					AddAttack attack = new AddAttack(goodParty,enemyParty); 
+					controller.setCommand(attack);
+					controller.sendCommand();					
 				}
 				else if(commandLine[FIRSTWORD].equalsIgnoreCase("help"))
-				{
-					
+				{	
 					System.out.println("Here is the list of possible commands");
 				}
 				else if(commandLine[FIRSTWORD].equalsIgnoreCase("search"))
-				{
-				//display the room description
-				//display a list items visible in room
-					
-				//search a character for items
-				//getCharactersList() includes deadCharacters
-				//get Dead Characters' Items list from a dead character
-				
-				//search = new AddSearch(generalDescriptionofRoom,deadCharactersList,roomItemsList)
-									
-				//controller.setCommand(search);
-				//controller.sendCommand();
-					
-					System.out.println("Now searching!");
+				{	
+					//displayRoomOverview()
+					//displayDeadGuysInRoom()
+					//displayRoomItems()
+					//AddSearch search = new AddSearch(room);
 
+					
+					//search a character for items
+					//getCharactersList() includes deadCharacters
+					//get Dead Characters' Items list from a dead character
+					Character ch = chooseMembers(goodParty);
+					AddSearch  search = new AddSearch(ch);
+									
+					controller.setCommand(search);
+					controller.sendCommand();
+					
 				}
 				else if(commandLine[FIRSTWORD].equalsIgnoreCase("join"))
 				{
-				//perform join of a character
-				//maybe a chance % probability to join to add another element to join
-				
-				//getCharactersList() from the room
-				//prompt the user to select a non-member from the room
-					
-				//joinMember = new AddMember(memberParty, character)
-				//controller.setCommand(joinMember);
-				//controller.sendCommand();
-					
-					System.out.println("Joining members to party!");
+					Character ch = chooseMembers(enemyParty);
+					AddJoin member = new AddJoin(ch);
+					controller.setCommand(member);
+					controller.sendCommand();
 
 				}
 				else if(commandLine[FIRSTWORD].equalsIgnoreCase("pickup"))
 				{
 				
-				//Display items in the room
-				//ask which character to pickup
-				//addedInventoryItem = new AddInventory(item,character)
-				
-				//controller.setCommand(addInventoryItem);
-				//controller.sendCommand();
+					//Item item = getRoomItemsList();
 					
-					System.out.println("Your item was picked up!");
-
+					
+					Item item = null;
+					Character ch = chooseMembers(goodParty);
+					AddInventory addedInventoryItem = new AddInventory(item,ch);
+				
+					controller.setCommand(addedInventoryItem);
+					controller.sendCommand();
+					
 				}
 				else if(commandLine[FIRSTWORD].equalsIgnoreCase("flee"))
 				{
-				//perform running away of a party
-				//maybe a chance % probability to escape
-				
-				//flee = new AddFlee(party)
+					Direction fleeDirection = null;
 					
-				//controller.setCommand(flee);
-				//controller.sendCommand();
-					
-					System.out.println("Now fleeing the scene!");
+					if(dictionary.containsKey(commandLine[SECONDWORD]))					
+					{	
+						if(commandLine[SECONDWORD].equalsIgnoreCase("north"))
+						{
+							AddFlee flee = new AddFlee(fleeDirection);
+							controller.setCommand(flee);
+							controller.sendCommand();
+						}
+						else if(commandLine[SECONDWORD].equalsIgnoreCase("south"))
+						{
+							AddFlee flee = new AddFlee(fleeDirection);
+							controller.setCommand(flee);
+							controller.sendCommand();
+						}
+						else if(commandLine[SECONDWORD].equalsIgnoreCase("east"))
+						{
+							AddFlee flee = new AddFlee(fleeDirection);
+							controller.setCommand(flee);
+							controller.sendCommand();
+						}
+						else if(commandLine[SECONDWORD].equalsIgnoreCase("west"))
+						{
+							AddFlee flee = new AddFlee(fleeDirection);
+							controller.setCommand(flee);
+							controller.sendCommand();
+						}
+						else
+							System.out.println("Could not move there!");
+					}
 
 				}
 				else if(commandLine[FIRSTWORD].equalsIgnoreCase("move"))
 				{
-				//prompt for a direction  
-				
-				//direction = chooseDirection();  request NORTH,SOUTH,EAST,WEST
-				//ChangeDirection changeDirection = new AddChangeDirection(direction)
-					
-				//controller.setCommand(changeDirection);
-				//controller.sendCommand();
-					
-					System.out.println("You have moved!");
+					Direction moveDirection = null;
+										
+					if(dictionary.containsKey(commandLine[SECONDWORD]))					
+					{	
+						
+						if(commandLine[SECONDWORD].equalsIgnoreCase("north"))
+						{
+							AddMove move = new AddMove(moveDirection);
+							controller.setCommand(move);
+							controller.sendCommand();
+						}
+						else if(commandLine[SECONDWORD].equalsIgnoreCase("south"))
+						{
+							AddMove move = new AddMove(moveDirection);
+							controller.setCommand(move);
+							controller.sendCommand();
+						}
+						else if(commandLine[SECONDWORD].equalsIgnoreCase("east"))
+						{
+							AddMove move = new AddMove(moveDirection);
+							controller.setCommand(move);
+							controller.sendCommand();
+						}
+						else if(commandLine[SECONDWORD].equalsIgnoreCase("west"))
+						{
+							AddMove move = new AddMove(moveDirection);
+							controller.setCommand(move);
+							controller.sendCommand();
+						}
+						else
+							System.out.println("Could not move there!");
+					}
 
 				}
 				else if(commandLine[FIRSTWORD].equalsIgnoreCase("give"))
 				{
-				//select character that gives something to someone else
-				//select character.inventory item()
-				//select character to receive item
 				
-				//givenItem = new AddGivenItem(characterFrom,item, characterTo)
-	
-				//controller.setCommand(givenItem);
-				//controller.sendCommand();
+					Character ch1 = chooseMembers(goodParty);
+					Character ch2 = chooseMembers(goodParty);
+					Item item = new UserItem("Horse");
 					
-					System.out.println("Item given to other player!");
-
+					AddGivenItem givenItem = new AddGivenItem(ch1,item, ch2);
+	
+					controller.setCommand(givenItem);
+					controller.sendCommand();
+					
 				}
 			}//end if(word is in dictionary)
+			
 			else if(input.equalsIgnoreCase("quit"))
 			{	
 				System.out.println("Now quitting.");				
@@ -260,37 +288,10 @@ public class CharacterTest
 			else
 			    System.out.println("Invalid Command, try again.");
 
-	
 		}while(!done);
-}
+
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}
 	
 	public Character chooseMembers(PartyComponent anyParty) 
 	{
@@ -343,24 +344,24 @@ public class CharacterTest
 	
 	public AttackBehavior chooseAttack()
 	{
-		int index = 0;
-		AttackBehavior[] attacks = { new AttackAggressive(), new AttackHalfAss() };
 		AttackBehavior behave = null;
 		
 		do
 		{
+			int index = 0;
+
 			System.out.println("\n***************************************");
 			System.out.println("AttackStyles for Characters\n");
 	
-			for(int x = 0; x < attacks.length; x++,index++)
+			for(int x = 0; x < AttackBehavior.attackArray.length; x++,index++)
 			{
 				System.out.print(index + ")");
-				System.out.println(" "+ attacks[x].toString());
+				System.out.println(" "+ AttackBehavior.attackArray[x].toString());
 			}
 			
 			System.out.println("\n***************************************");
 	
-			behave = attacks[menuRun(index)];
+			behave = AttackBehavior.attackArray[menuRun(index)];
 		
 		}while(behave == null);
 		
@@ -369,7 +370,6 @@ public class CharacterTest
 	
 	public DefenseBehavior chooseDefense()
 	{
-		DefenseBehavior[] attacks = { new DefenseWell(), new DefenseEyesClosed() };
 		DefenseBehavior behave = null;
 		
 		do
@@ -378,15 +378,15 @@ public class CharacterTest
 			System.out.println("DefenseStyles for Characters\n");
 	
 			int index = 0;
-			for(int x = 0; x < attacks.length; x++,index++)
+			for(int x = 0; x < DefenseBehavior.defenseArray.length; x++,index++)
 			{
 				System.out.print(index + ")");
-				System.out.println(" "+ attacks[x].toString());
+				System.out.println(" "+ DefenseBehavior.defenseArray[x].toString());
 			}
 			
 			System.out.println("\n***************************************");
 	
-			behave = attacks[menuRun(index)];
+			behave = DefenseBehavior.defenseArray[menuRun(index)];
 		}while(behave == null);
 		
 		return behave;
@@ -394,7 +394,6 @@ public class CharacterTest
 	
 	public FleeBehavior chooseFlee()
 	{
-		FleeBehavior[] attacks = { new FleeBackOutFighting(), new FleeTurnTail() };
 		FleeBehavior behave = null;
 		
 		do
@@ -403,20 +402,20 @@ public class CharacterTest
 			System.out.println("FleeStyles for Characters\n");
 	
 			int index = 0;
-			for(int x = 0; x < attacks.length; x++,index++)
+			for(int x = 0; x < FleeBehavior.fleeBehavior.length; x++,index++)
 			{
 				System.out.print(index + ")");
-				System.out.println(" "+ attacks[x].toString());
+				System.out.println(" "+ FleeBehavior.fleeBehavior[x].toString());
 			}
 			
 			System.out.println("\n***************************************");
-			behave = attacks[menuRun(index)];
+			behave = FleeBehavior.fleeBehavior[menuRun(index)];
 	
 		}while(behave == null);
 	
 		return behave;
 	}
-	
+ 	
 	public int menuRun(int index)
 	{
 		int menu = 0;
@@ -449,5 +448,8 @@ public class CharacterTest
 		
 	return menu;
 	}
+
+ 
+ 
  }
  
