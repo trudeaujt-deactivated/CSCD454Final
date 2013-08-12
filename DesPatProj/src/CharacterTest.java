@@ -9,7 +9,9 @@ public class CharacterTest
 	
 	public static void main(String[] args)
  	{	
+		
 		CharacterTest characterTest = new CharacterTest();
+		/*
  		CharacterRequest testCharacter = new CharacterSpawn();
 		
  		characterTest.goodParty = new Party("Good Guys", new ArrayList<PartyComponent>());
@@ -53,8 +55,25 @@ public class CharacterTest
 		System.out.println("Done with Test");
 		
 		characterTest.commandInterpreter(characterTest.goodParty, characterTest.enemyParty);
-
+	*/
+		characterTest.commandInterpreter2();
  	}
+
+	public void commandInterpreter2(){
+		
+		CommandCenter2 controller = new CommandCenter2();
+		
+		//these strings are replaced by whatever the user entered
+		controller.executeCommand("move west");
+		// we can condition the string in the commandcenter so case won't matter
+		controller.executeCommand("MOVE NORTH");
+		
+		controller.executeCommand("attack");
+		// bad commands solicit a NullCommand, whose execute just does something
+		// benign like calls the user names and returns to the command line.
+		controller.executeCommand("Use M60 to cut the elf in half");
+	
+	}
 	
 	public static <T extends PartyComponent>void testBehavior(T partyOne, T partyTwo)
 	{
@@ -448,8 +467,7 @@ public class CharacterTest
 		
 	return menu;
 	}
-
- 
+	
  
  }
  

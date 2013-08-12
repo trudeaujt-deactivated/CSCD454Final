@@ -1,7 +1,7 @@
 1
 Test Room
 40 40
-You are in a dark, nasty little room with 2 other openings, one to the east and one to 
+You are in a dark, nasty little room with 2 other openings, one to the west and one to 
 the north. There is a stone table with some mostly eaten food and huge plates with equally 
 huge utensils. Good luck if you run into whatever was eating with that stuff. You are in
 luck, though, as there are two full bottles of healing potion under the table. 

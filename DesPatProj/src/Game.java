@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Game {
 	
+	private static final String 	GAMEFILE = "TestRoom.txt";
+	
 	private Dungeon dungeon;
 	private MainWin window;
 	
@@ -39,7 +41,7 @@ public class Game {
 		for(int i = 0; i < 5; i++){
 			rooms.add(new Room());
 		}
-		Dungeon dungeon = new Dungeon("TestRoom.txt");
+		Dungeon dungeon = new Dungeon(GAMEFILE);
 		Game game = new Game(dungeon);
 		game.begin();
 	}
