@@ -2,6 +2,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.security.Key;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -32,13 +34,21 @@ public class Game{
 		
 		setWindowText(dungeon.getEntryRoom().getDescription());
 		window.setVisible(true);
+		window.addWindowListener(new WindowAdapter() {
+			public void windowOpened(WindowEvent e){
+				window.getInputArea().requestFocus();
+			}
+		});
+	
 		window.getInputArea().addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				controller.executeCommand(window.getInputArea().getText());
+				window.getInputArea().setText("");
 			}
 		});
+		
 	}
 	public String toString(){
 		return "";

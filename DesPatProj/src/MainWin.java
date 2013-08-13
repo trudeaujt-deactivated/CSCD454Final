@@ -11,6 +11,7 @@ import java.awt.Dimension;
 import javax.swing.JLabel;
 import javax.swing.JEditorPane;
 import javax.swing.border.LineBorder;
+import javax.swing.FocusManager;
 
 import java.awt.Color;
 import java.awt.event.*;
@@ -141,6 +142,7 @@ public class MainWin extends JFrame implements ActionListener
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		contentPane.requestFocus();
 		
 	}
 	private void createMapArea(){
@@ -156,9 +158,10 @@ public class MainWin extends JFrame implements ActionListener
 	private void createInputArea(){
 		//editable area to enter commands
 		inputArea = new JTextField();
-		inputArea.setText("Enter Commands Here");
+		//inputArea.setText("");
 		inputArea.setBounds(LABELSIZE + MAP_AREA_WIDTH, WINHEIGHT- EDIT_AREA_HEIGHT - BORDER, OUTPUT_AREA_WIDTH, EDIT_AREA_HEIGHT);
 		contentPane.add(inputArea);
+		
 
 	}
 	private void setImages(){
