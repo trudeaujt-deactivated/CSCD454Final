@@ -52,29 +52,24 @@ public class CharacterTest
 			characterTest.moreEnemy.add(new PartyMember(bad));// creates a PartyMember out of the Character and adds it to a Party
 		}
 
+
+	
+
+
 		testBehavior(characterTest.goodParty, characterTest.enemyParty);
 		System.out.println("Done with Test");
 		
 		characterTest.commandInterpreter(characterTest.goodParty, characterTest.enemyParty);
 	*/
-		characterTest.commandInterpreter2(game);
+//		characterTest.commandInterpreter2(game);
+		
+		WeaponItem weapon = new WeaponItem();
+		System.out.println(weapon);
+		
  	}
 
-	public void commandInterpreter2(Game game){
-		
-		CommandCenter2 controller = new CommandCenter2(game);
-		
-		//these strings are replaced by whatever the user entered
-		controller.executeCommand("move west");
-		// we can condition the string in the commandcenter so case won't matter
-		controller.executeCommand("MOVE NORTH");
-		
-		controller.executeCommand("attack");
-		// bad commands solicit a NullCommand, whose execute just does something
-		// benign like calls the user names and returns to the command line.
-		controller.executeCommand("Use M60 to cut the elf in half");
-	
-	}
+//	public void commandInterpreter2(Game game)
+
 	
 	public static <T extends PartyComponent>void testBehavior(T partyOne, T partyTwo)
 	{
@@ -87,231 +82,231 @@ public class CharacterTest
 			
 	}
 	
-	public void commandInterpreter(PartyComponent goodParty2, PartyComponent enemyParty2)
-	{
-		
-		String input = null;
-		boolean done = false;
-		
-		final int FIRSTWORD = 0;
-		final int SECONDWORD = 1;
-
-		CommandCenter controller = new CommandCenter();
-	
-		Scanner keypad = new Scanner(System.in);
-		Map<String, String> dictionary = new HashMap<String, String>();
-		
-		
-		dictionary.put("change", "valid");
-		dictionary.put("flee", "valid");
-		dictionary.put("move","valid");
-		dictionary.put("join", "valid");
-		dictionary.put("attack", "valid");
-		dictionary.put("search","valid");
-		dictionary.put("pickup", "valid");
-		dictionary.put("give", "valid");
-		dictionary.put("help","valid");
-		dictionary.put("east", "valid");
-		dictionary.put("west", "valid");
-		dictionary.put("north", "valid");
-		dictionary.put("south", "valid");
-		
-		System.out.println("You have entered a creepy room");
-		
-		do
-		{
-			Character character = null;
-			System.out.println("What is thy bidding?\n");
-			
-			input = keypad.nextLine();
-			String[] commandLine = input.split(" ");
-			
-			if(dictionary.containsKey(commandLine[FIRSTWORD]))
-			{
-				if(commandLine[FIRSTWORD].equalsIgnoreCase("change"))
-				{
-					if(commandLine[SECONDWORD].equalsIgnoreCase("attack"))
-					{
-						character = chooseMembers(goodParty);
-						
-						System.out.println(character.attackStyle.toString());
-						AddAttackBehavior changeAttack = new AddAttackBehavior(chooseAttack(),character);
-						System.out.println(character.attackStyle.toString());
-						
-					 	controller.setCommand(changeAttack);
-					 	controller.sendCommand();
-					}
-					if(commandLine[SECONDWORD].equalsIgnoreCase("defense"))
-					{
-						character = chooseMembers(goodParty);
-						
-						System.out.println(character.defendStyle.toString());
-						AddDefenseBehavior changeDefense = new AddDefenseBehavior(chooseDefense(),character);
-						System.out.println(character.defendStyle.toString());
-
-					 	controller.setCommand(changeDefense);
-					 	controller.sendCommand();
-					}
-					if(commandLine[SECONDWORD].equalsIgnoreCase("flee"))
-					{
-						character = chooseMembers(goodParty);
-					
-						System.out.println(character.fleeStyle.toString());
-						AddFleeBehavior changeFlee = new AddFleeBehavior(chooseFlee(),character);
-						System.out.println(character.fleeStyle.toString());
-
-					 	controller.setCommand(changeFlee);
-					 	controller.sendCommand();
-					}
-				}
-				else if(commandLine[FIRSTWORD].equalsIgnoreCase("attack"))
-				{
-					AddAttack attack = new AddAttack(goodParty,enemyParty); 
-					controller.setCommand(attack);
-					controller.sendCommand();					
-				}
-				else if(commandLine[FIRSTWORD].equalsIgnoreCase("help"))
-				{	
-					System.out.println("Here is the list of possible commands");
-				}
-				else if(commandLine[FIRSTWORD].equalsIgnoreCase("search"))
-				{	
-					//displayRoomOverview()
-					//displayDeadGuysInRoom()
-					//displayRoomItems()
-					//AddSearch search = new AddSearch(room);
-
-					
-					//search a character for items
-					//getCharactersList() includes deadCharacters
-					//get Dead Characters' Items list from a dead character
-					Character ch = chooseMembers(goodParty);
-					AddSearch  search = new AddSearch(ch);
-									
-					controller.setCommand(search);
-					controller.sendCommand();
-					
-				}
-				else if(commandLine[FIRSTWORD].equalsIgnoreCase("join"))
-				{
-					Character ch = chooseMembers(enemyParty);
-					AddJoin member = new AddJoin(ch);
-					controller.setCommand(member);
-					controller.sendCommand();
-
-				}
-				else if(commandLine[FIRSTWORD].equalsIgnoreCase("pickup"))
-				{
-				
-					//Item item = getRoomItemsList();
-					
-					
-					Item item = null;
-					Character ch = chooseMembers(goodParty);
-					AddInventory addedInventoryItem = new AddInventory(item,ch);
-				
-					controller.setCommand(addedInventoryItem);
-					controller.sendCommand();
-					
-				}
-				else if(commandLine[FIRSTWORD].equalsIgnoreCase("flee"))
-				{
-					Direction fleeDirection = null;
-					
-					if(dictionary.containsKey(commandLine[SECONDWORD]))					
-					{	
-						if(commandLine[SECONDWORD].equalsIgnoreCase("north"))
-						{
-							AddFlee flee = new AddFlee(fleeDirection);
-							controller.setCommand(flee);
-							controller.sendCommand();
-						}
-						else if(commandLine[SECONDWORD].equalsIgnoreCase("south"))
-						{
-							AddFlee flee = new AddFlee(fleeDirection);
-							controller.setCommand(flee);
-							controller.sendCommand();
-						}
-						else if(commandLine[SECONDWORD].equalsIgnoreCase("east"))
-						{
-							AddFlee flee = new AddFlee(fleeDirection);
-							controller.setCommand(flee);
-							controller.sendCommand();
-						}
-						else if(commandLine[SECONDWORD].equalsIgnoreCase("west"))
-						{
-							AddFlee flee = new AddFlee(fleeDirection);
-							controller.setCommand(flee);
-							controller.sendCommand();
-						}
-						else
-							System.out.println("Could not move there!");
-					}
-
-				}
-				else if(commandLine[FIRSTWORD].equalsIgnoreCase("move"))
-				{
-					Direction moveDirection = null;
-										
-					if(dictionary.containsKey(commandLine[SECONDWORD]))					
-					{	
-						
-						if(commandLine[SECONDWORD].equalsIgnoreCase("north"))
-						{
-							AddMove move = new AddMove(moveDirection);
-							controller.setCommand(move);
-							controller.sendCommand();
-						}
-						else if(commandLine[SECONDWORD].equalsIgnoreCase("south"))
-						{
-							AddMove move = new AddMove(moveDirection);
-							controller.setCommand(move);
-							controller.sendCommand();
-						}
-						else if(commandLine[SECONDWORD].equalsIgnoreCase("east"))
-						{
-							AddMove move = new AddMove(moveDirection);
-							controller.setCommand(move);
-							controller.sendCommand();
-						}
-						else if(commandLine[SECONDWORD].equalsIgnoreCase("west"))
-						{
-							AddMove move = new AddMove(moveDirection);
-							controller.setCommand(move);
-							controller.sendCommand();
-						}
-						else
-							System.out.println("Could not move there!");
-					}
-
-				}
-				else if(commandLine[FIRSTWORD].equalsIgnoreCase("give"))
-				{
-				
-					Character ch1 = chooseMembers(goodParty);
-					Character ch2 = chooseMembers(goodParty);
-					Item item = new UserItem("Horse");
-					
-					AddGivenItem givenItem = new AddGivenItem(ch1,item, ch2);
-	
-					controller.setCommand(givenItem);
-					controller.sendCommand();
-					
-				}
-			}//end if(word is in dictionary)
-			
-			else if(input.equalsIgnoreCase("quit"))
-			{	
-				System.out.println("Now quitting.");				
-				done = true;
-			}
-			else
-			    System.out.println("Invalid Command, try again.");
-
-		}while(!done);
-
-	
-	}
+//	public void commandInterpreter(PartyComponent goodParty2, PartyComponent enemyParty2)
+//	{
+//		
+//		String input = null;
+//		boolean done = false;
+//		
+//		final int FIRSTWORD = 0;
+//		final int SECONDWORD = 1;
+//
+//		CommandCenter controller = new CommandCenter();
+//	
+//		Scanner keypad = new Scanner(System.in);
+//		Map<String, String> dictionary = new HashMap<String, String>();
+//		
+//		
+//		dictionary.put("change", "valid");
+//		dictionary.put("flee", "valid");
+//		dictionary.put("move","valid");
+//		dictionary.put("join", "valid");
+//		dictionary.put("attack", "valid");
+//		dictionary.put("search","valid");
+//		dictionary.put("pickup", "valid");
+//		dictionary.put("give", "valid");
+//		dictionary.put("help","valid");
+//		dictionary.put("east", "valid");
+//		dictionary.put("west", "valid");
+//		dictionary.put("north", "valid");
+//		dictionary.put("south", "valid");
+//		
+//		System.out.println("You have entered a creepy room");
+//		
+//		do
+//		{
+//			Character character = null;
+//			System.out.println("What is thy bidding?\n");
+//			
+//			input = keypad.nextLine();
+//			String[] commandLine = input.split(" ");
+//			
+//			if(dictionary.containsKey(commandLine[FIRSTWORD]))
+//			{
+//				if(commandLine[FIRSTWORD].equalsIgnoreCase("change"))
+//				{
+//					if(commandLine[SECONDWORD].equalsIgnoreCase("attack"))
+//					{
+//						character = chooseMembers(goodParty);
+//						
+//						System.out.println(character.attackStyle.toString());
+//						AddAttackBehavior changeAttack = new AddAttackBehavior(chooseAttack(),character);
+//						System.out.println(character.attackStyle.toString());
+//						
+//					 	controller.setCommand(changeAttack);
+//					 	controller.sendCommand();
+//					}
+//					if(commandLine[SECONDWORD].equalsIgnoreCase("defense"))
+//					{
+//						character = chooseMembers(goodParty);
+//						
+//						System.out.println(character.defendStyle.toString());
+//						AddDefenseBehavior changeDefense = new AddDefenseBehavior(chooseDefense(),character);
+//						System.out.println(character.defendStyle.toString());
+//
+//					 	controller.setCommand(changeDefense);
+//					 	controller.sendCommand();
+//					}
+//					if(commandLine[SECONDWORD].equalsIgnoreCase("flee"))
+//					{
+//						character = chooseMembers(goodParty);
+//					
+//						System.out.println(character.fleeStyle.toString());
+//						AddFleeBehavior changeFlee = new AddFleeBehavior(chooseFlee(),character);
+//						System.out.println(character.fleeStyle.toString());
+//
+//					 	controller.setCommand(changeFlee);
+//					 	controller.sendCommand();
+//					}
+//				}
+//				else if(commandLine[FIRSTWORD].equalsIgnoreCase("attack"))
+//				{
+//					AddAttack attack = new AddAttack(goodParty,enemyParty); 
+//					controller.setCommand(attack);
+//					controller.sendCommand();					
+//				}
+//				else if(commandLine[FIRSTWORD].equalsIgnoreCase("help"))
+//				{	
+//					System.out.println("Here is the list of possible commands");
+//				}
+//				else if(commandLine[FIRSTWORD].equalsIgnoreCase("search"))
+//				{	
+//					//displayRoomOverview()
+//					//displayDeadGuysInRoom()
+//					//displayRoomItems()
+//					//AddSearch search = new AddSearch(room);
+//
+//					
+//					//search a character for items
+//					//getCharactersList() includes deadCharacters
+//					//get Dead Characters' Items list from a dead character
+//					Character ch = chooseMembers(goodParty);
+//					AddSearch  search = new AddSearch(ch);
+//									
+//					controller.setCommand(search);
+//					controller.sendCommand();
+//					
+//				}
+//				else if(commandLine[FIRSTWORD].equalsIgnoreCase("join"))
+//				{
+//					Character ch = chooseMembers(enemyParty);
+//					AddJoin member = new AddJoin(ch);
+//					controller.setCommand(member);
+//					controller.sendCommand();
+//
+//				}
+//				else if(commandLine[FIRSTWORD].equalsIgnoreCase("pickup"))
+//				{
+//				
+//					//Item item = getRoomItemsList();
+//					
+//					
+//					Item item = null;
+//					Character ch = chooseMembers(goodParty);
+//					AddInventory addedInventoryItem = new AddInventory(item,ch);
+//				
+//					controller.setCommand(addedInventoryItem);
+//					controller.sendCommand();
+//					
+//				}
+//				else if(commandLine[FIRSTWORD].equalsIgnoreCase("flee"))
+//				{
+//					Direction fleeDirection = null;
+//					
+//					if(dictionary.containsKey(commandLine[SECONDWORD]))					
+//					{	
+//						if(commandLine[SECONDWORD].equalsIgnoreCase("north"))
+//						{
+//							AddFlee flee = new AddFlee(fleeDirection);
+//							controller.setCommand(flee);
+//							controller.sendCommand();
+//						}
+//						else if(commandLine[SECONDWORD].equalsIgnoreCase("south"))
+//						{
+//							AddFlee flee = new AddFlee(fleeDirection);
+//							controller.setCommand(flee);
+//							controller.sendCommand();
+//						}
+//						else if(commandLine[SECONDWORD].equalsIgnoreCase("east"))
+//						{
+//							AddFlee flee = new AddFlee(fleeDirection);
+//							controller.setCommand(flee);
+//							controller.sendCommand();
+//						}
+//						else if(commandLine[SECONDWORD].equalsIgnoreCase("west"))
+//						{
+//							AddFlee flee = new AddFlee(fleeDirection);
+//							controller.setCommand(flee);
+//							controller.sendCommand();
+//						}
+//						else
+//							System.out.println("Could not move there!");
+//					}
+//
+//				}
+//				else if(commandLine[FIRSTWORD].equalsIgnoreCase("move"))
+//				{
+//					Direction moveDirection = null;
+//										
+//					if(dictionary.containsKey(commandLine[SECONDWORD]))					
+//					{	
+//						
+//						if(commandLine[SECONDWORD].equalsIgnoreCase("north"))
+//						{
+//							AddMove move = new AddMove(moveDirection);
+//							controller.setCommand(move);
+//							controller.sendCommand();
+//						}
+//						else if(commandLine[SECONDWORD].equalsIgnoreCase("south"))
+//						{
+//							AddMove move = new AddMove(moveDirection);
+//							controller.setCommand(move);
+//							controller.sendCommand();
+//						}
+//						else if(commandLine[SECONDWORD].equalsIgnoreCase("east"))
+//						{
+//							AddMove move = new AddMove(moveDirection);
+//							controller.setCommand(move);
+//							controller.sendCommand();
+//						}
+//						else if(commandLine[SECONDWORD].equalsIgnoreCase("west"))
+//						{
+//							AddMove move = new AddMove(moveDirection);
+//							controller.setCommand(move);
+//							controller.sendCommand();
+//						}
+//						else
+//							System.out.println("Could not move there!");
+//					}
+//
+//				}
+//				else if(commandLine[FIRSTWORD].equalsIgnoreCase("give"))
+//				{
+//				
+//					Character ch1 = chooseMembers(goodParty);
+//					Character ch2 = chooseMembers(goodParty);
+//					Item item = new UserItem("Horse");
+//					
+//					AddGivenItem givenItem = new AddGivenItem(ch1,item, ch2);
+//	
+//					controller.setCommand(givenItem);
+//					controller.sendCommand();
+//					
+//				}
+//			}//end if(word is in dictionary)
+//			
+//			else if(input.equalsIgnoreCase("quit"))
+//			{	
+//				System.out.println("Now quitting.");				
+//				done = true;
+//			}
+//			else
+//			    System.out.println("Invalid Command, try again.");
+//
+//		}while(!done);
+//
+//	
+//	}
 	
 	public Character chooseMembers(PartyComponent anyParty) 
 	{

@@ -1,23 +1,27 @@
 
-public class AddJoin implements Command 
+public class CommandJoin extends Command2
 {
-	private Character newMember;
+	//private Character newMember;
 	
 	
-	public AddJoin(Character unaffiliated)
+	private Game game;
+	
+	public CommandJoin(Game game)
 	{
-		this.newMember = unaffiliated;
+		this.game = game;
+		commandString = "join";
 	}
 	
 	
 	@Override
 	public void execute() 
 	{
-		System.out.println(this.newMember + " was added to party.");
+		game.setWindowText("Member" + " was added to party.");
 	//	this.party.add(this.newMember);
 		
-		System.out.println("Command DOES NOT WORK.  CHECK THE AddJoin.execute() file to fix!");
-		
+		game.setWindowText("Command DOES NOT WORK.  CHECK THE CommandJoin.execute() file to fix!");
+		game.setWindowText("Need to  hero reference handy to add new member.");
+
 		
 	}
 	
