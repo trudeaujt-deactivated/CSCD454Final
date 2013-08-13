@@ -1,6 +1,7 @@
 
 public class MoveEast extends Command2 {
-	public MoveEast(){
+	public MoveEast(Game game){
+		this.game = game;
 		commandString = "move east";
 	}
 	@Override

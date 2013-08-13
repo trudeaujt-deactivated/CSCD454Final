@@ -1,31 +1,45 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.security.Key;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Game {
+public class Game{
 	
 	private static final String 	GAMEFILE = "TestRoom.txt";
 	
 	private Dungeon dungeon;
 	private MainWin window;
+	private CommandCenter2 controller;
 	
 	
 	public Game(){
 		dungeon = null;
 		window = null;
+		controller = null;
 	}
 	
 	public Game(Dungeon dungeon){
 		this.dungeon = dungeon;
 		window = new MainWin();
+		controller = new CommandCenter2(this);
 	}
 	
 	public void begin(){
 		
 		setWindowText(dungeon.getEntryRoom().getDescription());
 		window.setVisible(true);
+		window.getInputArea().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				controller.executeCommand(window.getInputArea().getText());
+			}
+		});
 	}
-
 	public String toString(){
 		return "";
 	}
@@ -45,8 +59,5 @@ public class Game {
 		Game game = new Game(dungeon);
 		game.begin();
 	}
-	
-	
-	
 
 }

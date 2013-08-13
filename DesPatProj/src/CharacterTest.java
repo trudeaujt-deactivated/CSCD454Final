@@ -11,6 +11,7 @@ public class CharacterTest
  	{	
 		
 		CharacterTest characterTest = new CharacterTest();
+		Game game = new Game();
 		/*
  		CharacterRequest testCharacter = new CharacterSpawn();
 		
@@ -56,12 +57,12 @@ public class CharacterTest
 		
 		characterTest.commandInterpreter(characterTest.goodParty, characterTest.enemyParty);
 	*/
-		characterTest.commandInterpreter2();
+		characterTest.commandInterpreter2(game);
  	}
 
-	public void commandInterpreter2(){
+	public void commandInterpreter2(Game game){
 		
-		CommandCenter2 controller = new CommandCenter2();
+		CommandCenter2 controller = new CommandCenter2(game);
 		
 		//these strings are replaced by whatever the user entered
 		controller.executeCommand("move west");

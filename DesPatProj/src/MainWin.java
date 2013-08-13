@@ -1,16 +1,22 @@
 import java.awt.*;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextPane;
+
 import java.awt.Dimension;
+
 import javax.swing.JLabel;
 import javax.swing.JEditorPane;
 import javax.swing.border.LineBorder;
+
 import java.awt.Color;
 import java.awt.event.*;
 
 import javax.swing.JButton;
+
 import java.awt.Font;
 import java.awt.TextArea;
 import java.awt.ScrollPane;
@@ -36,7 +42,7 @@ public class MainWin extends JFrame implements ActionListener
 		
 	private JPanel contentPane;
 	private JTextPane mapArea;
-	private JEditorPane inputArea;
+	private JTextField inputArea;
 	private JLabel lblNewLabel;
 	private JLabel label;
 	private JTextPane outputArea;
@@ -149,7 +155,7 @@ public class MainWin extends JFrame implements ActionListener
 	}
 	private void createInputArea(){
 		//editable area to enter commands
-		inputArea = new JEditorPane();
+		inputArea = new JTextField();
 		inputArea.setText("Enter Commands Here");
 		inputArea.setBounds(LABELSIZE + MAP_AREA_WIDTH, WINHEIGHT- EDIT_AREA_HEIGHT - BORDER, OUTPUT_AREA_WIDTH, EDIT_AREA_HEIGHT);
 		contentPane.add(inputArea);
@@ -203,5 +209,8 @@ public class MainWin extends JFrame implements ActionListener
 	
 	public void setOutput(PrintStream input){
 		outputArea.setText("");
+	}
+	public JTextField getInputArea(){
+		return inputArea;
 	}
 }
