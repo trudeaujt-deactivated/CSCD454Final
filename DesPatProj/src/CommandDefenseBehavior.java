@@ -7,6 +7,7 @@ public class CommandDefenseBehavior extends Command2
 	{
 		this.game = game;
 		commandString = "change defense";
+		
 	}
 	
 	

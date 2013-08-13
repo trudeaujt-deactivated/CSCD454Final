@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /CommandAddInventory.class
 /CommandAttack.class
 /CommandAttackBehavior.class
@@ -26,4 +27,6 @@
 /GameModel.class
 /GameModelInterface.class
 /Game$2.class
+=======
+>>>>>>> branch 'master' of git@github.com:trudeaujt/CSCD454Final.git
 /files
