@@ -11,10 +11,8 @@ public class CommandMoveSouth extends Command2
 	@Override
 	public void execute() 
 	{
-		game.setWindowText("Moving South if I can");
-		game.setWindowText("Method does not work! Modify CommandMoveSouth.execute()");
-
-		/*Your same code here*/
+		game.setCurrentRoom(game.getNextRoom(Direction.SOUTH));
+		game.setWindowText("Executed Move South");
 	}
 
 }

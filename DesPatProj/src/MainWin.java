@@ -164,6 +164,9 @@ public class MainWin extends JFrame implements ActionListener
 		
 
 	}
+	public void clearInput(){
+		inputArea.setText("");
+	}
 	private void setImages(){
 		// useful images off to the right
 		lblNewLabel = new JLabel("<html>Images of...something</html>");
@@ -186,7 +189,7 @@ public class MainWin extends JFrame implements ActionListener
 		
 		//uneditable TextPane to read output
 		outputArea = new JTextPane();
-		outputArea.setText(defaultOutputText());
+		outputArea.setText("");
 		outputArea.setBackground(Color.LIGHT_GRAY);
 		outputArea.setEditable(false);
 		outputArea.setBounds(LABELSIZE + MAP_AREA_WIDTH, TOP, OUTPUT_AREA_WIDTH, OUTPUT_AREA_HEIGHT);
@@ -215,5 +218,9 @@ public class MainWin extends JFrame implements ActionListener
 	}
 	public JTextField getInputArea(){
 		return inputArea;
+	}
+	public void postOutput(String str){
+		String currentText = outputArea.getText();
+		outputArea.setText(currentText + "\n\n"+  str );
 	}
 }

@@ -222,6 +222,12 @@ public class Room {
 
 	public void setConnectingRooms(HashMap<Direction, Room> map){
 		connectingRooms = map;
-
+	}
+	
+	public Room getConnectingRoom(Direction d){
+		if(connectingRooms.containsKey(d))
+			return connectingRooms.get(d);
+		
+		return this;
 	}
 }

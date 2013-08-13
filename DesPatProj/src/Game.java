@@ -16,25 +16,36 @@ public class Game{
 	private Dungeon dungeon;
 	private MainWin window;
 	private CommandCenter2 controller;
+	private PartyComponent playerParty;
+	private Room currentRoom;
+	
 	
 	
 	public Game(){
 		dungeon = null;
 		window = null;
 		controller = null;
+		playerParty = null;
 	}
 	
 	public Game(Dungeon dungeon){
 		this.dungeon = dungeon;
 		window = new MainWin();
 		controller = new CommandCenter2(this);
+		currentRoom = dungeon.getEntryRoom();
 		
 	}
 	
 	public void begin()
 	{
 		
-		setWindowText(dungeon.getEntryRoom().getDescription());
+		window.getInputArea().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e){
+				controller.executeCommand(window.getInputArea().getText());
+				update();
+			}
+		});
 		window.setVisible(true);
 		window.addWindowListener(new WindowAdapter() {
 			public void windowOpened(WindowEvent e){
@@ -42,21 +53,37 @@ public class Game{
 				window.getInputArea().selectAll();
 			}
 		});
-	
-		window.getInputArea().addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e){
-				controller.executeCommand(window.getInputArea().getText());
-			}
-		});
+		update();
 		
 	}
+	
+	public void update(){
+		
+		postWindowText(currentRoom.getDescription());
+		window.clearInput();
+	}
+	
 	public String toString(){
 		return "";
 	}
 	
 	public void setWindowText(String str){
 		window.setOutput(str);
+	}
+	public void postWindowText(String str){
+		window.postOutput(str);
+	}
+	public void setCurrentRoom(Room room){
+		currentRoom = room;
+	}
+	public Room getCurrentRoom(){
+		return currentRoom;
+	}
+	public Room getNextRoom(Direction dir){
+		Room room = currentRoom.getConnectingRoom(dir);
+		if (room == currentRoom)
+			postWindowText("There is no way to go " + dir.toString());
+		return room;
 	}
 	
 	public static void main(String[] args){
@@ -70,5 +97,8 @@ public class Game{
 		Game game = new Game(dungeon);
 		game.begin();
 	}
+	
+	
+	
 
 }

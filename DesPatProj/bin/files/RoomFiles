@@ -1,5 +1,4 @@
 Number of Rooms in File-- int (3)
-
 Name of this room (FirstRoom)
 Size this room 2 integers-- (40 40)
 description of this room However long text description -- ends with '#' on own line

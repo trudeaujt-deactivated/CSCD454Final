@@ -10,10 +10,8 @@ public class CommandMoveWest extends Command2
 	}
 	@Override
 	public void execute() {
-		game.setWindowText("Moving West if I can");
-		game.setWindowText("Method does not work! Modify CommandMoveWest.execute()");
-
-		// TODO Auto-generated method stub
+		game.setCurrentRoom(game.getNextRoom(Direction.WEST));
+		game.setWindowText("Executed Move West");
 
 	}
 

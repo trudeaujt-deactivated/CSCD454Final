@@ -11,10 +11,8 @@ public class CommandMoveNorth extends Command2
 	@Override
 	public void execute() 
 	{
-		game.setWindowText("Moving North if I can");
-		game.setWindowText("Method does not work! Modify CommandMoveNorth.execute()");
-
-		/*Your same code here*/
+		game.setCurrentRoom(game.getNextRoom(Direction.NORTH));
+		game.postWindowText("Executed Move North");
 	}
 
 }
