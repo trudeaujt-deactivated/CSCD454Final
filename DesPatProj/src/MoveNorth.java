@@ -6,7 +6,7 @@ public class MoveNorth extends Command2 {
 	}
 	@Override
 	public void execute() {
-		System.out.println("Moving North if I can");
+		game.setWindowText("Moving North if I can");
 		/*Your same code here*/
 	}
 

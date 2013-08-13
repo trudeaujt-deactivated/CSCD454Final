@@ -8,6 +8,7 @@ public class NullCommand extends Command2 {
 	
 	@Override
 	public void execute() {
+		game.setWindowText("What was that?");
 		
 	}
 

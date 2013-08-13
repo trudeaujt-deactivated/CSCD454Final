@@ -7,7 +7,7 @@ public class MoveWest extends Command2 {
 	}
 	@Override
 	public void execute() {
-		System.out.println("Moving West if I can");
+		game.setWindowText("Moving West if I can");
 		// TODO Auto-generated method stub
 
 	}
