@@ -1,20 +1,19 @@
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random; 
+import java.util.Random;
 
 
-
-public class NameWeak implements Name 
+public class NameWeapon implements Name 
 {
 
 	private String name;
-	private String[] titles = {"Weak", "Frail", "Mauled", "Petty", "Small", "Weathered", "Scarred", 
-			                     "DumbLittle","Small","UnEven", "Insignificant", "Worthless", "Inadequate",
-			                           "Meek","UnStable","Lame", "Bogus","Crappy", "Cheap"};
+	private String[] titles = {"Knife", "Club", "Giant Hammer", "Battle Axe", 
+			                        "Long Sword", "Short Sword", "Broad Sword",
+			                             "Studded Mace"};
 	
 	
-	public NameWeak()
+	public NameWeapon()
 	{
 		
 		this.name = randomGenerator(titles);
@@ -52,3 +51,5 @@ public class NameWeak implements Name
 	}
 
 }
+
+

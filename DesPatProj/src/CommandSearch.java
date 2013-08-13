@@ -1,11 +1,14 @@
 
-public class AddSearch implements Command 
+public class CommandSearch extends Command2
 {
 		
-	public AddSearch(Character deadGuy)
+	private Game game;
+	
+	public CommandSearch(Game game)
 	{
 		//display deadGuy.inventory 
-
+		this.game = game;
+		commandString = "search";
 	}
 
 	
@@ -22,8 +25,9 @@ public class AddSearch implements Command
 	@Override
 	public void execute() 
 	{
-		System.out.println("Calling instance of \ndisplayRoomOverview(), \ndisplayDeadGuys(), \ndisplayRoomItems()");
-		System.out.println("Command DOES NOT WORK.  CHECK THE AddSearch.execute() file to fix!");
+		game.setWindowText("Calling instance of \ndisplayRoomOverview(), \ndisplayDeadGuys(), \ndisplayRoomItems()");
+		game.setWindowText("Command DOES NOT WORK.  CHECK THE AddSearch.execute() file to fix!");
+		game.setWindowText("Need to call displayRoomDescription(), displayCharactersInRoom(), displayRoomItems()");
 	}
 
 }

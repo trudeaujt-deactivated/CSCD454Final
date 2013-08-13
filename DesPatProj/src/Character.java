@@ -14,6 +14,7 @@ public abstract class Character
 	protected AttackBehavior attackStyle;
 	protected DefenseBehavior defendStyle;
 	protected FleeBehavior fleeStyle;
+	protected BonusHitPoints bonus;
 	
 	protected Character(CharacterGenerator factory, String type)
 	{
