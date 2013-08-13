@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Game{
 	
-	private static final String 	GAMEFILE = "TestRoom.txt";
+	private static final String GAMEFILE = "TestRoom.txt";
 	
 	private Dungeon dungeon;
 	private MainWin window;
@@ -37,6 +37,7 @@ public class Game{
 		window.addWindowListener(new WindowAdapter() {
 			public void windowOpened(WindowEvent e){
 				window.getInputArea().requestFocus();
+				window.getInputArea().selectAll();
 			}
 		});
 	
@@ -49,9 +50,6 @@ public class Game{
 			}
 		});
 		
-	}
-	public String toString(){
-		return "";
 	}
 	
 	public void setWindowText(String str){

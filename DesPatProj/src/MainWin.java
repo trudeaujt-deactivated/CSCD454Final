@@ -158,7 +158,7 @@ public class MainWin extends JFrame implements ActionListener
 	private void createInputArea(){
 		//editable area to enter commands
 		inputArea = new JTextField();
-		//inputArea.setText("");
+		inputArea.setText("Enter Commands Here");
 		inputArea.setBounds(LABELSIZE + MAP_AREA_WIDTH, WINHEIGHT- EDIT_AREA_HEIGHT - BORDER, OUTPUT_AREA_WIDTH, EDIT_AREA_HEIGHT);
 		contentPane.add(inputArea);
 		
