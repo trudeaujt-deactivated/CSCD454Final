@@ -10,10 +10,11 @@ come in handy later.
 Healing Potion
 Healing Potion
 #
-North Room 
+Library 
 North
-East Room
-East 
+Empty Corridor
+West
 #
 Test Room
 Test Room
+
