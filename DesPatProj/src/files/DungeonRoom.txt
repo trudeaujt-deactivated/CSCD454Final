@@ -1,8 +1,8 @@
-13
+14
 Entry Hall
-40,40
+40 40
 the north. There is a stone table with some mostly eaten food and huge plates with equally 
-huge utensils. Good luck if you run into whatever was eating with that stuff. You are in
+huge utensils. Good luck if you run into whatever was eating with that stuff. You are in 
 luck, though, as there are two full bottles of healing potion under the table. Those might
 come in handy later.
 #
@@ -15,7 +15,7 @@ Empty Corridor
 West
 #
 Empty Corridor
-40,40
+40 40
 You find yourself staring down an empty corridor a moldy tapestry has fallen
 onto the floor. To the east, is the Entry Hall, and to the west is another room.
 #
@@ -26,7 +26,7 @@ Breezeway
 West
 #
 Shop
-40,40
+40 40
 You enter a greasy shop.  Some of these tools have cobwebs on them, indicating
 that they haven't been used in ages. You think otherwise about using them. Exits are
 to the north, east, and west.
@@ -40,7 +40,7 @@ Weapons Vault
 West
 #
 Weapons Vault
-40,40
+40 40
 A weapons room!  You see a variety of weapons, although most of them have rusted over, some of the choices look promising, you might need to search a little to find something that could be useful. The only exit is the way you came in.
 #
 #
@@ -48,7 +48,7 @@ Shop
 East
 #
 Gate Corridor
-40,40
+40 40
 You find your way to a gate corridor. Nothing special here, other than there are adjacent rooms either north or south.
 #
 #
@@ -56,8 +56,9 @@ Training Area
 North
 Shop
 South
+#
 Training Area
-40,40
+40 40
 Making your way into the Training Area, you feel like you can take on the world!  You take
 a good look around and see that there are a number of trophies for 1st place in prize fighting.  You could spend all day looking at all competitions, won, but you have other things to do.  Your exits include the south, and only the south.
 #
@@ -66,7 +67,7 @@ Gate Corridor
 South
 #
 Library
-40,40
+40 40
 You feel the like your are back in the Academy.  You are surrounded by a multitude of 
 shelves filled with books.  They even have one of those ladders to get to the top shelf.  If only you had the time to read each one, what a difference maker you would be!  You can either return south, or try the door on the west.
 #
@@ -77,7 +78,7 @@ Entry Hall
 South
 #
 Small Hallway
-40,40
+40 40
 This small hallway you have entered is just that, a small hallway.  You look around
 but nothing is interesting.  Perhaps life would be better if you headed north to what looks like a reception area, or east, which is how you entered the Small Hallway.
 #
@@ -88,7 +89,7 @@ Reception Area
 North
 #
 Reception Area
-40,40
+40 40
 You take a seat in the reception area.  There is plenty of comfortable seating, and you take a breather.  As you look around, you can see exits going east or west.
 #
 #
@@ -98,7 +99,7 @@ Mess Hall
 West
 #
 Barracks
-40,40
+40 40
 A disheveled barracks stands before you.  You suspect a surprise attack happened here, some of the deceased are still in their bunks.  From what you can tell, this was somebody's horrific nightmare.  There is a door returning west.
 #
 #
@@ -106,7 +107,7 @@ Reception Area
 West
 #
 Mess Hall
-40,40
+40 40
 No wonder they call it a Mess Hall!  There is rotten food everywhere, the stench is enough to make you gag.  Do what you need to do in here, and get the heck out!  You scan for exits, and see that you can head north for a hallway, or west, which leads to the way you came in.
 #
 #
@@ -116,6 +117,7 @@ Baracks
 East
 #
 Large Hallway
+40 40
 Wonderful. Yet another hallway.  At least you aren't crammed into this one, and for once, it doesn't smell hideous.  You can actually breathe the air here, and notice two doors, one to the east, and one to the west.
 #
 #
@@ -125,6 +127,7 @@ Study
 East
 #
 Study
+40 40
 You have entered a typical Study room.  You see a compilation of maps, books, and reference material.  You see a desk, but the drawers have been removed, somebody was looking for something important. Your can go west, which will take you back into the Large Hallway.
 #
 #
@@ -132,6 +135,7 @@ Large Hallway
 West
 #
 Bedroom
+40 40
 Ahhhh. You see a nice comfy bed, but you decide against sleeping on it.  Based on other findings in this creepy get-up.  Still though it looks tempting and you sit on the bed.  While relaxing, you feel a slight breeze, and notice a secret passage. An escape exit! This is your way out! If you had to, could take the secret passage to the north, or return east, back to the Large Hallway.
 #
 #
@@ -139,3 +143,6 @@ Exit
 North
 Large Hallway
 East
+#
+Entry Hall
+Bedroom

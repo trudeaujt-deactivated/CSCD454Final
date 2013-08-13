@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Game{
 	
-	private static final String GAMEFILE = "TestRoom.txt";
+	private static final String GAMEFILE = "DungeonRoom.txt";
 	
 	private Dungeon dungeon;
 	private MainWin window;

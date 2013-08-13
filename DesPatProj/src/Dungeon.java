@@ -68,10 +68,10 @@ public class Dungeon {
 		ArrayList<Room> ret = new ArrayList<Room>();
 		Scanner scan = Util.readFile(filename);
 		numRooms = scan.nextInt();
-		
+		scan.nextLine();
 		for(i = 0; i < numRooms; i++){
-			scan.nextLine();
 			name = scan.nextLine();
+			System.out.println("name is " + name);
 			xSize = scan.nextInt();
 			ySize = scan.nextInt();
 			Room currentRoom = new Room(xSize, ySize, name);
