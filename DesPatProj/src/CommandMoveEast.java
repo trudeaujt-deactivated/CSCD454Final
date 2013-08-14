@@ -15,7 +15,6 @@ public class CommandMoveEast extends Command2
 		game.setCurrentRoom(game.getNextRoom(Direction.EAST));
 		game.postWindowText("Executed Move East");
 
-		/*Your code here*/
 	}
 
 }

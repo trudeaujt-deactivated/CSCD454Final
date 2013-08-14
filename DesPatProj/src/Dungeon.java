@@ -64,6 +64,8 @@ public class Dungeon {
 	public ArrayList<Room> dungeonFile(String filename){
 		int i, numRooms, xSize, ySize;
 		String name, desc;
+		HashMap<Room, ArrayList<String>> roomMap = 
+				new HashMap<Room, ArrayList<String>>();
 		
 		ArrayList<Room> ret = new ArrayList<Room>();
 		Scanner scan = Util.readFile(filename);
@@ -71,7 +73,7 @@ public class Dungeon {
 		scan.nextLine();
 		for(i = 0; i < numRooms; i++){
 			name = scan.nextLine();
-			System.out.println("name is " + name);
+			//System.out.println("name is " + name);
 			xSize = scan.nextInt();
 			ySize = scan.nextInt();
 			Room currentRoom = new Room(xSize, ySize, name);
@@ -80,7 +82,8 @@ public class Dungeon {
 			/*need to read the items and store them somewhere
 			 * this call gets through that part of the file*/
 			readItems(scan);
-			currentRoom.setConnectingRooms(readRooms(scan));
+			roomMap.put(currentRoom.getName(), anArraylist of names of connectingRooms);
+			//currentRoom.setConnectingRooms(readRooms(scan));
 			rooms.add(currentRoom);
 		}
 		
@@ -89,6 +92,7 @@ public class Dungeon {
 		
 		return ret;
 	}
+	
 	private String readDescription(Scanner scan){
 		StringBuilder str = new StringBuilder();
 		String check = "";
