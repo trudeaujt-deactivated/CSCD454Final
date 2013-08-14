@@ -21,7 +21,7 @@ public class Dungeon {
 	public Dungeon(String filename){
 		rooms = new ArrayList<Room>();
 		//sets entry and exit as well
-		rooms = dungeonFile(filename);
+		dungeonFile(filename);
 	}
 
 	public void setEntryRoom(Room entry){
@@ -61,12 +61,16 @@ public class Dungeon {
 	}
 	
 	
-	public ArrayList<Room> dungeonFile(String filename){
+	public void dungeonFile(String filename){
 		int i, numRooms, xSize, ySize;
 		String name, desc;
+
 		HashMap<Room, ArrayList<String>> roomMap = 
 				new HashMap<Room, ArrayList<String>>();
-		
+
+		HashMap<String, ArrayList<TempRoom>> tempMap = 
+				new HashMap<String, ArrayList<TempRoom>>();
+
 		ArrayList<Room> ret = new ArrayList<Room>();
 		Scanner scan = Util.readFile(filename);
 		numRooms = scan.nextInt();
@@ -82,17 +86,71 @@ public class Dungeon {
 			/*need to read the items and store them somewhere
 			 * this call gets through that part of the file*/
 			readItems(scan);
-			roomMap.put(currentRoom.getName(), anArraylist of names of connectingRooms);
+			tempMap.put(currentRoom.getName(), connectingRoomList(scan));
 			//currentRoom.setConnectingRooms(readRooms(scan));
+			System.out.println("Adding Room:" + currentRoom.getName());
 			rooms.add(currentRoom);
 		}
-		
+		ArrayList<TempRoom> tempConnectingRooms;
+
+		for(Room r:rooms){
+			//get the roomname and direction and use that to fill roomMap
+			HashMap<Direction, Room> map = new HashMap<Direction, Room>();
+			Direction dir;
+			Room room;
+			name = r.getName();
+			tempConnectingRooms = tempMap.get(name);
+			System.out.println("in the for loop");
+			for(TempRoom t:tempConnectingRooms){
+				System.out.println("looking for " + t.roomName);
+				map.put(t.dir, rooms.get(findRoom(t.roomName)));
+			}	
+
+			r.setConnectingRooms(map);
+		}
+
 		entryRoom = rooms.get(findRoom(scan.nextLine()));
 		exitRoom = rooms.get(findRoom(scan.nextLine()));
-		
-		return ret;
+
+		for(Room r:rooms)
+			System.out.println(r.listConnectingRooms());
+
 	}
-	
+	private ArrayList<TempRoom> connectingRoomList(Scanner scan){
+		ArrayList<TempRoom> rooms = new ArrayList<TempRoom>();
+		boolean done = false;
+		String check;
+		Direction dir;
+		while(!done){
+			check = scan.nextLine();
+			if(check.contains("#") == false){
+				dir = findDirection(scan.nextLine());
+				rooms.add(new TempRoom(check, dir));
+				//System.out.println("Created roomName:" + check + "\ndir:" + dir.toString()+ "\n\n");
+			}
+			else
+				done = true;
+		}
+
+		return rooms;
+	}
+	private class TempRoom{
+		private String roomName;
+		private Direction dir;
+
+		public TempRoom(String room, Direction dir){
+			this.roomName = room;
+			this.dir = dir;
+		}
+		public String getRoomName(){
+			return roomName;
+		}
+		public Direction getDirection(){
+			return dir;
+		}
+		
+		
+	}
 	private String readDescription(Scanner scan){
 		StringBuilder str = new StringBuilder();
 		String check = "";
@@ -121,22 +179,14 @@ public class Dungeon {
 		}			
 		return item;
 	}
-	
+/*	
 	private HashMap<Direction, Room> readRooms(Scanner scan){
 		String check = "";
-		HashMap<Direction, Room> map = new HashMap<Direction, Room>();
-		Direction dir;
-		Room room;
 		boolean done = false;
 		while(!done){
 			check = scan.nextLine();
 			if(check.contains("#") == false){
 				dir = findDirection(check);
-				int index = findRoom(scan.nextLine());
-				if(index > 0)
-				{
-					room = rooms.get(index);
-					map.put(dir, room);
 				}
 			}
 			else
@@ -145,6 +195,7 @@ public class Dungeon {
 		return map;
 		
 	}
+	*/
 	private Direction findDirection(String str){
 		
 		if(str.toUpperCase().equals("NORTH"))

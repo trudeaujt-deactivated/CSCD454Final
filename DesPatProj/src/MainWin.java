@@ -2,6 +2,7 @@ import java.awt.*;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextPane;
@@ -47,6 +48,7 @@ public class MainWin extends JFrame implements ActionListener
 	private JLabel lblNewLabel;
 	private JLabel label;
 	private JTextPane outputArea;
+	private JScrollPane scrollPane;
 	private JLabel label_1;
 	private Scanner emptyMapInfile;
 	
@@ -189,6 +191,7 @@ public class MainWin extends JFrame implements ActionListener
 		
 		//uneditable TextPane to read output
 		outputArea = new JTextPane();
+		
 		outputArea.setText("");
 		outputArea.setBackground(Color.LIGHT_GRAY);
 		outputArea.setEditable(false);

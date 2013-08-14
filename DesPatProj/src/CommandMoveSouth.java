@@ -12,7 +12,7 @@ public class CommandMoveSouth extends Command2
 	public void execute() 
 	{
 		game.setCurrentRoom(game.getNextRoom(Direction.SOUTH));
-		game.setWindowText("Executed Move South");
+		game.postWindowText("Executed Move South");
 	}
 
 }

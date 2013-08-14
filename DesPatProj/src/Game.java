@@ -71,7 +71,9 @@ public class Game{
 		window.setOutput(str);
 	}
 	public void postWindowText(String str){
-		window.postOutput(str);
+		//can't get this right...diverting for now
+		//window.postOutput(str);
+		setWindowText(str);
 	}
 	public void setCurrentRoom(Room room){
 		currentRoom = room;

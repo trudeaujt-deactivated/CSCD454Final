@@ -11,7 +11,7 @@ public class CommandMoveWest extends Command2
 	@Override
 	public void execute() {
 		game.setCurrentRoom(game.getNextRoom(Direction.WEST));
-		game.setWindowText("Executed Move West");
+		game.postWindowText("Executed Move West");
 
 	}
 

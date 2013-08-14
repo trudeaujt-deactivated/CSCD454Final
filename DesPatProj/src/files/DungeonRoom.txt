@@ -23,7 +23,7 @@ onto the floor. To the east, is the Entry Hall, and to the west is another room.
 #
 Entry Hall
 East
-Breezeway
+Shop
 West
 #
 Shop
@@ -114,7 +114,7 @@ No wonder they call it a Mess Hall!  There is rotten food everywhere, the stench
 #
 Large Hallway
 North
-Baracks
+Barracks
 East
 #
 Large Hallway
@@ -140,8 +140,6 @@ Bedroom
 Ahhhh. You see a nice comfy bed, but you decide against sleeping on it.  Based on other findings in this creepy get-up.  Still though it looks tempting and you sit on the bed.  While relaxing, you feel a slight breeze, and notice a secret passage. An escape exit! This is your way out! If you had to, could take the secret passage to the north, or return east, back to the Large Hallway.
 #
 #
-Exit
-North
 Large Hallway
 East
 #

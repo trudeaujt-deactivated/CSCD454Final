@@ -23,7 +23,7 @@ public class Room {
 
 	private String name;
 	private String description;
-	private HashMap<Direction, Room>connectingRooms;
+	private HashMap<Direction, Room> connectingRooms;
 	private Tile[][] grid;
 	private char[][] displayedGrid;
 
@@ -229,5 +229,22 @@ public class Room {
 			return connectingRooms.get(d);
 		
 		return this;
+	}
+	public String listConnectingRooms(){
+		StringBuilder ret = new StringBuilder();
+	
+		if(connectingRooms.containsKey(Direction.NORTH))
+			ret.append(connectingRooms.get(Direction.NORTH).getName() + "is to the North\n");
+			
+		if(connectingRooms.containsKey(Direction.SOUTH))
+			ret.append(connectingRooms.get(Direction.SOUTH).getName() + "is to the South\n");
+
+		if(connectingRooms.containsKey(Direction.EAST))
+			ret.append(connectingRooms.get(Direction.EAST).getName() + "is to the East\n");
+
+		if(connectingRooms.containsKey(Direction.WEST))
+			ret.append(connectingRooms.get(Direction.WEST).getName() + "is to the West\n");
+
+		return ret.toString();
 	}
 }
