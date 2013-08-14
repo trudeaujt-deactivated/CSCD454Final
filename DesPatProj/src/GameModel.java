@@ -4,7 +4,7 @@
 public class GameModel implements GameModelInterface {
 
 	/** the file to read maps and actor info from */
-	private static final String GAMEFILE = "TestRoom.txt";
+	private static final String GAMEFILE = "DungeonRoom.txt";
 	
 	private GameControllerInterface controller;
 	
@@ -15,6 +15,7 @@ public class GameModel implements GameModelInterface {
 	public GameModel() {
 		
 		dungeon = new Dungeon(GAMEFILE);
+		currentRoom = dungeon.getEntryRoom();
 		
 	}
 	
@@ -47,7 +48,7 @@ public class GameModel implements GameModelInterface {
     	
     }
     
-    public Room getCurrentRoom(Room room) {
+    public Room getCurrentRoom() {
     	
     	return currentRoom;
     	

@@ -12,5 +12,6 @@ public interface GameModelInterface {
 	Room getNextRoom(Direction dir);
 
 	void setCurrentRoom(Room room);
+	public Room getCurrentRoom();
 
 }

@@ -103,7 +103,6 @@ public class Dungeon {
 			Room room;
 			name = r.getName();
 			tempConnectingRooms = tempMap.get(name);
-			System.out.println("in the for loop");
 			for(TempRoom t:tempConnectingRooms){
 				System.out.println("looking for " + t.roomName);
 				map.put(t.dir, rooms.get(findRoom(t.roomName)));
