@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 /**
+ * @deprecated - please use Dungeon instead!
  * Facade for the Room class, allows the displayed room to be swapped.
  * 
  * @author Jonathan Trudeau

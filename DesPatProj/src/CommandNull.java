@@ -1,18 +1,18 @@
 
 public class CommandNull extends Command 
 {
+
 	
-	public CommandNull()
-	{
-	commandString = "no command";
+	public CommandNull(GameControllerInterface gci){
+		this.controller = gci;
+		commandString = "no command";
+		
 	}
 	
 	@Override
-	public void execute() 
-	{
-		System.out.println("Not a command, try again or type help");
-		System.out.println("Probably works, returns a null command.");
-
+	public void execute() {
+		controller.postWindowText("What was that?");
+		
 	}
 
 }

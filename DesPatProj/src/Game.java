@@ -8,7 +8,12 @@ import java.security.Key;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
+/**
+ * 
+ * @deprecated - please use GameModel instead
+ * feel free to move anything you think we will need from Game into GameModel
+ *
+ */
 public class Game{
 	
 	private static final String GAMEFILE = "DungeonRoom.txt";
@@ -31,7 +36,8 @@ public class Game{
 	public Game(Dungeon dungeon){
 		this.dungeon = dungeon;
 		window = new MainWin();
-		controller = new CommandCenter(this);
+	//	controller = new CommandCenter(this);
+		//controller = new CommandCenter2(this);
 		currentRoom = dungeon.getEntryRoom();
 		
 	}

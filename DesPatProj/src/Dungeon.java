@@ -8,7 +8,7 @@ public class Dungeon {
 	ArrayList<Room> rooms;
 	Room entryRoom;
 	Room exitRoom;
-	
+
 	public Dungeon(){
 		rooms = new ArrayList<Room>();
 		entryRoom = null;
@@ -36,12 +36,15 @@ public class Dungeon {
 		rooms.add(toAdd);
 	}
 	
+
+	
 	public Room getRoom(String name){
 		int index = 0;
 		assert((index = findRoom(name)) >= 0);
 		return rooms.get(index);
 		
 	}
+	
 	public int findRoom(String name){
 		for(Room r:rooms){
 			if(r.getName().equalsIgnoreCase(name))

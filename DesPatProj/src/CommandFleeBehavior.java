@@ -4,7 +4,6 @@ public class CommandFleeBehavior extends Command
 //	FleeBehavior behave;
 //	Character character;
 	
-	private Game game;
 //	public CommandFleeBehavior(FleeBehavior behavior, Character being)
 //	{
 //		this.behave = behavior;
@@ -12,9 +11,9 @@ public class CommandFleeBehavior extends Command
 //	}
 //	
 	
-	public CommandFleeBehavior(Game game)
+	public CommandFleeBehavior(GameControllerInterface gci)
 	{
-		this.game = game;
+		controller = gci;
 		commandString = "change flee";
 	}
 	@Override
@@ -22,7 +21,7 @@ public class CommandFleeBehavior extends Command
 	{
 		
 	//		character.setFleeStyle(this.behave);
-			game.setWindowText("Command does not work need to chooseMember() and chooseBehavior()!");
+			controller.setWindowText("Command does not work need to chooseMember() and chooseBehavior()!");
 	}
 
 }

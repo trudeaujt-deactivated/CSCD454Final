@@ -1,11 +1,7 @@
 
 public class CommandAddInventory extends Command
 {
-	private Game game;
-	
 	private GameControllerInterface controller;
-	
-	
 	
 	public CommandAddInventory(GameControllerInterface gci)
 	{
@@ -26,8 +22,8 @@ public class CommandAddInventory extends Command
 	//	player.inventory.add(this.item);
 		
 		
-		game.setWindowText("Command DOES NOT WORK.  CHECK THE CommandAddInventory.execute() file to fix!");
-		game.setWindowText("Need to call displayRoomItems(), to select item,"+
+		controller.setWindowText("Command DOES NOT WORK.  CHECK THE CommandAddInventory.execute() file to fix!");
+		controller.setWindowText("Need to call displayRoomItems(), to select item,"+
 		 "chooseMember() to select which player CommandAddInventory().");
 	}
 	

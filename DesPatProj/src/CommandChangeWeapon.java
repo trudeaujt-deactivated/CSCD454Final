@@ -2,18 +2,17 @@
 public class CommandChangeWeapon extends Command 
 {
 	//CommandCenter2 command;
-	private Game game;
 	
-	public CommandChangeWeapon(Game game)
+	public CommandChangeWeapon(GameControllerInterface gci)
 	{
-		this.game = game;
+		controller = gci;
 		commandString = "change weapon";
 	}
 	@Override
 	public void execute() 
 	{
 
-		game.setWindowText("change weapon not fixed, go to CommandChangeWeapon.execute()!");
+		controller.setWindowText("change weapon not fixed, go to CommandChangeWeapon.execute()!");
 	}
 
 }

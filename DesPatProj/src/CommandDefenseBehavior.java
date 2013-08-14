@@ -1,11 +1,10 @@
 
 public class CommandDefenseBehavior extends Command 
 {
-	private Game game;
 	
-	public CommandDefenseBehavior(Game game)
+	public CommandDefenseBehavior(GameControllerInterface gci)
 	{
-		this.game = game;
+		controller = gci;
 		commandString = "change defense";
 		
 	}
@@ -20,11 +19,11 @@ public class CommandDefenseBehavior extends Command
 	@Override
 	public void execute() 
 	{
-		game.setWindowText("Command does NOT WORK!");
+		controller.setWindowText("Command does NOT WORK!");
 
 		//	character.setDefendStyle(this.behave);
 
-		game.setWindowText("Need to chooseMember() and chooseDefense()");
+		controller.setWindowText("Need to chooseMember() and chooseDefense()");
 	}
 
 }

@@ -1,18 +1,17 @@
 
 public class CommandMoveNorth extends Command 
 {
-	private Game game;
 	
-	public CommandMoveNorth(Game game)
+	public CommandMoveNorth(GameControllerInterface gci)
 	{
 		commandString = "move north";
-		this.game = game;
+		controller = gci;
 	}
 	@Override
 	public void execute() 
 	{
-		game.setCurrentRoom(game.getNextRoom(Direction.NORTH));
-		game.postWindowText("Executed Move North");
+		controller.setCurrentRoom(controller.getNextRoom(Direction.NORTH));
+		controller.postWindowText("Executed Move North");
 	}
 
 }

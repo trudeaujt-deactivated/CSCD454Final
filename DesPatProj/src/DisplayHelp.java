@@ -1,10 +1,9 @@
 public class DisplayHelp extends Command 
 {	
-	private Game game;
 
-	public DisplayHelp(Game game)
+	public DisplayHelp(GameControllerInterface gci)
 	{
-		this.game = game;
+		controller = gci;
 		this.commandString = "help";
 		
 	}
@@ -12,7 +11,7 @@ public class DisplayHelp extends Command
 	@Override
 	public void execute() 
 	{
-		game.setWindowText("\n\n\n"+
+		controller.setWindowText("\n\n\n"+
 		"change defense"+
 		"\tchange attack"+
 		"\tchange flee"+

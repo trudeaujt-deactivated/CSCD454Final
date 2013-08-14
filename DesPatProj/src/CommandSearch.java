@@ -1,13 +1,11 @@
 
 public class CommandSearch extends Command
 {
-		
-	private Game game;
 	
-	public CommandSearch(Game game)
+	public CommandSearch(GameControllerInterface gci)
 	{
 		//display deadGuy.inventory 
-		this.game = game;
+		controller = gci;
 		commandString = "search";
 	}
 
@@ -25,9 +23,9 @@ public class CommandSearch extends Command
 	@Override
 	public void execute() 
 	{
-		game.setWindowText("Calling instance of \ndisplayRoomOverview(), \ndisplayDeadGuys(), \ndisplayRoomItems()");
-		game.setWindowText("Command DOES NOT WORK.  CHECK THE AddSearch.execute() file to fix!");
-		game.setWindowText("Need to call displayRoomDescription(), displayCharactersInRoom(), displayRoomItems()");
+		controller.setWindowText("Calling instance of \ndisplayRoomOverview(), \ndisplayDeadGuys(), \ndisplayRoomItems()");
+		controller.setWindowText("Command DOES NOT WORK.  CHECK THE AddSearch.execute() file to fix!");
+		controller.setWindowText("Need to call displayRoomDescription(), displayCharactersInRoom(), displayRoomItems()");
 	}
 
 }

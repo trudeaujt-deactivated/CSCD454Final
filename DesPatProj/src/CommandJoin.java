@@ -3,12 +3,9 @@ public class CommandJoin extends Command
 {
 	//private Character newMember;
 	
-	
-	private Game game;
-	
-	public CommandJoin(Game game)
+	public CommandJoin(GameControllerInterface gci)
 	{
-		this.game = game;
+		controller = gci;
 		commandString = "join";
 	}
 	
@@ -16,11 +13,11 @@ public class CommandJoin extends Command
 	@Override
 	public void execute() 
 	{
-		game.setWindowText("Member" + " was added to party.");
+		controller.setWindowText("Member" + " was added to party.");
 	//	this.party.add(this.newMember);
 		
-		game.setWindowText("Command DOES NOT WORK.  CHECK THE CommandJoin.execute() file to fix!");
-		game.setWindowText("Need to  hero reference handy to add new member.");
+		controller.setWindowText("Command DOES NOT WORK.  CHECK THE CommandJoin.execute() file to fix!");
+		controller.setWindowText("Need to  hero reference handy to add new member.");
 
 		
 	}

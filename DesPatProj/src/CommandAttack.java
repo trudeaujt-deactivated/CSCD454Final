@@ -1,9 +1,9 @@
 
 public class CommandAttack extends Command
 {
-	public CommandAttack(Game game)
+	public CommandAttack(GameControllerInterface gci)
 	{
-		this.game = game;
+		this.controller = gci;
 		commandString = "attack";
 	}
 
@@ -12,9 +12,9 @@ public class CommandAttack extends Command
 	public void execute() 
 	{
 		
-		game.setWindowText("Attacking whatever I can find");
-		game.setWindowText("Calling instance of battle here or performing single attack.");
-		game.setWindowText("Command DOES NOT WORK.  CHECK THE CommandAttack.execute() file to fix!");
+		controller.setWindowText("Attacking whatever I can find");
+		controller.setWindowText("Calling instance of battle here or performing single attack.");
+		controller.setWindowText("Command DOES NOT WORK.  CHECK THE CommandAttack.execute() file to fix!");
 		/*Your same code here*/
 		
 	}

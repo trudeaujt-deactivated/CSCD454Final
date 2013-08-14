@@ -8,8 +8,8 @@ public class NameItem implements Name
 {
 	
 	private String name;
-	private String[] items = {"Ring","Attack Scroll", "Amulet","Lucky Coin", "Attack Gloves", "Pendant",
-				                       "Attack Helmet", "Strength Medallion","Charm", "Talisman", "Token", 
+	private String[] items = {"Ring","Attack Scroll", "Amulet", "Lucky Coin", "Attack Gloves", "Pendant",
+				                       "Attack Helmet", "Strength Medallion", "Charm", "Talisman", "Token", 
 				                       };
 			
 		public NameItem(){

@@ -9,4 +9,8 @@ public interface GameModelInterface {
 	
 	String toString();
 
+	Room getNextRoom(Direction dir);
+
+	void setCurrentRoom(Room room);
+
 }

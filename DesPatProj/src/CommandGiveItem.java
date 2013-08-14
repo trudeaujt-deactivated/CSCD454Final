@@ -12,11 +12,9 @@ public class CommandGiveItem extends Command
 //		this.item = item;
 //	}
 	
-	private Game game;
-	
-	public CommandGiveItem(Game game)
+	public CommandGiveItem(GameControllerInterface gci)
 	{
-		this.game = game;
+		controller = gci;
 		commandString = "give";
 	}
 	
@@ -27,8 +25,8 @@ public class CommandGiveItem extends Command
 	//	receiver.inventory.add(this.item);
 	//	receiver.inventory.remove(this.item);
 		
-		game.setWindowText("Command DOES NOT WORK.  CHECK THE CommandGiveItem.execute() file to fix!");
-		game.setWindowText("Call chooseMember(), chooseMember() member.displayInventory() selectItem()" +
+		controller.setWindowText("Command DOES NOT WORK.  CHECK THE CommandGiveItem.execute() file to fix!");
+		controller.setWindowText("Call chooseMember(), chooseMember() member.displayInventory() selectItem()" +
 		   "item.remove()  member.addItem(item)");
 
 	}
