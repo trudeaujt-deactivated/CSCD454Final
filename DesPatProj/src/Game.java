@@ -15,7 +15,7 @@ public class Game{
 	
 	private Dungeon dungeon;
 	private MainWin window;
-	private CommandCenter2 controller;
+	private CommandCenter controller;
 	private PartyComponent playerParty;
 	private Room currentRoom;
 	
@@ -31,7 +31,7 @@ public class Game{
 	public Game(Dungeon dungeon){
 		this.dungeon = dungeon;
 		window = new MainWin();
-		controller = new CommandCenter2(this);
+		controller = new CommandCenter(this);
 		currentRoom = dungeon.getEntryRoom();
 		
 	}

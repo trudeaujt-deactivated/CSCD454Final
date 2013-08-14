@@ -38,21 +38,12 @@ public class FactoryAverage implements CharacterGenerator
 		return new RaceType(name);
 	}
 
-	
-	
-	@Override
-	public Leftovers createLeftOvers() 
-	{
-
-		return null;
-	}
-
-
 
 	@Override
 	public String toString() {
 		return "AverageFactory";
 	}
+	
 	@Override
 	public AttackBehavior createAttackBehavior(){
 

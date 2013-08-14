@@ -1,5 +1,5 @@
 
-public class CommandAttackBehavior extends Command2
+public class CommandAttackBehavior extends Command
 {
 //	AttackBehavior behave;
 //	Character character;

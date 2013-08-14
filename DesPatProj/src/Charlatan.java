@@ -5,5 +5,8 @@ public class Charlatan extends Character
 	public Charlatan(CharacterGenerator factory, String string)
 	{
 		super(factory, string);
+		inventory.add(new HealingPotion());
+		inventory.add(new HealingPotion());
+
 	}
 }

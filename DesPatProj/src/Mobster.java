@@ -6,6 +6,8 @@ public class Mobster extends Character
 	public Mobster(CharacterGenerator factory, String string)
 	{
 		super(factory, string);
+		inventory.add(new ItemUser());
+		inventory.add(new ItemWeapon());
 	}
 
 }

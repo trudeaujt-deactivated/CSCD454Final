@@ -5,6 +5,7 @@ public abstract class Health
 	
 
 	public abstract int createHealth();
+	
 	public void setHitPoints(int hp){
 		hitPoints = hp;
 	}

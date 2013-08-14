@@ -1,5 +1,5 @@
 
-public class CommandAttack extends Command2
+public class CommandAttack extends Command
 {
 	public CommandAttack(Game game)
 	{

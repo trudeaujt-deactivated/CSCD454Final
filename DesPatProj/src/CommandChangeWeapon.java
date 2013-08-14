@@ -1,5 +1,5 @@
 
-public class CommandChangeWeapon extends Command2 
+public class CommandChangeWeapon extends Command 
 {
 	//CommandCenter2 command;
 	private Game game;

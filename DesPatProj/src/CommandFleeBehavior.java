@@ -1,5 +1,5 @@
 
-public class CommandFleeBehavior extends Command2
+public class CommandFleeBehavior extends Command
 {
 //	FleeBehavior behave;
 //	Character character;
@@ -20,7 +20,7 @@ public class CommandFleeBehavior extends Command2
 	@Override
 	public void execute() 
 	{
-
+		
 	//		character.setFleeStyle(this.behave);
 			game.setWindowText("Command does not work need to chooseMember() and chooseBehavior()!");
 	}

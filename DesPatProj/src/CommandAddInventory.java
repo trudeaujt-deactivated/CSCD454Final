@@ -1,27 +1,28 @@
 
-public class CommandAddInventory extends Command2
+public class CommandAddInventory extends Command
 {
-//	private Item item;
-//	private Character player;
-	
-//	public CommandAddInventory(Item pickedUpItem, Character character)
-//	{
-//		this.player = character;
-//		this.item = pickedUpItem;
-//	}
-
 	private Game game;
 	
-	public CommandAddInventory(Game game)
+	private GameControllerInterface controller;
+	
+	
+	
+	public CommandAddInventory(GameControllerInterface gci)
 	{
-		this.game = game;
+		this.controller = gci;
 		commandString = "pickup";
 	}
 	
 	@Override
 	public void execute() 
 	{
-	//	System.out.println(this.player +" has added" + this.item + "to their inventory.");
+		//here is your access variable....controller.getParty()
+		
+		
+	//	controller.addInventory();
+		
+		
+		//	System.out.println(this.player +" has added" + this.item + "to their inventory.");
 	//	player.inventory.add(this.item);
 		
 		

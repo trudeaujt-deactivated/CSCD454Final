@@ -1,5 +1,5 @@
 
-public class CommandGiveItem extends Command2 
+public class CommandGiveItem extends Command 
 {
 //	Character giver;
 //	Character receiver;

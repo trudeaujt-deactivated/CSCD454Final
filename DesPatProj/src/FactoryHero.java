@@ -35,14 +35,6 @@ public class FactoryHero implements CharacterGenerator
 
 	
 	@Override
-	public Leftovers createLeftOvers() 
-	{
-
-		return new LeftoverItem();
-	}
-
-	
-	@Override
 	public String toString()
 	{
 		

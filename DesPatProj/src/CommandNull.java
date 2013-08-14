@@ -1,5 +1,5 @@
 
-public class CommandNull extends Command2 
+public class CommandNull extends Command 
 {
 	
 	public CommandNull()

@@ -1,5 +1,5 @@
 
-public class NullCommand extends Command2 {
+public class NullCommand extends Command {
 	
 	public NullCommand(Game game){
 		this.game = game;

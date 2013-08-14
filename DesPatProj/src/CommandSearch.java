@@ -1,5 +1,5 @@
 
-public class CommandSearch extends Command2
+public class CommandSearch extends Command
 {
 		
 	private Game game;

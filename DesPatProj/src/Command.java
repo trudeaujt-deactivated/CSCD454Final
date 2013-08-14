@@ -1,5 +1,14 @@
 
-public interface Command 
+public abstract class Command 
 {
-	public void execute();
+	protected String commandString;
+	protected Game game;
+	
+	public abstract void execute();
+	
+	public String getCommand()
+	{
+		return commandString;
+	}
+
 }

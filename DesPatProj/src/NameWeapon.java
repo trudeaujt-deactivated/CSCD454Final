@@ -10,8 +10,7 @@ public class NameWeapon implements Name
 	private String name;
 	private String[] titles = {"Knife", "Club", "Giant Hammer", "Battle Axe", 
 			                        "Long Sword", "Short Sword", "Broad Sword",
-			                             "Studded Mace"};
-	
+			                             "Studded Mace", "Flail", };
 	
 	public NameWeapon()
 	{

@@ -1,5 +1,5 @@
 
-public class CommandDefenseBehavior extends Command2 
+public class CommandDefenseBehavior extends Command 
 {
 	private Game game;
 	

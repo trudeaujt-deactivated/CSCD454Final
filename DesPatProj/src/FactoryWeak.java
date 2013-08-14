@@ -38,14 +38,6 @@ public class FactoryWeak implements CharacterGenerator
 	
 	
 	@Override
-	public Leftovers createLeftOvers() 
-	{
-
-		return null;
-	}
-	
-	
-	@Override
 	public String toString() {
 		return "WeakFactory";
 	}

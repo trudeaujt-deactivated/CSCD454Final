@@ -1,5 +1,5 @@
 
-public class CommandMoveSouth extends Command2 
+public class CommandMoveSouth extends Command 
 {
 	private Game game;
 	

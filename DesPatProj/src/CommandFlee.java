@@ -1,5 +1,5 @@
 
-public class CommandFlee extends Command2 
+public class CommandFlee extends Command 
 {
 	private Direction direction;
 	

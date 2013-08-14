@@ -1,5 +1,5 @@
 
-public class AttackCommand extends Command2 
+public class AttackCommand extends Command 
 {
 	public AttackCommand()
 	{

@@ -1,5 +1,5 @@
 
-public class CommandJoin extends Command2
+public class CommandJoin extends Command
 {
 	//private Character newMember;
 	

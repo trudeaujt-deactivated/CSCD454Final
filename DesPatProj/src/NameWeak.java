@@ -9,9 +9,9 @@ public class NameWeak implements Name
 {
 
 	private String name;
-	private String[] titles = {"Weak", "Frail", "Mauled", "Petty", "Small", "Weathered", "Scarred", 
+	private String[] titles = {"Weak", "Frail", "Mauled", "Petty", "Small", "Weathered", "Terrible", 
 			                     "DumbLittle","Small","UnEven", "Insignificant", "Worthless", "Inadequate",
-			                           "Meek","UnStable","Lame", "Bogus","Crappy", "Cheap"};
+			                           "Meek","UnStable","Lame", "Bogus","Crappy", "Cheap", "Lousy"};
 	
 	
 	public NameWeak()

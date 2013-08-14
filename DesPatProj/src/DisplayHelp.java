@@ -1,4 +1,4 @@
-public class DisplayHelp extends Command2 
+public class DisplayHelp extends Command 
 {	
 	private Game game;
 
