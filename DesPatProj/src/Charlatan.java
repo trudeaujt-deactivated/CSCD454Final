@@ -1,4 +1,4 @@
-public class Charlatan extends Character 
+public class Charlatan extends Character
 {
 	//recommended behavior(s)  (http://en.wikipedia.org/wiki/Charlatan)
 
@@ -9,4 +9,5 @@ public class Charlatan extends Character
 		inventory.add(new HealingPotion());
 
 	}
+
 }

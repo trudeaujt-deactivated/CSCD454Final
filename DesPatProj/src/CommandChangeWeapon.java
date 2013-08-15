@@ -5,7 +5,7 @@ public class CommandChangeWeapon extends Command
 	
 	public CommandChangeWeapon(GameControllerInterface gci)
 	{
-		controller = gci;
+		controller = (GameController)gci;
 		commandString = "change weapon";
 	}
 	@Override

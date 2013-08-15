@@ -26,6 +26,7 @@ public class Room {
 	private HashMap<Direction, Room> connectingRooms;
 	private Tile[][] grid;
 	private char[][] displayedGrid;
+	private Party enemyParty = new Party();
 
 	private List<Tile> actorList = new ArrayList<Tile>();
 	private List<Tile> itemList = new ArrayList<Tile>();
@@ -71,6 +72,12 @@ public class Room {
 
 		else throw new IndexOutOfBoundsException();
 
+	}
+	public void addToParty(PartyComponent pm){
+		enemyParty.add(pm);
+	}
+	public Party getParty(){
+		return enemyParty;
 	}
 	
 	public void addItem(int index_x, int index_y, TileActor newTile) {

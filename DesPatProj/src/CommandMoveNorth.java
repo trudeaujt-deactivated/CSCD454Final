@@ -5,7 +5,7 @@ public class CommandMoveNorth extends Command
 	public CommandMoveNorth(GameControllerInterface gci)
 	{
 		commandString = "move north";
-		controller = gci;
+		controller = (GameController)gci;
 	}
 	@Override
 	public void execute() 

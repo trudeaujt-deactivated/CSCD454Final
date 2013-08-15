@@ -14,13 +14,14 @@ public class Dungeon {
 		entryRoom = null;
 		exitRoom = null;
 	}
+	
 	public Dungeon(ArrayList<Room> rooms){
 		this.rooms = rooms;
 		entryRoom = exitRoom = null;
 	}
+	
 	public Dungeon(String filename){
 		rooms = new ArrayList<Room>();
-		//sets entry and exit as well
 		dungeonFile(filename);
 	}
 
@@ -44,7 +45,7 @@ public class Dungeon {
 		return rooms.get(index);
 		
 	}
-	
+
 	public int findRoom(String name){
 		for(Room r:rooms){
 			if(r.getName().equalsIgnoreCase(name))
@@ -52,12 +53,14 @@ public class Dungeon {
 		}
 		return -1;
 	}
+	
 	public Room getEntryRoom(){
 		
 		assert(entryRoom != null);
 		return entryRoom;
 		
 	}
+	
 	public Room getExitRoom(){
 		assert(exitRoom != null);
 		return exitRoom;
@@ -94,6 +97,17 @@ public class Dungeon {
 			System.out.println("Adding Room:" + currentRoom.getName());
 			rooms.add(currentRoom);
 		}
+		roomSetup(tempMap);
+		entryRoom = rooms.get(findRoom(scan.nextLine()));
+		exitRoom = rooms.get(findRoom(scan.nextLine()));
+
+		for(Room r:rooms)
+			System.out.println(r.listConnectingRooms());
+
+	}
+	public void roomSetup(HashMap<String, ArrayList<TempRoom>> tempMap){
+
+		String name;
 		ArrayList<TempRoom> tempConnectingRooms;
 
 		for(Room r:rooms){
@@ -107,17 +121,11 @@ public class Dungeon {
 				System.out.println("looking for " + t.roomName);
 				map.put(t.dir, rooms.get(findRoom(t.roomName)));
 			}	
-
 			r.setConnectingRooms(map);
 		}
-
-		entryRoom = rooms.get(findRoom(scan.nextLine()));
-		exitRoom = rooms.get(findRoom(scan.nextLine()));
-
-		for(Room r:rooms)
-			System.out.println(r.listConnectingRooms());
-
 	}
+
+
 	private ArrayList<TempRoom> connectingRoomList(Scanner scan){
 		ArrayList<TempRoom> rooms = new ArrayList<TempRoom>();
 		boolean done = false;
@@ -181,23 +189,6 @@ public class Dungeon {
 		}			
 		return item;
 	}
-/*	
-	private HashMap<Direction, Room> readRooms(Scanner scan){
-		String check = "";
-		boolean done = false;
-		while(!done){
-			check = scan.nextLine();
-			if(check.contains("#") == false){
-				dir = findDirection(check);
-				}
-			}
-			else
-				done = true;
-		}			
-		return map;
-		
-	}
-	*/
 	private Direction findDirection(String str){
 		
 		if(str.toUpperCase().equals("NORTH"))

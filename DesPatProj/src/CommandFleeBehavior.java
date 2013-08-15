@@ -13,7 +13,7 @@ public class CommandFleeBehavior extends Command
 	
 	public CommandFleeBehavior(GameControllerInterface gci)
 	{
-		controller = gci;
+		controller = (GameController)gci;
 		commandString = "change flee";
 	}
 	@Override

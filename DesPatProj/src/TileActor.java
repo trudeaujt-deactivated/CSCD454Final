@@ -22,7 +22,10 @@ public class TileActor implements Tile {
         this.actor = newTile;
         
     }
-
+    
+    public Tileable getActor(){
+    	return actor;
+    }
     @Override
     public char display() {
 

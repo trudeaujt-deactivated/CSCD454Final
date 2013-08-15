@@ -2,7 +2,7 @@
 public abstract class Command 
 {
 	protected String commandString;
-	protected GameControllerInterface controller;
+	protected GameController controller;
 	
 	public abstract void execute();
 	

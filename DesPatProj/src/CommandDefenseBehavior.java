@@ -4,7 +4,7 @@ public class CommandDefenseBehavior extends Command
 	
 	public CommandDefenseBehavior(GameControllerInterface gci)
 	{
-		controller = gci;
+		controller = (GameController)gci;
 		commandString = "change defense";
 		
 	}

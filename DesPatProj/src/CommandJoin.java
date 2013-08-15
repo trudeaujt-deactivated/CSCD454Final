@@ -5,7 +5,7 @@ public class CommandJoin extends Command
 	
 	public CommandJoin(GameControllerInterface gci)
 	{
-		controller = gci;
+		controller = (GameController)gci;
 		commandString = "join";
 	}
 	

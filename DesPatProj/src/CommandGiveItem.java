@@ -14,7 +14,7 @@ public class CommandGiveItem extends Command
 	
 	public CommandGiveItem(GameControllerInterface gci)
 	{
-		controller = gci;
+		controller = (GameController)gci;
 		commandString = "give";
 	}
 	

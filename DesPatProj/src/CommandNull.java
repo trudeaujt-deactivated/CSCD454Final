@@ -4,7 +4,7 @@ public class CommandNull extends Command
 
 	
 	public CommandNull(GameControllerInterface gci){
-		this.controller = gci;
+		this.controller = (GameController)gci;
 		commandString = "no command";
 		
 	}

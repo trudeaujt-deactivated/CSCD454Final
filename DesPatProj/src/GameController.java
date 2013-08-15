@@ -8,9 +8,9 @@ import java.awt.event.WindowEvent;
  */
 public class GameController implements GameControllerInterface {
 
-	GameModel gameModel;
-	MainWin gameView;
-	CommandCenter controller;
+	private GameModel gameModel;
+	private MainWin gameView;
+	private CommandCenter controller;
 	
 	
 	public GameController(GameModelInterface model) {

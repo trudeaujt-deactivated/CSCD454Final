@@ -5,4 +5,5 @@ public class SwarmOfBees extends Character
 	{
 		super(factory, string);
 	}
+
 }

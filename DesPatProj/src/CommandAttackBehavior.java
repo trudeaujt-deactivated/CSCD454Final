@@ -12,7 +12,7 @@ public class CommandAttackBehavior extends Command
 //	}
 	public CommandAttackBehavior(GameControllerInterface gci)
 	{
-		controller = gci;
+		controller = (GameController)gci;
 	}
 	
 	@Override

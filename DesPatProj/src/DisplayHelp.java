@@ -3,7 +3,7 @@ public class DisplayHelp extends Command
 
 	public DisplayHelp(GameControllerInterface gci)
 	{
-		controller = gci;
+		controller = (GameController)gci;
 		this.commandString = "help";
 		
 	}

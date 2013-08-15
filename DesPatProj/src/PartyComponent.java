@@ -34,7 +34,7 @@ public abstract class PartyComponent{
 		
 		throw new UnsupportedOperationException();
 	}
-	public void print(){
+	public String print(){
 		throw new UnsupportedOperationException();
 	}
 	public boolean stillInPlay(){

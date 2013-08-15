@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
-public class PartyMember extends PartyComponent {
+public class PartyMember extends PartyComponent implements Tileable{
 	
 	Character character;
 	boolean alive;
@@ -28,8 +28,10 @@ public class PartyMember extends PartyComponent {
 	public ArrayList<Item> getItems(){
 		return character.inventory;
 	}
-	public void print(){
-		System.out.println(character);
+	public String print(){
+		String ret = "";
+		ret += character.toString();
+		return ret;
 	}
 	public String showStats(){
 		
@@ -73,6 +75,15 @@ public class PartyMember extends PartyComponent {
 		list.add(this);
 		return new Party(name, list);
 	}
-	
+	@Override
+	public void interact() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String toString(){
+		
+		return character.toString();
+	}
 	
 }

@@ -8,5 +8,5 @@ public class Firbolg extends Character
 		inventory.add(new ItemUser());
 		inventory.add(new ItemWeapon());
 	}
-	
+
 }

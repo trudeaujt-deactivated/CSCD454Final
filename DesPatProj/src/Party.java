@@ -8,6 +8,9 @@ public class Party extends PartyComponent {
 	private String partyName;
 	private Iterator<PartyComponent> iterator;
 	
+	public Party(){
+		partyName = "Generic Party";
+	}
 	public Party(String partyName, ArrayList<PartyComponent> partyMembers){
 		
 		this.partyName = partyName;
@@ -28,13 +31,15 @@ public class Party extends PartyComponent {
 		return (PartyComponent) partyMembers.get(i);
 	}
 	
-	public void print(){
-		System.out.println("Party Name: " + partyName);
+	public String print(){
+		String ret = "\nParty Name: " + partyName + "\n";
 		iterator = partyMembers.iterator();
 		while(iterator.hasNext()){
 			PartyComponent partyComponent = (PartyComponent)iterator.next();
-			partyComponent.print();
+			ret += ((PartyMember)partyComponent).toString() + "\n";
+			//partyComponent.print();
 		}
+		return ret;
 	}
 	
 	@Override
@@ -49,9 +54,9 @@ public class Party extends PartyComponent {
 		while(iterator.hasNext()){
 			PartyComponent partyComponent = (PartyComponent)iterator.next();
 			partyComponent.showStats();
+	
 			
 		}
-		StringBuilder strbldr = new StringBuilder();
 		
 		return ret;
 	}

@@ -22,6 +22,7 @@ public class GameModel implements GameModelInterface {
 		dungeon = new Dungeon(GAMEFILE);
 		currentRoom = dungeon.getEntryRoom();
 		partySetup();
+		enemySetup();
 	}
 	public void partySetup(){
 		int i = NUMPLAYERS;
@@ -35,6 +36,26 @@ public class GameModel implements GameModelInterface {
  			character = testCharacter.generate("random","tough");
  			playerParty.add(new PartyMember(character));
  		}
+		
+	}
+	
+	public void enemySetup(){
+		Room room = dungeon.getRoom("Empty Corridor");
+		room.add(0, 0, newCharacter(room));
+		room.add(10, 10, newCharacter(room));
+		room.add(20, 20, newCharacter(room));
+	}
+	
+	public TileActor newCharacter(Room room){
+		Character character;
+		
+		CharacterRequest testCharacter = new CharacterSpawn();
+		
+		character = testCharacter.generate("random", "Average");
+		PartyMember pm = new PartyMember(character);
+		room.addToParty(pm);
+		TileActor newActor = new TileActor('M', pm);
+		return newActor;
 		
 	}
 	public void setController(GameControllerInterface gci) {

@@ -5,5 +5,5 @@ public class Wolf extends Character
 		super(factory, string);
 		inventory.add(new ItemUser());
 	}
-	
+
 }

@@ -5,7 +5,7 @@ public class CommandSearch extends Command
 	public CommandSearch(GameControllerInterface gci)
 	{
 		//display deadGuy.inventory 
-		controller = gci;
+		controller = (GameController)gci;
 		commandString = "search";
 	}
 
