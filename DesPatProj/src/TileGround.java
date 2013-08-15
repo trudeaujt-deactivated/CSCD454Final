@@ -60,37 +60,5 @@ public class TileGround implements Tile {
         coordinate_y = index_y;
         
     }
-    
-    @Override
-    public void interact() {}
-
-    //the ground cannot move
-    @Override
-    public void moveNorth() {
-        
-        throw new UnsupportedOperationException("Ground cannot move");
-        
-    }
-
-    @Override
-    public void moveSouth() {
-        
-        throw new UnsupportedOperationException("Ground cannot move");
-        
-    }
-
-    @Override
-    public void moveEast() {
-        
-        throw new UnsupportedOperationException("Ground cannot move");
-        
-    }
-
-    @Override
-    public void moveWest() {
-        
-        throw new UnsupportedOperationException("Ground cannot move");
-        
-    }
 
 }

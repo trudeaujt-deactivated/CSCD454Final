@@ -10,10 +10,10 @@ import java.util.List;
 public class Room {
 
 	/** the default number of columns */
-	private static final int DEFAULT_SIZE_X = 30;
+	private static final int DEFAULT_SIZE_X = 68;
 
 	/** the default number of rows */
-	private static final int DEFAULT_SIZE_Y = 15;
+	private static final int DEFAULT_SIZE_Y = 38;
 
 	/** the number of columns */
 	private final int size_x;
@@ -158,6 +158,9 @@ public class Room {
 				displayedGrid[row][col] = grid[row][col].display();
 
 		for (Tile t: actorList)
+			displayedGrid[t.getCoordinateY()][t.getCoordinateX()] = t.display();
+		
+		for (Tile t: itemList)
 			displayedGrid[t.getCoordinateY()][t.getCoordinateX()] = t.display();
 
 	}

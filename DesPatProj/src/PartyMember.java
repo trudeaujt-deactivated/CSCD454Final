@@ -75,11 +75,7 @@ public class PartyMember extends PartyComponent implements Tileable{
 		list.add(this);
 		return new Party(name, list);
 	}
-	@Override
-	public void interact() {
-		// TODO Auto-generated method stub
-		
-	}
+
 	@Override
 	public String toString(){
 		

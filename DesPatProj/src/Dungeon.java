@@ -86,6 +86,7 @@ public class Dungeon {
 			//System.out.println("name is " + name);
 			xSize = scan.nextInt();
 			ySize = scan.nextInt();
+			System.out.println("x: " + xSize + " y: " + ySize);
 			Room currentRoom = new Room(xSize, ySize, name);
 			desc = readDescription(scan);
 			currentRoom.setDescription(desc);

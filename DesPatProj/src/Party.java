@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
-public class Party extends PartyComponent {
+public class Party extends PartyComponent implements Tileable {
 	
 	private ArrayList<PartyComponent> partyMembers = new ArrayList<PartyComponent>();
 	private String partyName;

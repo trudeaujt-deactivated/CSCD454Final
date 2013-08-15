@@ -41,13 +41,20 @@ public class GameController implements GameControllerInterface {
 		setWindowText(gameModel.getDungeonDescription() + 
 				"\n\n" + gameModel.getPlayerList());
 		gameView.setVisible(true);
-		
+		updateMap(gameModel.getCurrentRoom().toString());
 		
 	}
 	public void update(){
 		
 		postWindowText(gameModel.getCurrentRoom().getDescription());
 		gameView.clearInput();
+		updateMap(gameModel.getCurrentRoom().toString());
+	}
+	
+	public void updateMap(String theMap) {
+		
+		gameView.setMap(theMap);
+		
 	}
 	
 	public void addInventory() {

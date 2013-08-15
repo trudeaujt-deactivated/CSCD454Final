@@ -21,6 +21,7 @@ public class GameModel implements GameModelInterface {
 		
 		dungeon = new Dungeon(GAMEFILE);
 		currentRoom = dungeon.getEntryRoom();
+		//controller.updateMap(currentRoom.toString());
 		partySetup();
 		enemySetup();
 	}

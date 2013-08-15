@@ -54,40 +54,5 @@ public class TileActor implements Tile {
         coordinate_y = index_y;
         
     }
-    
-    @Override
-    public void interact() {
-
-        actor.interact();
-        
-    }
-
-    @Override
-    public void moveNorth() {
-
-        setCoordinates(coordinate_x, coordinate_y + 1);
-        
-    }
-
-    @Override
-    public void moveSouth() {
-
-        setCoordinates(coordinate_x, coordinate_y - 1);
-        
-    }
-
-    @Override
-    public void moveEast() {
-
-        setCoordinates(coordinate_x + 1, coordinate_y);
-        
-    }
-
-    @Override
-    public void moveWest() {
-
-        setCoordinates(coordinate_x - 1, coordinate_y);
-        
-    }
 
 }

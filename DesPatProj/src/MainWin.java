@@ -88,34 +88,11 @@ public class MainWin extends JFrame implements ActionListener
 		setImages();
 		setOutputArea();
 	}
-	
-	private String getMap() {
-	    
-        theMap.add(16, 8, new TileActor('M', new TileTestMonster()));
-        theMap.add(18, 10, new TileActor('M', new TileTestMonster()));
-        
-        int i;
-        
-        for(i = 6; i < 34; i++)
-            theMap.add(i, 5, new TileActor('=', new TileActorWall()));
-        for(i = 6; i < 19; i++)
-            theMap.add(5, i, new TileActor('║', new TileActorWall()));
-        for(i = 6; i < 19; i++)
-            theMap.add(34, i, new TileActor('║', new TileActorWall()));
-        for(i = 6; i < 17; i++)
-            theMap.add(i, 19, new TileActor('═', new TileActorWall()));
-        for(i = 23; i < 34; i++)
-            theMap.add(i, 19, new TileActor('═', new TileActorWall()));
-        
-        theMap.add(5,  5,   new TileActor('╔', new TileActorWall()));
-        theMap.add(5,  19,  new TileActor('╚', new TileActorWall()));
-        theMap.add(34, 5,   new TileActor('╗', new TileActorWall()));
-        theMap.add(34, 19,  new TileActor('╝', new TileActorWall()));
-        theMap.add(17, 19,  new TileActor('O', new TileActorWall()));
-        theMap.add(22, 19,  new TileActor('O', new TileActorWall()));
-	    
-	    return theMap.toString();
-	    
+		
+	public void setMap(String theMap) {
+		
+		mapArea.setText(theMap);
+		
 	}
 	
 	private Scanner getInputFile(String filename){
@@ -153,7 +130,7 @@ public class MainWin extends JFrame implements ActionListener
 	private void createMapArea(){
 		mapArea = new JTextPane();
 		mapArea.setFont(MAP_FONT);
-		mapArea.setText(getMap());
+		mapArea.setText("");
 		mapArea.setBackground(Color.LIGHT_GRAY);
 		mapArea.setEditable(false);
 		mapArea.setBounds(LABELSIZE, TOP,MAP_AREA_WIDTH, MAP_AREA_HEIGHT);

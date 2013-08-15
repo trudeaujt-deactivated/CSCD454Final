@@ -10,5 +10,7 @@ public interface GameControllerInterface {
 	Room getNextRoom(Direction north);
 
 	void setCurrentRoom(Room nextRoom);
+
+	void updateMap(String string);
 	
 }
