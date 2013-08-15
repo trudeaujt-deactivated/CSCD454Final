@@ -1,16 +1,21 @@
 
-public interface GameControllerInterface {
+public abstract class GameControllerInterface {
 
-	void start();
+	abstract void start();
 
-	void setWindowText(String string);
+	abstract void setWindowText(String string);
 
-	void postWindowText(String string);
+	abstract void postWindowText(String string);
 
-	Room getNextRoom(Direction north);
+	abstract Room getNextRoom(Direction north);
 
-	void setCurrentRoom(Room nextRoom);
+	abstract void setCurrentRoom(Room nextRoom);
 
-	void updateMap(String string);
+	abstract void updateMap(String string);
+
+	public void attack() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

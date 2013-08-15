@@ -41,15 +41,19 @@ public class Dungeon {
 	
 	public Room getRoom(String name){
 		int index = 0;
-		assert((index = findRoom(name)) >= 0);
+		index = findRoom(name);
+		assert(index >= 0);
+		System.out.println("index is: "+ index);
 		return rooms.get(index);
 		
 	}
 
 	public int findRoom(String name){
 		for(Room r:rooms){
-			if(r.getName().equalsIgnoreCase(name))
+			if(r.getName().equalsIgnoreCase(name)){
 				return rooms.indexOf(r);
+			}
+				
 		}
 		return -1;
 	}

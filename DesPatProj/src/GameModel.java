@@ -61,7 +61,7 @@ public class GameModel implements GameModelInterface {
 		
 	}
 	public void setController(GameControllerInterface gci) {
-		controller = gci;
+		controller = (GameController)gci;
 		
 	}
 	

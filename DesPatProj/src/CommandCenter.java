@@ -6,11 +6,14 @@ public class CommandCenter
 	
 	HashMap<String, Command> commandMap;
 	Command nullCommand;
+	GameController gci;
 	
 	public CommandCenter(GameControllerInterface gci){
 		
 	commandMap = new HashMap<String, Command>();
-
+	this.gci = (GameController)gci;
+	
+	
 	nullCommand = new CommandNull(gci);
 
 

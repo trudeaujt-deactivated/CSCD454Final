@@ -6,7 +6,7 @@ import java.awt.event.WindowEvent;
 /**
  * Controller portion of the model-view-controller
  */
-public class GameController implements GameControllerInterface {
+public class GameController extends GameControllerInterface {
 
 	private GameModel gameModel;
 	private MainWin gameView;
@@ -185,7 +185,7 @@ public class GameController implements GameControllerInterface {
 	public static void main(final String[] arguments) {
 		
 		GameModelInterface newGameModel = new GameModel();
-		GameController gameController = new GameController(newGameModel);
+		GameControllerInterface gameController = new GameController(newGameModel);
 		
 	}
 	
