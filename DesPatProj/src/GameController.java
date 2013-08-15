@@ -58,8 +58,18 @@ public class GameController implements GameControllerInterface {
 	}
 	
 	public void attack() {
-		
-		
+		System.out.println("Called attack()");
+		if(gameModel.getCurrentRoom().hasEnemy()){
+			Battle<Party> battle = 
+					new Battle<Party>(gameModel.getCurrentRoom().getParty(), 
+							gameModel.getPlayerParty());
+			System.out.println("in the if and created battle");
+			battle.start();
+		}
+		else
+		{
+			setWindowText("Nothing to attack");
+		}
 		
 	}
 	

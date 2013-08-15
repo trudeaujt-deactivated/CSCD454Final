@@ -63,5 +63,10 @@ public class Party extends PartyComponent {
 	public PartyComponent wrap(String name){
 		return this;
 	}
+	public boolean hasMembers(){
+		boolean check = partyMembers.size()>0;
+		System.out.println("check returned: " + check);
+		return check;
+	}
 
 }

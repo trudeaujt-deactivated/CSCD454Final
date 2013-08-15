@@ -60,7 +60,9 @@ public class Room {
 		initializeGrid();
 
 	}
-
+	public boolean hasEnemy(){
+		return enemyParty.hasMembers();
+	}
 	public void add(int index_x, int index_y, TileActor newTile) {
 
 		if (checkInBounds(index_x, index_y)) {
@@ -75,6 +77,7 @@ public class Room {
 	}
 	public void addToParty(PartyComponent pm){
 		enemyParty.add(pm);
+		
 	}
 	public Party getParty(){
 		return enemyParty;

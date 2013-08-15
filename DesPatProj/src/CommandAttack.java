@@ -12,10 +12,6 @@ public class CommandAttack extends Command
 	public void execute() 
 	{
 		controller.attack();
-		controller.setWindowText("Attacking whatever I can find");
-		controller.setWindowText("Calling instance of battle here or performing single attack.");
-		controller.setWindowText("Command DOES NOT WORK.  CHECK THE CommandAttack.execute() file to fix!");
-		/*Your same code here*/
 		
 	}
 	

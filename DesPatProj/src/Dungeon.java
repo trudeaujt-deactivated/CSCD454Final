@@ -94,15 +94,16 @@ public class Dungeon {
 			readItems(scan);
 			tempMap.put(currentRoom.getName(), connectingRoomList(scan));
 			//currentRoom.setConnectingRooms(readRooms(scan));
-			System.out.println("Adding Room:" + currentRoom.getName());
+			//System.out.println("Adding Room:" + currentRoom.getName());
 			rooms.add(currentRoom);
 		}
 		roomSetup(tempMap);
 		entryRoom = rooms.get(findRoom(scan.nextLine()));
 		exitRoom = rooms.get(findRoom(scan.nextLine()));
-
+		/*
 		for(Room r:rooms)
 			System.out.println(r.listConnectingRooms());
+			*/
 
 	}
 	public void roomSetup(HashMap<String, ArrayList<TempRoom>> tempMap){
@@ -118,7 +119,7 @@ public class Dungeon {
 			name = r.getName();
 			tempConnectingRooms = tempMap.get(name);
 			for(TempRoom t:tempConnectingRooms){
-				System.out.println("looking for " + t.roomName);
+				/*System.out.println("looking for " + t.roomName);*/
 				map.put(t.dir, rooms.get(findRoom(t.roomName)));
 			}	
 			r.setConnectingRooms(map);

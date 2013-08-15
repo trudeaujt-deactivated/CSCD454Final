@@ -67,7 +67,7 @@ public class Battle <T extends PartyComponent>{
 
 	public void start(){
 		ArrayList<PairUp> toRemove = new ArrayList<PairUp>();
-		
+		System.out.println("Fighting......");
 		while(checkParties()){
 			toRemove.clear();		
 			for(PairUp p:pairUps){
@@ -77,20 +77,15 @@ public class Battle <T extends PartyComponent>{
 					toRemove.add(p);
 				}
 
-				System.out.println("Stuck in while of start()");	
 			}
 			if( toRemove.size() > 0 ){
 				for(PairUp rem: toRemove){
 					assert(pairUps.remove(rem) != false);
-					System.out.println("Stuck in foreach of start()");
 				}
 			}
 		}
 	}
 	public boolean checkParties(){
-//		if(playerParty.stillInPlay() && enemyParty.stillInPlay())
-//			return true;
-//		return false;
 		return (playerParty.stillInPlay() && enemyParty.stillInPlay());
 	}
 

@@ -41,6 +41,7 @@ public class GameModel implements GameModelInterface {
 	
 	public void enemySetup(){
 		Room room = dungeon.getRoom("Empty Corridor");
+
 		room.add(0, 0, newCharacter(room));
 		room.add(10, 10, newCharacter(room));
 		room.add(20, 20, newCharacter(room));
@@ -48,11 +49,11 @@ public class GameModel implements GameModelInterface {
 	
 	public TileActor newCharacter(Room room){
 		Character character;
-		
+		PartyMember pm;
 		CharacterRequest testCharacter = new CharacterSpawn();
 		
 		character = testCharacter.generate("random", "Average");
-		PartyMember pm = new PartyMember(character);
+		pm = new PartyMember(character);
 		room.addToParty(pm);
 		TileActor newActor = new TileActor('M', pm);
 		return newActor;
@@ -123,7 +124,9 @@ public class GameModel implements GameModelInterface {
 	public String toString() {
 		
 		return dungeon.toString();
-		
+	}
+	public Party getPlayerParty(){
+		return (Party)playerParty;
 	}
 	
 }
