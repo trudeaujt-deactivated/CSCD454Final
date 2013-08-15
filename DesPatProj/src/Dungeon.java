@@ -56,6 +56,7 @@ public class Dungeon {
 				
 		}
 		return -1;
+		
 	}
 	
 	public Room getEntryRoom(){
