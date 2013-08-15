@@ -12,6 +12,7 @@ import java.awt.Dimension;
 import javax.swing.JLabel;
 import javax.swing.JEditorPane;
 import javax.swing.border.LineBorder;
+import javax.swing.text.DefaultCaret;
 import javax.swing.FocusManager;
 
 import java.awt.Color;
@@ -198,7 +199,14 @@ public class MainWin extends JFrame implements ActionListener
 		outputArea.setBackground(Color.LIGHT_GRAY);
 		outputArea.setEditable(false);
 		outputArea.setBounds(LABELSIZE + MAP_AREA_WIDTH, TOP, OUTPUT_AREA_WIDTH, OUTPUT_AREA_HEIGHT);
-		contentPane.add(outputArea);
+		//contentPane.add(outputArea);
+		
+		scrollPane = new JScrollPane(outputArea);
+		
+		//scrollPane.setBackground(Color.LIGHT_GRAY);
+		scrollPane.setBounds(OUTPUT_AREA_WIDTH + LABELSIZE, 0, OUTPUT_AREA_WIDTH, OUTPUT_AREA_HEIGHT);
+		contentPane.add(scrollPane);
+		
 	}
 	private String defaultOutputText(){
 		Scanner defaultFile = getInputFile("defaultOutput.txt");
@@ -215,8 +223,9 @@ public class MainWin extends JFrame implements ActionListener
 		
 	}
 	public void setOutput(String text){
-		rightSideText.append(text);
+		rightSideText.append(text + "\n");
 		outputArea.setText(rightSideText.toString());
+		outputArea.setCaretPosition(outputArea.getDocument().getLength());
 	}
 	
 	public void setOutput(PrintStream input){
