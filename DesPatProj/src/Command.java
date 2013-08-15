@@ -2,7 +2,7 @@
 public abstract class Command 
 {
 	protected String commandString;
-	protected GameController controller;
+	protected GameControllerInterface controller;
 	
 	public abstract void execute();
 	
@@ -10,5 +10,5 @@ public abstract class Command
 	{
 		return commandString;
 	}
-
+	
 }
