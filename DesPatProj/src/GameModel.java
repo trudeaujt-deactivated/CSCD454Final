@@ -41,11 +41,24 @@ public class GameModel implements GameModelInterface {
 	}
 	
 	public void enemySetup(){
+		
 		Room room = dungeon.getRoom("Empty Corridor");
-
-		room.add(0, 0, newCharacter(room));
-		room.add(10, 10, newCharacter(room));
+		addEnemy(room);
+		
+		room = dungeon.getRoom("Empty Corridor");
+		addEnemy(room);
+		room = dungeon.getRoom("Empty Corridor");
+		addEnemy(room);
+		room = dungeon.getRoom("Empty Corridor");
+		addEnemy(room);
+		room = dungeon.getRoom("Empty Corridor");
+		addEnemy(room);
+	}
+	public void addEnemy(Room room){
 		room.add(20, 20, newCharacter(room));
+		room.add(25, 20, newCharacter(room));
+		room.add(27, 20, newCharacter(room));
+		
 	}
 	
 	public TileActor newCharacter(Room room){
