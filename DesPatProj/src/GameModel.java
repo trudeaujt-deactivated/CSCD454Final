@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+
+import javax.swing.text.html.HTMLDocument.Iterator;
+
 /**
  * Model portion of the model-view-controller.
  */
@@ -5,6 +9,7 @@ public class GameModel implements GameModelInterface {
 
 	/** the file to read maps and actor info from */
 	private static final String GAMEFILE = "DungeonRoom.txt";
+	private static final int NUMPLAYERS = 5;
 	
 	private GameControllerInterface controller;
 	
@@ -16,12 +21,39 @@ public class GameModel implements GameModelInterface {
 		
 		dungeon = new Dungeon(GAMEFILE);
 		currentRoom = dungeon.getEntryRoom();
+		partySetup();
+	}
+	public void partySetup(){
+		int i = NUMPLAYERS;
+		Character character;
+		
+		CharacterRequest testCharacter = new CharacterSpawn();
+ 		playerParty = new Party("Good Guys", new ArrayList<PartyComponent>());
+ 		
+ 		playerParty.add(new PartyMember(testCharacter.generate("hero", "tough")));
+ 		while( i-- > 0 ){
+ 			character = testCharacter.generate("random","tough");
+ 			playerParty.add(new PartyMember(character));
+ 		}
+		
+	}
+	public void setController(GameControllerInterface gci) {
+		controller = gci;
 		
 	}
 	
-	public void setController(GameControllerInterface gci) {
+	public String getPlayerList(){
 		
-		controller = gci;
+		int i = 0;
+		StringBuilder ret = new StringBuilder();
+		
+		CompositeIterator iterator = 
+				(CompositeIterator)playerParty.createIterator();
+		while(iterator.hasNext()){
+			ret.append("Character " + i++ + " " + iterator.next().getName() + "\n");
+		}
+		return ret.toString();
+		
 		
 	}
 

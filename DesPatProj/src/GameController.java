@@ -8,24 +8,21 @@ import java.awt.event.WindowEvent;
  */
 public class GameController implements GameControllerInterface {
 
-	GameModelInterface gameModel;
+	GameModel gameModel;
 	MainWin gameView;
 	CommandCenter controller;
 	
 	
 	public GameController(GameModelInterface model) {
 		
-		gameModel = model;
+		gameModel = (GameModel)model;
 		gameView = new MainWin();
 		controller = new CommandCenter(this);
 		start();
-
 	}
 	
 	public void start() {
 		
-		setWindowText(gameModel.getDungeonDescription());
-		gameView.setVisible(true);
 		
 		gameView.getInputArea().addActionListener(new ActionListener() {
 			@Override
@@ -41,7 +38,11 @@ public class GameController implements GameControllerInterface {
 				gameView.getInputArea().selectAll();
 			}
 		});
-	
+		setWindowText(gameModel.getDungeonDescription() + 
+				"\n\n" + gameModel.getPlayerList());
+		gameView.setVisible(true);
+		
+		
 	}
 	public void update(){
 		
