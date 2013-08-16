@@ -49,20 +49,22 @@ public class Party extends PartyComponent implements Tileable {
 
 
 	public String showStats(){
-		String ret = "";
-		iterator = partyMembers.iterator();
-		while(iterator.hasNext()){
-			PartyComponent partyComponent = (PartyComponent)iterator.next();
-			partyComponent.showStats();
-	
-			
+		StringBuilder strbldr = new StringBuilder();
+		String ret;
+		PartyMember pm;
+		for(PartyComponent p:partyMembers){
+			pm = (PartyMember)p;
+			strbldr.append(pm.showStats());
 		}
-		
+		ret = strbldr.toString();
+		System.out.println(strbldr.toString());
 		return ret;
 	}
+	
 	public PartyComponent wrap(String name){
 		return this;
 	}
+	
 	public boolean hasMembers(){
 		boolean check = partyMembers.size()>0;
 		System.out.println("check returned: " + check);

@@ -40,8 +40,8 @@ public class Battle <T extends PartyComponent>{
 				enemyIterator.hasNext()){
 			createPair();
 		}
-
-		/* keep pairing up while either party still has unpaired members.. so there are some 2 on one situations**********/
+		
+		//keep pairing up while either party still has unpaired members.. so there are some 2 on one situations
 		if(playerIterator.hasNext()){
 			this.enemyIterator = (CompositeIterator)enemyParty.createIterator();
 			while(playerIterator.hasNext()){
@@ -55,6 +55,8 @@ public class Battle <T extends PartyComponent>{
 				createPair();
 			}
 		}
+		
+		
 	}
 
 
@@ -65,19 +67,20 @@ public class Battle <T extends PartyComponent>{
 		pairUps.add(nextPair);
 	}
 
-	public void start(){
+	public void start(GameController gci){
 		ArrayList<PairUp> toRemove = new ArrayList<PairUp>();
-		System.out.println("Fighting......");
+		ExchangeResult er = null;
 		while(checkParties()){
-			toRemove.clear();		
+			toRemove.clear();
+			
 			for(PairUp p:pairUps){
-
-				System.out.println(p.exchange());
+				er = p.exchange();
+				//gci.postWindowText(er.toString());
 				if(p.getPlayer().checkHealth() == false || p.getEnemy().checkHealth() == false){
 					toRemove.add(p);
 				}
-
 			}
+			
 			if( toRemove.size() > 0 ){
 				for(PairUp rem: toRemove){
 					assert(pairUps.remove(rem) != false);

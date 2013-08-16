@@ -125,6 +125,18 @@ public class Room {
 		else throw new IndexOutOfBoundsException();
 
 	}
+	public void removeEnemy(TileActor theTile) {
+
+		// a copy is needed, because an object can not be iterated over and modified at the same time
+		ArrayList<Tile> actorListCopy = new ArrayList<Tile>(actorList);
+
+		for(Tile t: actorListCopy)
+			if(t.equals(theTile))
+				actorList.remove(t);
+
+		else throw new IndexOutOfBoundsException();
+
+	}
 
 	private boolean checkInBounds(int index_x, int index_y) {
 

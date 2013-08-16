@@ -21,19 +21,20 @@ public class PairUp {
 		int playerDamageDealt;
 		int enemyDamageDealt;
 		assert(player.character != null);
+		assert(enemy.character != null);
 		
 		playerDamageDealt = player.character.attackStyle.attack(player, enemy);
 		enemyDamageDealt = enemy.character.attackStyle.attack(enemy, player);
 		
-		er = new ExchangeResult(this, playerDamageDealt, enemyDamageDealt);
-		
 		playerDamageDealt+= player.character.calculateBonusPoints();
 		enemyDamageDealt+= enemy.character.calculateBonusPoints();
 
-		System.out.println(playerDamageDealt+ " was the new player bonusPoints");
-		System.out.println(enemyDamageDealt+ " was the new enemy bonusPoints");
-
+		er = new ExchangeResult(this, playerDamageDealt, enemyDamageDealt);
 		
+		
+		//System.out.println(playerDamageDealt+ " was the new player bonusPoints");
+		//System.out.println(enemyDamageDealt+ " was the new enemy bonusPoints");
+
 		player.character.health.decrementHitPoints(enemyDamageDealt);
 		enemy.character.health.decrementHitPoints(playerDamageDealt);
 		player.checkHealth();

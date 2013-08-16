@@ -70,15 +70,20 @@ public class GameController extends GameControllerInterface {
 			Battle<Party> battle = 
 					new Battle<Party>(gameModel.getCurrentRoom().getParty(), 
 							gameModel.getPlayerParty());
-			System.out.println("in the if and created battle");
-			battle.start();
+			battle.start(this);
+			postWindowText("Current Stats Enemy:\n" + gameModel.getCurrentRoom().getParty().showStats()
+					+ "\n\nCurrent Stats Player:\n" + gameModel.getPlayerParty().showStats());
+			
+			
 		}
 		else
 		{
-			setWindowText("Nothing to attack");
+			postWindowText("Nothing to attack");
 		}
 		
 	}
+	
+	
 	
 	public void attackBehavior() {
 		
@@ -176,9 +181,11 @@ public class GameController extends GameControllerInterface {
 	public void postWindowText(String str){
 		//can't get this right...diverting for now
 		//window.postOutput(str);
-		setWindowText(str);
+		setWindowText(str+"\n");
 	}
-	
+	public void updateRoomMembers(){
+		gameModel.updateRoomMembers();
+	}
 	/**
 	 * For testing purposes only!
 	 */
@@ -188,5 +195,6 @@ public class GameController extends GameControllerInterface {
 		GameControllerInterface gameController = new GameController(newGameModel);
 		
 	}
+
 	
 }

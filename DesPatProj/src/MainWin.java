@@ -48,11 +48,11 @@ public class MainWin extends JFrame implements ActionListener
 	private JPanel contentPane;
 	private JTextPane mapArea;
 	private JTextField inputArea;
-	private JLabel lblNewLabel;
-	private JLabel label;
+	//private JLabel lblNewLabel;
+	//private JLabel label;
 	private JTextPane outputArea;
 	private JScrollPane scrollPane;
-	private JLabel label_1;
+	//private JLabel label_1;
 	private Scanner emptyMapInfile;
 	
 	TwoDMap theMap = new TwoDMap(68, 38, "testRoom");
@@ -150,6 +150,7 @@ public class MainWin extends JFrame implements ActionListener
 		inputArea.setText("");
 	}
 	private void setImages(){
+		/*
 		// useful images off to the right
 		lblNewLabel = new JLabel("<html>Images of...something</html>");
 		lblNewLabel.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -165,7 +166,7 @@ public class MainWin extends JFrame implements ActionListener
 		label_1.setBorder(new LineBorder(new Color(0, 0, 0)));
 		label_1.setBounds(0, 90, LABELSIZE, LABELSIZE);
 		contentPane.add(label_1);
-
+*/
 	}
 	private void setOutputArea(){
 		

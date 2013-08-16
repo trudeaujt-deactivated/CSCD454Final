@@ -39,19 +39,15 @@ public class GameModel implements GameModelInterface {
  		}
 		
 	}
-	
 	public void enemySetup(){
 		
 		Room room = dungeon.getRoom("Empty Corridor");
 		addEnemy(room);
-		
-		room = dungeon.getRoom("Empty Corridor");
+		room = dungeon.getRoom("Library");
 		addEnemy(room);
-		room = dungeon.getRoom("Empty Corridor");
+		room = dungeon.getRoom("Shop");
 		addEnemy(room);
-		room = dungeon.getRoom("Empty Corridor");
-		addEnemy(room);
-		room = dungeon.getRoom("Empty Corridor");
+		room = dungeon.getRoom("Gate Corridor");
 		addEnemy(room);
 	}
 	public void addEnemy(Room room){
@@ -141,6 +137,22 @@ public class GameModel implements GameModelInterface {
 	}
 	public Party getPlayerParty(){
 		return (Party)playerParty;
+	}
+	public void updateRoomMembers(){
+		PartyMember pm = null;
+		Party enemyParty = currentRoom.getParty();
+		CompositeIterator iterator = (CompositeIterator)enemyParty.createIterator();
+		while(iterator.hasNext()){
+			pm = (PartyMember)iterator.next();
+			if(!pm.stillInPlay()){
+				currentRoom.removeEnemy(new TileActor('M', pm));
+			}
+			
+		}
+		controller.update();
+		
+		
+		
 	}
 	
 }

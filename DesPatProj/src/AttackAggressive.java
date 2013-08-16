@@ -8,7 +8,7 @@ public class AttackAggressive implements AttackBehavior
 		
 		// this will affect what percentage of damage is done to the opponent
 		
-		return (int) Math.round(aggressiveDamage * otherCharacter.character.defendStyle.defend());
+		return 10;//(int) Math.round(aggressiveDamage * otherCharacter.character.defendStyle.defend());
 		
 	}
 	@Override
